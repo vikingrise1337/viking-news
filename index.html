@@ -1,494 +1,782 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viking Rise Update Notes</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@300;400;500&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Viking Rise Update Notes</title>
 
-        :root {
-            --bg-dark: #0b101b;
-            --card-bg: #131b2b;
-            --card-border: #2a3a5a;
-            --accent-gold: #c0a060;
-            --accent-blue: #4a70a5;
-            --text-main: #f0f2f5;
-            --text-muted: #a0a8b8;
-            --success-green: #10b981;
-        }
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600&display=swap");
 
-        body {
-            background-color: var(--bg-dark);
-            background-image: linear-gradient(rgba(11, 16, 27, 0.9), rgba(11, 16, 27, 0.95)), url('https://www.transparenttextures.com/patterns/viking.png');
-            color: var(--text-main);
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
+    :root {
+      --bg: #07101f;
+      --panel: #162236;
+      --panel-2: #121d2f;
+      --panel-3: #0f1929;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.12);
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(to bottom, rgba(11, 16, 27, 0.5), var(--bg-dark)), url('https://images.unsplash.com/photo-1547539424-768756a2c355?q=80&w=2070&auto=format&fit=crop'); 
-            background-size: cover;
-            background-position: center;
-            padding: 60px 20px 30px 20px;
-            border-bottom: 3px solid var(--accent-gold);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
+      --text: rgba(255, 255, 255, 0.92);
+      --muted: rgba(255, 255, 255, 0.62);
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+      --gold: #d2b15a;
+      --gold-2: #b9923f;
 
-        .badge {
-            background-color: var(--accent-gold);
-            color: #1a1a1a;
-            padding: 4px 8px;
-            font-weight: bold;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            border-radius: 2px;
-            display: inline-block;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
+      --blue: #5aa2ff;
+      --green: #2bd47a;
 
-        h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 3.5rem;
-            margin: 0 0 10px 0;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--accent-gold);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+      --shadow-soft: 0 10px 22px rgba(0, 0, 0, 0.35);
 
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
+      --r-xl: 18px;
+      --r-lg: 14px;
+      --r-md: 12px;
+      --r-sm: 10px;
 
-        /* Maintenance Box */
-        .maintenance-box {
-            background: linear-gradient(145deg, rgba(19, 27, 43, 0.9), rgba(11, 16, 27, 0.95));
-            border: 2px solid var(--accent-gold);
-            border-radius: 4px;
-            padding: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 40px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
-        }
+      --container: 1220px;
+    }
 
-        .m-info {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
 
-        .clock-icon {
-            font-size: 2rem;
-            color: var(--accent-gold);
-        }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background-color: var(--bg);
 
-        .m-time-display {
-            text-align: right;
-        }
+      /* Hintergrund-Pattern (ähnlich wie im Screenshot) */
+      background-image:
+        radial-gradient(transparent 0 8px, rgba(255, 255, 255, 0.03) 8px 9px, transparent 9px 100%),
+        radial-gradient(transparent 0 8px, rgba(255, 255, 255, 0.03) 8px 9px, transparent 9px 100%),
+        radial-gradient(transparent 0 60%, rgba(0, 0, 0, 0.35) 100%);
 
-        .m-time-highlight {
-            color: var(--accent-gold);
-            font-weight: bold;
-            font-size: 1.4rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
+      background-size: 40px 40px, 40px 40px, 100% 100%;
+      background-position: 0 0, 20px 20px, center;
+      background-attachment: fixed;
+    }
 
-        /* Controls */
-        .controls {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            margin-bottom: 25px;
-        }
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 22px;
+    }
 
-        .btn-group {
-            display: flex;
-            gap: 10px;
-            background: #1a2538;
-            padding: 5px;
-            border-radius: 4px;
-            border: 1px solid var(--card-border);
-        }
+    /* HERO */
+    .hero {
+      position: relative;
+      border-bottom: 2px solid rgba(210, 177, 90, 0.55);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+      overflow: hidden;
 
-        .btn {
-            background: transparent;
-            border: none;
-            color: var(--text-muted);
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 4px;
-            font-weight: 500;
-            transition: all 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+      /* Tausche diese URLs auf deine eigenen Assets, wenn du willst */
+      background:
+        linear-gradient(to bottom, rgba(7, 16, 31, 0.15), rgba(7, 16, 31, 0.88)),
+        url("https://images.unsplash.com/photo-1482192505345-5655af888cc4?q=80&w=2400&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      padding: 44px 0 18px;
+    }
 
-        .btn.active {
-            background: linear-gradient(to bottom, var(--accent-gold), #a08040);
-            color: #1a1a1a;
-            font-weight: bold;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(900px 340px at 70% 35%, rgba(255, 255, 255, 0.10), transparent 60%),
+        radial-gradient(760px 280px at 55% 30%, rgba(255, 255, 255, 0.06), transparent 62%),
+        radial-gradient(900px 380px at 85% 35%, rgba(0, 0, 0, 0.30), transparent 60%),
+        linear-gradient(to bottom, transparent 0 60%, rgba(7, 16, 31, 0.55));
+      mix-blend-mode: screen;
+      opacity: 0.9;
+    }
 
-        /* Grid Layout */
-        .content-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 25px;
-            padding-bottom: 50px;
-        }
+    .hero-inner { position: relative; z-index: 1; }
 
-        @media (max-width: 900px) {
-            .content-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: linear-gradient(to bottom, var(--gold), var(--gold-2));
+      color: #111;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+    }
 
-        /* Cards */
-        .card {
-            background-color: var(--card-bg);
-            border: 2px solid var(--card-border);
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 25px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
-            transition: all 0.3s ease; /* Generelle Transition für normale Karten */
-        }
-        
-        /* Hover für normale Karten (nicht Bilder) */
-        .card:not(.img-card):hover {
-             border-color: var(--accent-blue);
-             box-shadow: 0 8px 16px rgba(0,0,0,0.6);
-        }
+    .hero-title {
+      font-family: "Cinzel", serif;
+      font-weight: 700;
+      margin: 10px 0 6px;
+      font-size: clamp(34px, 4.2vw, 56px);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.92);
+      text-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
+    }
 
-        .card-header {
-            padding: 15px 20px;
-            border-bottom: 2px solid var(--card-border);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: rgba(0,0,0,0.2);
-        }
+    .hero-subtitle {
+      margin: 0 0 16px;
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.72);
+    }
 
-        .card-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.3rem;
-            color: var(--accent-gold);
-            text-transform: uppercase;
-            margin: 0;
-            letter-spacing: 1px;
-        }
+    /* Wartungsbox */
+    .maintenance {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
 
-        .card-body {
-            padding: 25px;
-        }
+      margin-top: 14px;
+      padding: 16px 16px;
+      border-radius: var(--r-lg);
+      border: 1px solid rgba(210, 177, 90, 0.65);
+      background: rgba(18, 29, 47, 0.88);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow-soft);
+    }
 
-        /* === NEUE HOVER EFFEKTE START === */
+    .maintenance-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
 
-        /* Image Card Styles - Basis */
-        .img-card {
-            position: relative;
-            height: 280px;
-            display: flex;
-            align-items: flex-end;
-            /* Standard Rahmenfarbe (Blau) */
-            border: 2px solid var(--card-border);
-            /* WICHTIG: Verhindert, dass das gezoomte Bild aus der Box herausragt */
-            overflow: hidden;
-            /* Weicher Übergang für die Rahmenfarbe */
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            cursor: default; /* Zeigt, dass es kein Link ist */
-        }
+    .m-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(210, 177, 90, 0.15);
+      border: 1px solid rgba(210, 177, 90, 0.45);
+      color: var(--gold);
+      flex: 0 0 auto;
+    }
 
-        /* Das Pseudo-Element ::before hält nun das Bild */
-        .img-card::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            /* Trick: Es "erbt" das Hintergrundbild, das im HTML inline definiert ist */
-            background-image: inherit;
-            background-size: cover;
-            background-position: center;
-            z-index: 0; /* Liegt HINTER dem Text */
-            /* Sehr weicher Übergang für den Zoom */
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
+    .m-title {
+      font-family: "Cinzel", serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 14px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+    }
 
-        /* Overlay Text Container */
-        .img-overlay {
-            background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.4));
-            width: 100%;
-            padding: 25px;
-            position: relative;
-            z-index: 1; /* Liegt ÜBER dem Bild */
-        }
+    .m-range {
+      margin: 2px 0 0;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.62);
+    }
 
-        /* HOVER AKTIONEN */
-        /* 1. Wenn man über die Karte fährt, wird der Rahmen gelb */
-        .img-card:hover {
-            border-color: var(--accent-gold);
-            box-shadow: 0 10px 20px rgba(251, 191, 36, 0.2); /* Leichter goldener Schatten */
-        }
+    .maintenance-right {
+      flex: 0 0 auto;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border-strong);
+      background: rgba(12, 19, 32, 0.35);
+      text-align: right;
+      min-width: 210px;
+    }
 
-        /* 2. Wenn man über die Karte fährt, zoomt das Pseudo-Element (das Bild) */
-        .img-card:hover::before {
-            transform: scale(1.1); /* Zoom auf 110% */
-        }
+    .m-local-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 6px;
+    }
 
-        /* === NEUE HOVER EFFEKTE ENDE === */
-        
-        .event-tag, .collab-tag {
-            color: white;
-            font-size: 0.75rem;
-            padding: 3px 8px;
-            border-radius: 2px;
-            margin-left: 10px;
-            vertical-align: middle;
-            font-family: 'Roboto', sans-serif;
-            text-transform: uppercase;
-        }
-        .event-tag { background-color: #a52a2a; }
-        .collab-tag { background-color: #3b82f6; }
+    .m-local-time {
+      font-family: "Cinzel", serif;
+      font-weight: 700;
+      color: var(--gold);
+      font-size: 20px;
+      letter-spacing: 0.02em;
+    }
 
-        /* List Styles */
-        ul { list-style: none; padding: 0; margin: 0; }
-        li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 12px;
-            color: #d1d5db;
-            font-size: 1rem;
-        }
-        li::before {
-            content: "⚔";
-            color: var(--accent-gold);
-            position: absolute;
-            left: 0; top: 2px;
-            font-size: 0.9rem;
-        }
+    .m-local-tz {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.55);
+      margin-left: 6px;
+      font-weight: 500;
+      font-family: "Inter", sans-serif;
+    }
 
-        /* Accordion */
-        .accordion-item {
-            background-color: #1a2538;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            overflow: hidden;
-            border: 1px solid var(--card-border);
-        }
-        .accordion-header {
-            padding: 18px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: bold;
-            color: var(--text-main);
-            background: rgba(0,0,0,0.1);
-            transition: background-color 0.3s ease;
-        }
-        .accordion-header:hover { background-color: #25324d; }
-        .accordion-content {
-            padding: 0 20px 20px 20px;
-            display: none;
-            border-top: 1px solid var(--card-border);
-            margin-top: 5px;
-            padding-top: 20px;
-            background-color: #131b2b;
-        }
-        .accordion-content.show { display: block; }
-        .arrow { transition: transform 0.3s; color: var(--accent-gold); }
-        .arrow.rotate { transform: rotate(180deg); }
+    /* Controls */
+    .controls {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
 
-    </style>
+    .tabs {
+      display: inline-flex;
+      padding: 6px;
+      border-radius: 12px;
+      border: 1px solid var(--border-strong);
+      background: rgba(18, 29, 47, 0.65);
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.25);
+      gap: 6px;
+    }
+
+    .tab-btn {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.75);
+      font-weight: 600;
+      font-size: 14px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+    }
+
+    .tab-btn:hover { transform: translateY(-1px); }
+    .tab-btn.is-active {
+      background: linear-gradient(to bottom, var(--gold), var(--gold-2));
+      color: #111;
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Layout */
+    main { padding: 18px 0 46px; }
+
+    .grid {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    @media (max-width: 980px) {
+      .grid { grid-template-columns: 1fr; }
+      .maintenance { flex-direction: column; align-items: flex-start; }
+      .maintenance-right { width: 100%; text-align: left; }
+    }
+
+    /* Panels */
+    .panel {
+      border-radius: var(--r-xl);
+      border: 1px solid var(--border-strong);
+      background: rgba(18, 29, 47, 0.78);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(9, 14, 24, 0.12);
+    }
+
+    .panel-title {
+      font-family: "Cinzel", serif;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 16px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .panel-body { padding: 16px 18px 18px; }
+
+    /* Feature Cards (links) */
+    .feature-card {
+      border-radius: var(--r-xl);
+      border: 1px solid var(--border-strong);
+      background: rgba(18, 29, 47, 0.78);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .feature-hero {
+      position: relative;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .feature-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(520px 200px at 25% 50%, rgba(255, 255, 255, 0.10), transparent 60%),
+        linear-gradient(to top, rgba(0, 0, 0, 0.80) 0, rgba(0, 0, 0, 0.12) 60%, rgba(0, 0, 0, 0.00) 100%);
+      opacity: 0.95;
+    }
+
+    .feature-title-row {
+      position: absolute;
+      left: 18px;
+      bottom: 16px;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .feature-title {
+      font-family: "Cinzel", serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 22px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.92);
+      text-shadow: 0 10px 22px rgba(0, 0, 0, 0.55);
+    }
+
+    .tag {
+      font-weight: 700;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 9px;
+      color: #fff;
+      letter-spacing: 0.02em;
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    .tag.red { background: rgba(220, 38, 38, 0.95); }
+    .tag.blue { background: rgba(37, 99, 235, 0.95); }
+    .tag.green { background: rgba(16, 185, 129, 0.95); }
+
+    .feature-body {
+      padding: 16px 18px 18px;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 14.5px;
+      line-height: 1.65;
+    }
+
+    .feature-body p { margin: 0 0 10px; }
+
+    .bullets {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .bullets li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .b-ico {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      margin-top: 2px;
+      background: rgba(210, 177, 90, 0.18);
+      border: 1px solid rgba(210, 177, 90, 0.45);
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      flex: 0 0 auto;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    /* Right panels */
+    .section-icon {
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      border: 1px solid var(--border-strong);
+      background: rgba(255, 255, 255, 0.04);
+      flex: 0 0 auto;
+    }
+
+    .title-gold { color: var(--gold); }
+    .title-blue { color: rgba(90, 162, 255, 0.9); }
+    .title-green { color: rgba(43, 212, 122, 0.9); }
+
+    .news-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .news-item {
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 12px 12px;
+    }
+
+    .news-item-title {
+      font-weight: 700;
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, 0.90);
+      margin: 0 0 4px;
+    }
+
+    .news-item-desc {
+      margin: 0;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.62);
+      line-height: 1.45;
+    }
+
+    /* Accordion (Optimierungen) */
+    .accordion { display: grid; gap: 10px; }
+
+    .acc-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+
+      padding: 14px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.03);
+      color: rgba(255, 255, 255, 0.88);
+      cursor: pointer;
+
+      font-weight: 600;
+      font-size: 14px;
+      text-align: left;
+      transition: transform 0.12s ease, background-color 0.12s ease, border-color 0.12s ease;
+    }
+
+    .acc-btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(90, 162, 255, 0.35);
+      background: rgba(90, 162, 255, 0.06);
+    }
+
+    .chev {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.78);
+      flex: 0 0 auto;
+      transition: transform 0.18s ease;
+    }
+
+    .acc-btn[aria-expanded="true"] .chev { transform: rotate(180deg); }
+
+    .acc-panel {
+      display: none;
+      padding: 12px 14px 2px;
+      margin-top: -6px;
+    }
+
+    .acc-panel.is-open { display: block; }
+
+    .acc-panel ul {
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255, 255, 255, 0.70);
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+
+    .acc-panel li { margin-bottom: 8px; }
+
+    /* Fix list */
+    .fix-list {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 13.5px;
+    }
+
+    .fix-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.62);
+      margin-top: 7px;
+      flex: 0 0 auto;
+      opacity: 0.85;
+    }
+
+    /* Helpers */
+    .is-hidden { display: none !important; }
+
+    footer {
+      padding: 18px 0 28px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.35);
+      font-size: 12px;
+    }
+  </style>
 </head>
+
 <body>
+  <header class="hero">
+    <div class="container hero-inner">
+      <span class="badge">Wartungsarbeiten</span>
+      <h1 class="hero-title">Viking Rise Update</h1>
+      <p class="hero-subtitle">Surtrs Flammen, Drachenzähmen-Kollaboration & Weihnachts-Events</p>
 
-    <header class="hero">
-        <div class="container">
-            <span class="badge">Wartungsarbeiten</span>
-            <h1>Viking Rise Update</h1>
-            <p class="subtitle">Surtrs Flammen, Drachenzähmen-Kollaboration & Weihnachts-Events</p>
-
-            <div class="maintenance-box">
-                <div class="m-info">
-                    <span class="clock-icon">🛡️</span>
-                    <div>
-                        <strong style="display:block; color: var(--text-main); text-transform: uppercase; font-size: 1rem; letter-spacing: 1px;">Wartungszeitraum</strong>
-                        <span style="font-size: 0.9rem; color: var(--text-muted);">17. Dezember, 06:00 - 06:30 (UTC)</span>
-                    </div>
-                </div>
-                <div class="m-time-display">
-                    <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Deine Ortszeit</div>
-                    <div class="m-time-highlight">17.12., 07:00 <span style="font-size:0.9rem; font-weight:normal;">(UTC+1)</span></div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <main class="container" style="margin-top: 30px;">
-        
-        <div class="controls">
-            <div class="btn-group">
-                <button class="btn active">Alle</button>
-                <button class="btn">Highlights</button>
-                <button class="btn">Details</button>
-            </div>
+      <div class="maintenance">
+        <div class="maintenance-left">
+          <div class="m-icon" aria-hidden="true">🕒</div>
+          <div>
+            <p class="m-title">Wartungszeitraum</p>
+            <p class="m-range">17. Dezember, 06:00 - 06:30 (UTC)</p>
+          </div>
         </div>
 
-        <div class="content-grid">
-            
-            <div class="left-col">
-
-                <div class="card img-card" style="background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2669&auto=format&fit=crop');">
-                    <div class="img-overlay">
-                        <h2 style="font-family: 'Cinzel'; margin:0; color: var(--accent-gold);">SURTRS FLAMMEN <span class="event-tag">KVK Saison</span></h2>
-                        <p style="font-size: 1rem; margin-top: 10px;">Die Kingdom Mayhem Conquest Saison beginnt! Flammen toben in Muspelheim. Wikinger, kämpft, um Surtrs Flammen zu löschen!</p>
-                    </div>
-                </div>
-
-                <div class="card img-card" style="background-image: url('https://images.unsplash.com/photo-1577493340887-b7b9a3998466?q=80&w=2670&auto=format&fit=crop'); height: 220px;">
-                    <div class="img-overlay" style="background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.7));">
-                         <h3 style="font-family: 'Cinzel'; margin:0; color: var(--accent-gold);">Drachenzähmen leicht gemacht <span class="collab-tag">Kollaboration</span></h3>
-                         <p style="color: #d1d5db; font-size: 0.95rem; margin-bottom: 10px; margin-top: 5px;">
-                             Eine brandneue Zusammenarbeit hat begonnen! Partnering mit &lt;How to Train Your Dragon&gt;, lasst uns gemeinsam auf eine Drachenzähmen-Reise gehen!
-                         </p>
-                         <ul style="font-size: 0.9rem;">
-                             <li>Erkunde eine neue Fantasiewelt.</li>
-                             <li>Erlebe neue Abenteuer und Herausforderungen.</li>
-                             <li>Erobere die Lüfte und schreibe deine eigene Legende!</li>
-                         </ul>
-                    </div>
-                 </div>
-
-                <div class="card img-card" style="background-image: url('https://images.unsplash.com/photo-1516398891210-437f5d2012c6?q=80&w=2670&auto=format&fit=crop'); height: 200px;">
-                    <div class="img-overlay">
-                        <h3 style="font-family: 'Cinzel'; margin:0; color: var(--accent-gold);">WEIHNACHTS-EVENT <span class="event-tag" style="background-color: #10b981;">Event</span></h3>
-                        <p style="font-size: 0.95rem; margin-top: 10px;">Wenn die Glocken läuten, beginnt das Kutschenrennen-Event. Bildet Teams und legt die Strecke gemeinsam zurück!</p>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="right-col">
-
-                <div class="card">
-                    <div class="card-header">
-                        <span style="color: var(--accent-gold); font-size: 1.2rem;">⚜️</span> <span class="card-title">NEU</span>
-                    </div>
-                    <div class="card-body">
-                        <ul>
-                            <li><strong>Monatskarte [Lichtschatten-Reise]:</strong> Aktiviert sofort den [Stamm Auto-Assistenz] Vorteil beim Kauf.</li>
-                            <li><strong>Zweite Forschungswarteschlange:</strong> Freischaltbar durch das [Forschungsauftrag-Paket].</li>
-                            <li><strong>Stamm-Shop [Splitter-Markt]:</strong> Tausche Helden- oder Skillsplitter.</li>
-                            <li><strong>Inventar & Chat:</strong> Mengenangzeige im Inventar und Entwurf-Speicherfunktion für den Chat.</li>
-                            <li><strong>Kampfeinstellungen (Mobile):</strong> Option, nach einem Angriff auf andere Spieler automatisch zu garnisonieren.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <span style="color: var(--accent-blue); font-size: 1.2rem;">⚙️</span> <span class="card-title" style="color: var(--accent-blue);">OPTIMIERUNGEN</span>
-                    </div>
-                    <div class="card-body" style="padding: 15px;">
-                        
-                        <div class="accordion-item">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                Bluteid-Krieg (Blood Oath War)
-                                <span class="arrow">▼</span>
-                            </div>
-                            <div class="accordion-content">
-                                <ul>
-                                    <li>Legionen im Midgard-Meisterschaftskampf von 3 auf 1 reduziert.</li>
-                                    <li>Garnisonstruppen sammeln denselben Debuff wie zentrale Gebäude.</li>
-                                    <li>Ranglisten-Optimierung: Bei gleichen Punkten entscheiden die Gesamttötungspunkte.</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                UI & System
-                                <span class="arrow">▼</span>
-                            </div>
-                            <div class="accordion-content">
-                                <ul>
-                                    <li><strong>Koordinate teilen:</strong> Teile Orte (Gebäude, Monster, etc.) direkt im Chat.</li>
-                                    <li><strong>Beschleunigungs-Warteschlange:</strong> Neu organisiert (Training, Forschung, Heilung, Schmiede).</li>
-                                    <li><strong>Halle der Tapferkeit:</strong> Interaktionen und Performance verbessert.</li>
-                                    <li><strong>Spracheinstellungen:</strong> Unterteilt in System- und Übersetzungs-Sprache.</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                         <div class="accordion-item">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                Events & Belohnungen
-                                <span class="arrow">▼</span>
-                            </div>
-                            <div class="accordion-content">
-                                <ul>
-                                    <li>Rückkehr: Weihnachts-Set 2024 & Kampfflagge [Schneehirsches Schatten].</li>
-                                    <li>Eroberungssaison: Mehr Umschmiede-Klingen und angepasster Yggdrasil-Tau.</li>
-                                    <li>Kampagnen-Menü: Inaktive Events werden ausgeblendet.</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <span style="color: var(--success-green); font-size: 1.2rem;">🛠️</span> <span class="card-title" style="color: var(--success-green);">FEHLERBEHEBUNGEN</span>
-                    </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>Mail-Aktualisierungsprobleme behoben.</li>
-                            <li>Anzeige des Drill-Grounds (PC) korrigiert.</li>
-                            <li>Heldentalente im Drill-Ground nun wirksam.</li>
-                            <li>Anzeigefehler beim Schmiedefortschritt.</li>
-                            <li>Avatar-Fehler beim Sammeln neutraler Truppen.</li>
-                            <li>Lag-Probleme im Magischen Kartenabenteuer behoben.</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
+        <div class="maintenance-right">
+          <div class="m-local-label">Deine Ortszeit</div>
+          <div class="m-local-time">
+            17.12., 07:00 <span class="m-local-tz">(UTC+1)</span>
+          </div>
         </div>
+      </div>
+    </div>
+  </header>
 
-    </main>
+  <main class="container">
+    <div class="controls">
+      <div class="tabs" role="tablist" aria-label="Filter">
+        <button class="tab-btn is-active" type="button" role="tab" aria-selected="true" data-tab="all">
+          Alle
+        </button>
+        <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab="highlights">
+          Highlights
+        </button>
+        <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab="details">
+          Details
+        </button>
+      </div>
+    </div>
 
-    <script>
-        function toggleAccordion(element) {
-            const content = element.nextElementSibling;
-            const arrow = element.querySelector('.arrow');
-            
-            if (content.style.display === "block") {
-                content.style.display = "none";
-                arrow.classList.remove('rotate');
-                content.classList.remove('show');
-            } else {
-                content.style.display = "block";
-                arrow.classList.add('rotate');
-                content.classList.add('show');
-            }
+    <div class="grid">
+      <!-- LEFT (Highlights) -->
+      <section data-scope="highlights">
+        <article class="feature-card">
+          <div class="feature-hero" style="background-image:url('https://images.unsplash.com/photo-1542224566-0d6d2d27a49d?q=80&w=2400&auto=format&fit=crop');">
+            <div class="feature-title-row">
+              <h2 class="feature-title">Surtrs Flammen</h2>
+              <span class="tag red">KvK Saison</span>
+            </div>
+          </div>
+          <div class="feature-body">
+            <p>Die Kingdom Mayhem Conquest Saison beginnt! Flammen toben in Muspelheim. Wikinger, kämpft, um Surtrs Flammen zu löschen!</p>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-hero" style="height:220px;background-image:url('https://images.unsplash.com/photo-1520975958225-126d55f7a5f6?q=80&w=2400&auto=format&fit=crop');">
+            <div class="feature-title-row">
+              <h2 class="feature-title">Drachenzähmen leicht gemacht</h2>
+              <span class="tag blue">Kollaboration</span>
+            </div>
+          </div>
+          <div class="feature-body">
+            <p>Eine brandneue Zusammenarbeit hat begonnen! In Partnerschaft begeben wir uns gemeinsam auf eine Drachenzähmen-Reise!</p>
+            <ul class="bullets">
+              <li><span class="b-ico">▲</span> Erkunde eine neue Fantasiewelt.</li>
+              <li><span class="b-ico">✕</span> Erlebe neue Abenteuer und Herausforderungen.</li>
+              <li><span class="b-ico">●</span> Erobere die Lüfte und schreibe deine eigene Legende!</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-hero" style="height:200px;background-image:url('https://images.unsplash.com/photo-1543589077-47d81606c1bf?q=80&w=2400&auto=format&fit=crop');">
+            <div class="feature-title-row">
+              <h2 class="feature-title">Weihnachts-Event</h2>
+              <span class="tag green">Event</span>
+            </div>
+          </div>
+          <div class="feature-body">
+            <p>Wenn die Glocken läuten, beginnt das Kutschenrennen-Event. Bildet Teams und legt die Strecke gemeinsam zurück! Der neu gestaltete Weihnachtsskin bringt Farbe in dein Abenteuer und lädt zu Freude und Freundschaft ein!</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- RIGHT (Details) -->
+      <aside data-scope="details" style="display:grid; gap:18px;">
+        <section class="panel">
+          <div class="panel-header">
+            <span class="section-icon" aria-hidden="true" style="border-color: rgba(210, 177, 90, 0.35); color: var(--gold);">○</span>
+            <h3 class="panel-title title-gold">Neu</h3>
+          </div>
+          <div class="panel-body">
+            <div class="news-list">
+              <div class="news-item">
+                <p class="news-item-title">Monatskarte [Lichtschatten-Reise]</p>
+                <p class="news-item-desc">Aktiviert sofort den [Stamm Auto-Assistenz] Vorteil beim Kauf.</p>
+              </div>
+              <div class="news-item">
+                <p class="news-item-title">Zweite Forschungswarteschlange</p>
+                <p class="news-item-desc">Freischaltbar durch das [Forschungsauftrag-Paket].</p>
+              </div>
+              <div class="news-item">
+                <p class="news-item-title">Schnell-Upgrade für Skills</p>
+                <p class="news-item-desc">Stammesmitgliedern.</p>
+              </div>
+              <div class="news-item">
+                <p class="news-item-title">Inventar &amp; Chat</p>
+                <p class="news-item-desc">Mengenanzeige im Inventar und Entwurf-Speicherfunktion für den Chat.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <span class="section-icon" aria-hidden="true" style="border-color: rgba(90, 162, 255, 0.30); color: rgba(90, 162, 255, 0.95);">☰</span>
+            <h3 class="panel-title title-blue">Optimierungen</h3>
+          </div>
+          <div class="panel-body">
+            <div class="accordion">
+              <div>
+                <button class="acc-btn" type="button" aria-expanded="false" data-acc="a1">
+                  Bluteid-Krieg (Blood Oath War)
+                  <span class="chev" aria-hidden="true">˅</span>
+                </button>
+                <div class="acc-panel" id="a1">
+                  <ul>
+                    <li>Legionen im Midgard-Meisterschaftskampf von 3 auf 1 reduziert.</li>
+                    <li>Garnisonstruppen sammeln denselben Debuff wie zentrale Gebäude.</li>
+                    <li>Ranglisten-Optimierung: Bei gleichen Punkten entscheiden die Gesamttötungspunkte.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <button class="acc-btn" type="button" aria-expanded="false" data-acc="a2">
+                  UI &amp; System
+                  <span class="chev" aria-hidden="true">˅</span>
+                </button>
+                <div class="acc-panel" id="a2">
+                  <ul>
+                    <li><strong>Koordinate teilen:</strong> Teile Orte (Gebäude, Monster, etc.) direkt im Chat.</li>
+                    <li><strong>Beschleunigungs-Warteschlange:</strong> Neu organisiert (Training, Forschung, Heilung, Schmiede).</li>
+                    <li><strong>Halle der Tapferkeit:</strong> Interaktionen und Performance verbessert.</li>
+                    <li><strong>Spracheinstellungen:</strong> Unterteilt in System- und Übersetzungs-Sprache.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <button class="acc-btn" type="button" aria-expanded="false" data-acc="a3">
+                  Events &amp; Belohnungen
+                  <span class="chev" aria-hidden="true">˅</span>
+                </button>
+                <div class="acc-panel" id="a3">
+                  <ul>
+                    <li>Rückkehr: Weihnachts-Set 2024 &amp; Kampfflagge [Schneehirsches Schatten].</li>
+                    <li>Eroberungssaison: Mehr Umschmiede-Klingen und angepasster Yggdrasil-Tau.</li>
+                    <li>Kampagnen-Menü: Inaktive Events werden ausgeblendet.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <span class="section-icon" aria-hidden="true" style="border-color: rgba(43, 212, 122, 0.28); color: rgba(43, 212, 122, 0.95);">⚙</span>
+            <h3 class="panel-title title-green">Fehlerbehebungen</h3>
+          </div>
+          <div class="panel-body">
+            <ul class="fix-list">
+              <li><span class="dot"></span> Mail-Aktualisierungsprobleme behoben.</li>
+              <li><span class="dot"></span> Anzeige des Drill-Grounds (PC) korrigiert.</li>
+              <li><span class="dot"></span> Heldentalente im Drill-Ground nun wirksam.</li>
+              <li><span class="dot"></span> Anzeigefehler beim Schmiedefortschritt.</li>
+              <li><span class="dot"></span> Avatar-Fehler beim Sammeln neutraler Truppen.</li>
+              <li><span class="dot"></span> Lag-Probleme im Magischen Kartenabenteuer behoben.</li>
+            </ul>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="container">
+    Generated with ♥ based on official patch notes.
+  </footer>
+
+  <script>
+    (function () {
+      function setActiveTab(tab) {
+        var tabs = document.querySelectorAll(".tab-btn");
+        tabs.forEach(function (btn) {
+          var isActive = btn === tab;
+          btn.classList.toggle("is-active", isActive);
+          btn.setAttribute("aria-selected", isActive ? "true" : "false");
+        });
+
+        var scope = tab.getAttribute("data-tab");
+        var blocks = document.querySelectorAll("[data-scope]");
+        blocks.forEach(function (el) {
+          var elScope = el.getAttribute("data-scope");
+          var show = scope === "all" || elScope === scope;
+          el.classList.toggle("is-hidden", !show);
+        });
+      }
+
+      document.querySelectorAll(".tab-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          setActiveTab(btn);
+        });
+      });
+
+      function toggleAcc(btn) {
+        var targetId = btn.getAttribute("data-acc");
+        var panel = document.getElementById(targetId);
+        var expanded = btn.getAttribute("aria-expanded") === "true";
+
+        btn.setAttribute("aria-expanded", expanded ? "false" : "true");
+        if (panel) {
+          panel.classList.toggle("is-open", !expanded);
         }
-    </script>
+      }
+
+      document.querySelectorAll(".acc-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          toggleAcc(btn);
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
