@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viking Rise Update Notes</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@300;400;500&display=swap');
+
+        :root {
+            --bg-dark: #0b101b;
+            --card-bg: #111827;
+            --card-border: #1f2937;
+            --accent-gold: #fbbf24;
+            --accent-blue: #60a5fa;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --success-green: #10b981;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to bottom, rgba(11, 16, 27, 0.3), var(--bg-dark)), url('https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?q=80&w=2574&auto=format&fit=crop'); /* Platzhalterbild */
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px 20px 20px;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            background-color: var(--accent-gold);
+            color: #000;
+            padding: 4px 8px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        /* Maintenance Box */
+        .maintenance-box {
+            background-color: rgba(17, 24, 39, 0.9);
+            border: 1px solid var(--accent-gold);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .m-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .clock-icon {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+        }
+
+        .m-time-display {
+            text-align: right;
+        }
+
+        .m-time-highlight {
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            background: #1f2937;
+            padding: 5px;
+            border-radius: 8px;
+        }
+
+        .btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn.active {
+            background-color: var(--accent-gold);
+            color: #000;
+        }
+
+        .btn-discord {
+            background-color: var(--success-green);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-discord:hover {
+            background-color: #059669;
+        }
+
+        /* Grid Layout */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            padding-bottom: 50px;
+        }
+
+        @media (max-width: 900px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .card-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        /* Image Card Styles */
+        .img-card {
+            position: relative;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .img-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            width: 100%;
+            padding: 20px;
+        }
+        
+        .event-tag {
+            background-color: #dc2626; /* Red for KVK */
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-left: 10px;
+            vertical-align: middle;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .collab-tag {
+            background-color: #3b82f6; /* Blue for Collab */
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-left: 10px;
+            vertical-align: middle;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* List Styles */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            color: #d1d5db;
+            font-size: 0.95rem;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--text-muted);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Accordion (Optimierungen) */
+        .accordion-item {
+            background-color: #1a2233;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            color: #fff;
+        }
+        
+        .accordion-header:hover {
+            background-color: #252e42;
+        }
+
+        .accordion-content {
+            padding: 0 15px 15px 15px;
+            display: none;
+            border-top: 1px solid var(--card-border);
+            margin-top: 5px;
+            padding-top: 15px;
+        }
+
+        .accordion-content.show {
+            display: block;
+        }
+
+        .arrow {
+            transition: transform 0.3s;
+        }
+        
+        .arrow.rotate {
+            transform: rotate(180deg);
+        }
+
+        /* Helper for icons (using text for simplicity) */
+        .icon-txt {
+            font-size: 1.2rem;
+            margin-right: 5px;
+        }
+
+        /* Chat button floating */
+        .chat-btn {
+            display: block;
+            margin: 20px auto;
+            background: #dbeafe;
+            color: #1e40af;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <span class="badge">Wartungsarbeiten</span>
+            <h1>Viking Rise Update</h1>
+            <p class="subtitle">Surtrs Flammen, Drachenzähmen-Kollaboration & Weihnachts-Events</p>
+
+            <div class="maintenance-box">
+                <div class="m-info">
+                    <span class="clock-icon">🕒</span>
+                    <div>
+                        <strong style="display:block; color: #fff; text-transform: uppercase; font-size: 0.9rem;">Wartungszeitraum</strong>
+                        <span style="font-size: 0.85rem; color: var(--text-muted);">17. Dezember, 06:00 - 06:30 (UTC)</span>
+                    </div>
+                </div>
+                <div class="m-time-display">
+                    <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase;">Deine Ortszeit</div>
+                    <div class="m-time-highlight">17.12., 07:00 <span style="font-size:0.8rem; font-weight:normal;">(UTC+1)</span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="margin-top: 20px;">
+        
+        <div class="controls">
+            <div class="btn-group">
+                <button class="btn active">Alle</button>
+                <button class="btn">Highlights</button>
+                <button class="btn">Details</button>
+            </div>
+            <button class="btn btn-discord" onclick="copyToClipboard()">
+                <span>📄</span> Text für Discord kopieren
+            </button>
+        </div>
+
+        <div class="content-grid">
+            
+            <div class="left-col">
+
+                <div class="card img-card" style="background-image: url('https://images.unsplash.com/photo-1599839575945-a9e5af0c3fa5?q=80&w=2669&auto=format&fit=crop');">
+                    <div class="img-overlay">
+                        <h2 style="font-family: 'Cinzel'; margin:0;">SURTRS FLAMMEN <span class="event-tag">KVK Saison</span></h2>
+                        <p style="font-size: 0.9rem; margin-top: 5px;">Die Kingdom Mayhem Conquest Saison beginnt! Flammen toben in Muspelheim. Wikinger, kämpft, um Surtrs Flammen zu löschen!</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h3 style="font-family: 'Cinzel'; margin-top:0;">Drachenzähmen leicht gemacht <span class="collab-tag">Kollaboration</span></h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">
+                            Eine brandneue Zusammenarbeit hat begonnen! In Partnerschaft mit &lt;Drachenzähmen leicht gemacht&gt; begeben wir uns gemeinsam auf eine Reise!
+                        </p>
+                        <ul>
+                            <li style="color: #fbbf24;">✈ Erkunde eine neue Fantasiewelt.</li>
+                            <li style="color: #fbbf24;">⚔ Erlebe neue Abenteuer und Herausforderungen.</li>
+                            <li style="color: #fbbf24;">○ Erobere die Lüfte und schreibe deine eigene Legende!</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card img-card" style="background-image: url('https://images.unsplash.com/photo-1543589077-47d81606c1bf?q=80&w=2574&auto=format&fit=crop'); height: 200px;">
+                    <div class="img-overlay">
+                        <h3 style="font-family: 'Cinzel'; margin:0;">WEIHNACHTS-EVENT <span class="event-tag" style="background-color: #10b981;">Event</span></h3>
+                        <p style="font-size: 0.9rem; margin-top: 5px;">Wenn die Glocken läuten, beginnt das Kutschenrennen-Event. Bildet Teams und legt die Strecke gemeinsam zurück!</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="right-col">
+
+                <div class="card">
+                    <div class="card-header">
+                        <span style="color: var(--accent-gold);">○</span> <span class="card-title" style="color: var(--accent-gold);">NEU</span>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><strong>Monatskarte [Lichtschatten-Reise]:</strong> Aktiviert sofort den [Stamm Auto-Assistenz] Vorteil beim Kauf.</li>
+                            <li><strong>Zweite Forschungswarteschlange:</strong> Freischaltbar durch das [Forschungsauftrag-Paket].</li>
+                            <li><strong>Stamm-Shop [Splitter-Markt]:</strong> Tausche Helden- oder Skillsplitter.</li>
+                            <li><strong>Inventar & Chat:</strong> Mengenangzeige im Inventar und Entwurf-Speicherfunktion für den Chat.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <span style="color: var(--accent-blue);">☷</span> <span class="card-title">OPTIMIERUNGEN</span>
+                    </div>
+                    <div class="card-body" style="padding: 10px;">
+                        
+                        <div class="accordion-item">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                Bluteid-Krieg (Blood Oath War)
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <ul>
+                                    <li>Legionen im Midgard-Meisterschaftskampf von 3 auf 1 reduziert.</li>
+                                    <li>Garnisonstruppen sammeln denselben Debuff wie zentrale Gebäude.</li>
+                                    <li>Ranglisten-Optimierung: Bei gleichen Punkten entscheiden die Gesamttötungspunkte.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                UI & System
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <ul>
+                                    <li><strong>Koordinate teilen:</strong> Teile Orte (Gebäude, Monster, etc.) direkt im Chat.</li>
+                                    <li><strong>Beschleunigungs-Warteschlange:</strong> Neu organisiert (Training, Forschung, Heilung, Schmiede).</li>
+                                    <li><strong>Halle der Tapferkeit:</strong> Interaktionen und Performance verbessert.</li>
+                                    <li><strong>Spracheinstellungen:</strong> Unterteilt in System- und Übersetzungs-Sprache.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                         <div class="accordion-item">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                Events & Belohnungen
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <ul>
+                                    <li>Rückkehr: Weihnachts-Set 2024 & Kampfflagge [Schneehirsches Schatten].</li>
+                                    <li>Eroberungssaison: Mehr Umschmiede-Klingen und angepasster Yggdrasil-Tau.</li>
+                                    <li>Kampagnen-Menü: Inaktive Events werden ausgeblendet.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <span style="color: var(--success-green);">🐞</span> <span class="card-title" style="color: var(--success-green);">FEHLERBEHEBUNGEN</span>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Mail-Aktualisierungsprobleme behoben.</li>
+                            <li>Anzeige des Drill-Grounds (PC) korrigiert.</li>
+                            <li>Heldentalente im Drill-Ground nun wirksam.</li>
+                            <li>Anzeigefehler beim Schmiedefortschritt.</li>
+                            <li>Avatar-Fehler beim Sammeln neutraler Truppen.</li>
+                            <li>Lag-Probleme im Magischen Kartenabenteuer behoben.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <button class="chat-btn">Diesen Chat fortsetzen</button>
+    </main>
+
+    <script>
+        // Funktion für die Accordions (Aufklapp-Menüs)
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const arrow = element.querySelector('.arrow');
+            
+            if (content.style.display === "block") {
+                content.style.display = "none";
+                arrow.classList.remove('rotate');
+                content.classList.remove('show');
+            } else {
+                content.style.display = "block";
+                arrow.classList.add('rotate');
+                content.classList.add('show');
+            }
+        }
+
+        // Funktion zum Kopieren des Textes (für den Discord Button)
+        function copyToClipboard() {
+            const textToCopy = `Viking Rise Update Notes - 17.12.
+            
+[Wartungszeitraum]
+17. Dezember, 06:00 - 06:30 (UTC)
+
+[Major Updates]
+- KVK Saison: Surtrs Flammen
+- Kollaboration: Drachenzähmen leicht gemacht
+- Weihnachts-Event
+
+[Neu]
+- Neue Monatskarte, Zweite Forschungswarteschlange, Stamm-Shop Features.
+
+[Optimierungen]
+- Bluteid-Krieg: Legionen reduziert, Garnisons-Debuffs angepasst.
+- UI: Koordinaten teilen, optimierte Warteschlangen.
+
+[Fehlerbehebungen]
+- Diverse Bugfixes für Mail, Drill-Ground und Schmiede.`;
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                alert("Text wurde in die Zwischenablage kopiert!");
+            }).catch(err => {
+                console.error('Fehler beim Kopieren: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
