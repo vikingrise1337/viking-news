@@ -11,28 +11,14 @@
     :root {
       --bg: #07101f;
       --panel: #162236;
-      --panel-2: #121d2f;
-      --panel-3: #0f1929;
       --border: rgba(255, 255, 255, 0.08);
       --border-strong: rgba(255, 255, 255, 0.12);
-
       --text: rgba(255, 255, 255, 0.92);
-      --muted: rgba(255, 255, 255, 0.62);
-
       --gold: #d2b15a;
       --gold-2: #b9923f;
-
-      --blue: #5aa2ff;
-      --green: #2bd47a;
-
-      --shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
       --shadow-soft: 0 10px 22px rgba(0, 0, 0, 0.35);
-
       --r-xl: 18px;
       --r-lg: 14px;
-      --r-md: 12px;
-      --r-sm: 10px;
-
       --container: 1220px;
     }
 
@@ -41,18 +27,14 @@
 
     body {
       margin: 0;
-      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: "Inter", sans-serif;
       color: var(--text);
       background-color: var(--bg);
-
-      /* Hintergrund-Pattern (ähnlich wie im Screenshot) */
       background-image:
         radial-gradient(transparent 0 8px, rgba(255, 255, 255, 0.03) 8px 9px, transparent 9px 100%),
-        radial-gradient(transparent 0 8px, rgba(255, 255, 255, 0.03) 8px 9px, transparent 9px 100%),
         radial-gradient(transparent 0 60%, rgba(0, 0, 0, 0.35) 100%);
-
-      background-size: 40px 40px, 40px 40px, 100% 100%;
-      background-position: 0 0, 20px 20px, center;
+      background-size: 40px 40px, 100% 100%;
+      background-position: 0 0, center;
       background-attachment: fixed;
     }
 
@@ -68,28 +50,10 @@
       border-bottom: 2px solid rgba(210, 177, 90, 0.55);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
       overflow: hidden;
-
-      /* Tausche diese URLs auf deine eigenen Assets, wenn du willst */
-      background:
-        linear-gradient(to bottom, rgba(7, 16, 31, 0.15), rgba(7, 16, 31, 0.88)),
-        url("https://images.unsplash.com/photo-1482192505345-5655af888cc4?q=80&w=2400&auto=format&fit=crop");
+      background: linear-gradient(to bottom, rgba(7, 16, 31, 0.15), rgba(7, 16, 31, 0.88)), url("https://images.unsplash.com/photo-1482192505345-5655af888cc4?q=80&w=2400&auto=format&fit=crop");
       background-size: cover;
       background-position: center;
       padding: 44px 0 18px;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(900px 340px at 70% 35%, rgba(255, 255, 255, 0.10), transparent 60%),
-        radial-gradient(760px 280px at 55% 30%, rgba(255, 255, 255, 0.06), transparent 62%),
-        radial-gradient(900px 380px at 85% 35%, rgba(0, 0, 0, 0.30), transparent 60%),
-        linear-gradient(to bottom, transparent 0 60%, rgba(7, 16, 31, 0.55));
-      mix-blend-mode: screen;
-      opacity: 0.9;
     }
 
     .hero-inner { position: relative; z-index: 1; }
@@ -132,7 +96,6 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-
       margin-top: 14px;
       padding: 16px 16px;
       border-radius: var(--r-lg);
@@ -142,122 +105,65 @@
       box-shadow: var(--shadow-soft);
     }
 
-    .maintenance-left {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      min-width: 0;
-    }
+    .maintenance-left { display: flex; align-items: center; gap: 14px; }
 
     .m-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      background: rgba(210, 177, 90, 0.15);
-      border: 1px solid rgba(210, 177, 90, 0.45);
-      color: var(--gold);
-      flex: 0 0 auto;
+      width: 34px; height: 34px; border-radius: 999px; display: grid; place-items: center;
+      background: rgba(210, 177, 90, 0.15); border: 1px solid rgba(210, 177, 90, 0.45);
+      color: var(--gold); flex: 0 0 auto;
     }
 
     .m-title {
-      font-family: "Cinzel", serif;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      font-size: 14px;
-      margin: 0;
-      color: rgba(255, 255, 255, 0.88);
+      font-family: "Cinzel", serif; font-weight: 700; text-transform: uppercase;
+      font-size: 14px; margin: 0; color: rgba(255, 255, 255, 0.88);
     }
 
-    .m-range {
-      margin: 2px 0 0;
-      font-size: 13px;
-      color: rgba(255, 255, 255, 0.62);
-    }
+    .m-range { margin: 2px 0 0; font-size: 13px; color: rgba(255, 255, 255, 0.62); }
 
     .maintenance-right {
-      flex: 0 0 auto;
-      padding: 10px 14px;
-      border-radius: 12px;
-      border: 1px solid var(--border-strong);
-      background: rgba(12, 19, 32, 0.35);
-      text-align: right;
-      min-width: 210px;
+      flex: 0 0 auto; padding: 10px 14px; border-radius: 12px;
+      border: 1px solid var(--border-strong); background: rgba(12, 19, 32, 0.35);
+      text-align: right; min-width: 210px;
     }
 
     .m-local-label {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: rgba(255, 255, 255, 0.55);
-      margin-bottom: 6px;
+      font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.55); margin-bottom: 6px;
     }
 
     .m-local-time {
-      font-family: "Cinzel", serif;
-      font-weight: 700;
-      color: var(--gold);
+      font-family: "Cinzel", serif; font-weight: 700; color: var(--gold);
       font-size: 20px;
-      letter-spacing: 0.02em;
-    }
-
-    .m-local-tz {
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.55);
-      margin-left: 6px;
-      font-weight: 500;
-      font-family: "Inter", sans-serif;
     }
 
     /* Controls */
-    .controls {
-      margin-top: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-    }
+    .controls { margin-top: 18px; display: flex; justify-content: flex-start; }
 
     .tabs {
-      display: inline-flex;
-      padding: 6px;
-      border-radius: 12px;
-      border: 1px solid var(--border-strong);
-      background: rgba(18, 29, 47, 0.65);
-      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.25);
+      display: inline-flex; padding: 6px; border-radius: 12px;
+      border: 1px solid var(--border-strong); background: rgba(18, 29, 47, 0.65);
       gap: 6px;
     }
 
     .tab-btn {
-      appearance: none;
-      border: 0;
-      background: transparent;
-      color: rgba(255, 255, 255, 0.75);
-      font-weight: 600;
-      font-size: 14px;
-      padding: 10px 16px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+      appearance: none; border: 0; background: transparent;
+      color: rgba(255, 255, 255, 0.75); font-weight: 600; font-size: 14px;
+      padding: 10px 16px; border-radius: 10px; cursor: pointer;
+      transition: all 0.15s ease;
     }
 
-    .tab-btn:hover { transform: translateY(-1px); }
+    .tab-btn:hover { transform: translateY(-1px); background: rgba(255,255,255,0.05); }
     .tab-btn.is-active {
       background: linear-gradient(to bottom, var(--gold), var(--gold-2));
-      color: #111;
-      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.25);
+      color: #111; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
     /* Layout */
     main { padding: 18px 0 46px; }
 
     .grid {
-      margin-top: 18px;
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 22px;
-      align-items: start;
+      margin-top: 18px; display: grid; grid-template-columns: 2fr 1fr;
+      gap: 22px; align-items: start;
     }
 
     @media (max-width: 980px) {
@@ -268,35 +174,23 @@
 
     /* Panels */
     .panel {
-      border-radius: var(--r-xl);
-      border: 1px solid var(--border-strong);
-      background: rgba(18, 29, 47, 0.78);
-      box-shadow: var(--shadow-soft);
-      overflow: hidden;
+      border-radius: var(--r-xl); border: 1px solid var(--border-strong);
+      background: rgba(18, 29, 47, 0.78); box-shadow: var(--shadow-soft); overflow: hidden;
     }
 
     .panel-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 18px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      background: rgba(9, 14, 24, 0.12);
+      display: flex; align-items: center; gap: 10px; padding: 16px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06); background: rgba(9, 14, 24, 0.12);
     }
 
     .panel-title {
-      font-family: "Cinzel", serif;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      font-size: 16px;
-      margin: 0;
-      color: rgba(255, 255, 255, 0.88);
+      font-family: "Cinzel", serif; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; font-size: 16px; margin: 0; color: rgba(255, 255, 255, 0.88);
     }
 
     .panel-body { padding: 16px 18px 18px; }
 
-    /* Feature Cards (links) */
+    /* Feature Cards (mit Hover Effekt) */
     .feature-card {
       border-radius: var(--r-xl);
       border: 1px solid var(--border-strong);
@@ -304,242 +198,122 @@
       box-shadow: var(--shadow-soft);
       overflow: hidden;
       margin-bottom: 18px;
+      /* Für den goldenen Rand beim Hover */
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Der Hover Effekt auf der Karte selbst */
+    .feature-card:hover {
+        border-color: var(--gold);
+        box-shadow: 0 0 20px rgba(210, 177, 90, 0.15);
     }
 
     .feature-hero {
       position: relative;
       height: 200px;
-      background-size: cover;
-      background-position: center;
+      overflow: hidden; /* Wichtig, damit das gezoomte Bild nicht rausragt */
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
 
+    /* Das Bild-Element für den Zoom */
+    .feature-hero-bg {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* Zoom beim Hover über die Karte */
+    .feature-card:hover .feature-hero-bg {
+        transform: scale(1.08);
+    }
+
     .feature-hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(520px 200px at 25% 50%, rgba(255, 255, 255, 0.10), transparent 60%),
-        linear-gradient(to top, rgba(0, 0, 0, 0.80) 0, rgba(0, 0, 0, 0.12) 60%, rgba(0, 0, 0, 0.00) 100%);
-      opacity: 0.95;
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0, transparent 100%);
+      pointer-events: none;
     }
 
     .feature-title-row {
-      position: absolute;
-      left: 18px;
-      bottom: 16px;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
+      position: absolute; left: 18px; bottom: 16px; z-index: 1;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
     }
 
     .feature-title {
-      font-family: "Cinzel", serif;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      font-size: 22px;
-      margin: 0;
-      color: rgba(255, 255, 255, 0.92);
-      text-shadow: 0 10px 22px rgba(0, 0, 0, 0.55);
+      font-family: "Cinzel", serif; font-weight: 700; text-transform: uppercase;
+      font-size: 22px; margin: 0; color: rgba(255, 255, 255, 0.92);
+      text-shadow: 0 4px 10px rgba(0,0,0,0.8);
     }
 
     .tag {
-      font-weight: 700;
-      font-size: 12px;
-      padding: 6px 10px;
-      border-radius: 9px;
-      color: #fff;
-      letter-spacing: 0.02em;
-      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.25);
+      font-weight: 700; font-size: 12px; padding: 4px 8px; border-radius: 4px;
+      color: #fff; letter-spacing: 0.02em; text-transform: uppercase;
     }
-
-    .tag.red { background: rgba(220, 38, 38, 0.95); }
-    .tag.blue { background: rgba(37, 99, 235, 0.95); }
-    .tag.green { background: rgba(16, 185, 129, 0.95); }
+    .tag.red { background: #b91c1c; }
+    .tag.blue { background: #1d4ed8; }
+    .tag.green { background: #047857; }
 
     .feature-body {
-      padding: 16px 18px 18px;
-      color: rgba(255, 255, 255, 0.75);
-      font-size: 14.5px;
-      line-height: 1.65;
+      padding: 16px 18px 18px; color: rgba(255, 255, 255, 0.75);
+      font-size: 14.5px; line-height: 1.6;
     }
 
-    .feature-body p { margin: 0 0 10px; }
-
-    .bullets {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    .bullets li {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: rgba(255, 255, 255, 0.72);
-    }
-
+    .bullets { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 8px; }
+    .bullets li { display: flex; gap: 10px; align-items: flex-start; color: rgba(255, 255, 255, 0.72); }
+    
     .b-ico {
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      margin-top: 2px;
-      background: rgba(210, 177, 90, 0.18);
-      border: 1px solid rgba(210, 177, 90, 0.45);
-      display: grid;
-      place-items: center;
-      color: var(--gold);
-      flex: 0 0 auto;
-      font-size: 12px;
-      font-weight: 800;
-      line-height: 1;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(210, 177, 90, 0.15); border: 1px solid rgba(210, 177, 90, 0.4);
+      color: var(--gold); flex: 0 0 auto;
+      display: flex; justify-content: center; align-items: center;
+      font-size: 10px; font-weight: bold;
     }
 
     /* Right panels */
     .section-icon {
-      width: 22px;
-      height: 22px;
-      display: grid;
-      place-items: center;
-      border-radius: 999px;
-      border: 1px solid var(--border-strong);
-      background: rgba(255, 255, 255, 0.04);
-      flex: 0 0 auto;
+      width: 22px; height: 22px; display: grid; place-items: center;
+      border-radius: 999px; border: 1px solid var(--border-strong);
+      background: rgba(255, 255, 255, 0.04); flex: 0 0 auto;
     }
 
     .title-gold { color: var(--gold); }
-    .title-blue { color: rgba(90, 162, 255, 0.9); }
-    .title-green { color: rgba(43, 212, 122, 0.9); }
+    .title-blue { color: #60a5fa; }
+    .title-green { color: #34d399; }
 
-    .news-list {
-      display: grid;
-      gap: 10px;
-    }
-
+    .news-list { display: grid; gap: 10px; }
     .news-item {
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.04);
-      padding: 12px 12px;
+      border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04); padding: 12px;
     }
+    .news-item-title { font-weight: 700; color: #fff; margin: 0 0 4px; font-size: 14px; }
+    .news-item-desc { margin: 0; font-size: 13px; color: rgba(255, 255, 255, 0.6); }
 
-    .news-item-title {
-      font-weight: 700;
-      font-size: 13.5px;
-      color: rgba(255, 255, 255, 0.90);
-      margin: 0 0 4px;
-    }
-
-    .news-item-desc {
-      margin: 0;
-      font-size: 13px;
-      color: rgba(255, 255, 255, 0.62);
-      line-height: 1.45;
-    }
-
-    /* Accordion (Optimierungen) */
+    /* Accordion */
     .accordion { display: grid; gap: 10px; }
-
     .acc-btn {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-
-      padding: 14px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.10);
-      background: rgba(255, 255, 255, 0.03);
-      color: rgba(255, 255, 255, 0.88);
-      cursor: pointer;
-
-      font-weight: 600;
-      font-size: 14px;
-      text-align: left;
-      transition: transform 0.12s ease, background-color 0.12s ease, border-color 0.12s ease;
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      padding: 14px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.03); color: rgba(255, 255, 255, 0.9);
+      cursor: pointer; font-weight: 600; text-align: left;
     }
-
-    .acc-btn:hover {
-      transform: translateY(-1px);
-      border-color: rgba(90, 162, 255, 0.35);
-      background: rgba(90, 162, 255, 0.06);
-    }
-
-    .chev {
-      width: 22px;
-      height: 22px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: rgba(255, 255, 255, 0.78);
-      flex: 0 0 auto;
-      transition: transform 0.18s ease;
-    }
-
+    .acc-btn:hover { background: rgba(255, 255, 255, 0.06); }
+    .chev { transition: transform 0.2s; }
     .acc-btn[aria-expanded="true"] .chev { transform: rotate(180deg); }
-
-    .acc-panel {
-      display: none;
-      padding: 12px 14px 2px;
-      margin-top: -6px;
-    }
-
+    .acc-panel { display: none; padding: 10px 14px; }
     .acc-panel.is-open { display: block; }
-
-    .acc-panel ul {
-      margin: 0;
-      padding-left: 18px;
-      color: rgba(255, 255, 255, 0.70);
-      font-size: 13.5px;
-      line-height: 1.55;
-    }
-
-    .acc-panel li { margin-bottom: 8px; }
+    .acc-panel ul { margin: 0; padding-left: 20px; color: rgba(255, 255, 255, 0.7); font-size: 14px; }
 
     /* Fix list */
-    .fix-list {
-      margin: 0;
-      padding-left: 0;
-      list-style: none;
-      display: grid;
-      gap: 8px;
-      color: rgba(255, 255, 255, 0.72);
-      font-size: 13.5px;
-    }
-
-    .fix-list li {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-    }
-
+    .fix-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+    .fix-list li { display: flex; gap: 10px; color: rgba(255, 255, 255, 0.7); font-size: 14px; }
     .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.62);
-      margin-top: 7px;
-      flex: 0 0 auto;
-      opacity: 0.85;
+      width: 6px; height: 6px; border-radius: 50%; background: rgba(255, 255, 255, 0.5);
+      margin-top: 8px; flex-shrink: 0;
     }
 
-    /* Helpers */
     .is-hidden { display: none !important; }
-
-    footer {
-      padding: 18px 0 28px;
-      text-align: center;
-      color: rgba(255, 255, 255, 0.35);
-      font-size: 12px;
-    }
+    footer { padding: 20px; text-align: center; color: rgba(255, 255, 255, 0.3); font-size: 12px; }
   </style>
 </head>
 
@@ -572,23 +346,18 @@
   <main class="container">
     <div class="controls">
       <div class="tabs" role="tablist" aria-label="Filter">
-        <button class="tab-btn is-active" type="button" role="tab" aria-selected="true" data-tab="all">
-          Alle
-        </button>
-        <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab="highlights">
-          Highlights
-        </button>
-        <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab="details">
-          Details
-        </button>
+        <button class="tab-btn is-active" type="button" role="tab" aria-selected="true" data-tab="all">Alle</button>
+        <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab="highlights">Highlights</button>
+        <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab="details">Details</button>
       </div>
     </div>
 
     <div class="grid">
-      <!-- LEFT (Highlights) -->
       <section data-scope="highlights">
+        
         <article class="feature-card">
-          <div class="feature-hero" style="background-image:url('https://images.unsplash.com/photo-1542224566-0d6d2d27a49d?q=80&w=2400&auto=format&fit=crop');">
+          <div class="feature-hero">
+            <div class="feature-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1542224566-0d6d2d27a49d?q=80&w=2400&auto=format&fit=crop');"></div>
             <div class="feature-title-row">
               <h2 class="feature-title">Surtrs Flammen</h2>
               <span class="tag red">KvK Saison</span>
@@ -600,7 +369,8 @@
         </article>
 
         <article class="feature-card">
-          <div class="feature-hero" style="height:220px;background-image:url('https://images.unsplash.com/photo-1520975958225-126d55f7a5f6?q=80&w=2400&auto=format&fit=crop');">
+          <div class="feature-hero" style="height:220px;">
+             <div class="feature-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1577493340887-b7b9a3998466?q=80&w=2670&auto=format&fit=crop');"></div>
             <div class="feature-title-row">
               <h2 class="feature-title">Drachenzähmen leicht gemacht</h2>
               <span class="tag blue">Kollaboration</span>
@@ -610,30 +380,31 @@
             <p>Eine brandneue Zusammenarbeit hat begonnen! In Partnerschaft begeben wir uns gemeinsam auf eine Drachenzähmen-Reise!</p>
             <ul class="bullets">
               <li><span class="b-ico">▲</span> Erkunde eine neue Fantasiewelt.</li>
-              <li><span class="b-ico">✕</span> Erlebe neue Abenteuer und Herausforderungen.</li>
+              <li><span class="b-ico">⚔</span> Erlebe neue Abenteuer und Herausforderungen.</li>
               <li><span class="b-ico">●</span> Erobere die Lüfte und schreibe deine eigene Legende!</li>
             </ul>
           </div>
         </article>
 
         <article class="feature-card">
-          <div class="feature-hero" style="height:200px;background-image:url('https://images.unsplash.com/photo-1543589077-47d81606c1bf?q=80&w=2400&auto=format&fit=crop');">
+          <div class="feature-hero" style="height:200px;">
+             <div class="feature-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1516398891210-437f5d2012c6?q=80&w=2670&auto=format&fit=crop');"></div>
             <div class="feature-title-row">
               <h2 class="feature-title">Weihnachts-Event</h2>
               <span class="tag green">Event</span>
             </div>
           </div>
           <div class="feature-body">
-            <p>Wenn die Glocken läuten, beginnt das Kutschenrennen-Event. Bildet Teams und legt die Strecke gemeinsam zurück! Der neu gestaltete Weihnachtsskin bringt Farbe in dein Abenteuer und lädt zu Freude und Freundschaft ein!</p>
+            <p>Wenn die Glocken läuten, beginnt das Kutschenrennen-Event. Bildet Teams und legt die Strecke gemeinsam zurück!</p>
           </div>
         </article>
+
       </section>
 
-      <!-- RIGHT (Details) -->
       <aside data-scope="details" style="display:grid; gap:18px;">
         <section class="panel">
           <div class="panel-header">
-            <span class="section-icon" aria-hidden="true" style="border-color: rgba(210, 177, 90, 0.35); color: var(--gold);">○</span>
+            <span class="section-icon" style="border-color: rgba(210, 177, 90, 0.35); color: var(--gold);">○</span>
             <h3 class="panel-title title-gold">Neu</h3>
           </div>
           <div class="panel-body">
@@ -647,10 +418,6 @@
                 <p class="news-item-desc">Freischaltbar durch das [Forschungsauftrag-Paket].</p>
               </div>
               <div class="news-item">
-                <p class="news-item-title">Schnell-Upgrade für Skills</p>
-                <p class="news-item-desc">Stammesmitgliedern.</p>
-              </div>
-              <div class="news-item">
                 <p class="news-item-title">Inventar &amp; Chat</p>
                 <p class="news-item-desc">Mengenanzeige im Inventar und Entwurf-Speicherfunktion für den Chat.</p>
               </div>
@@ -660,7 +427,7 @@
 
         <section class="panel">
           <div class="panel-header">
-            <span class="section-icon" aria-hidden="true" style="border-color: rgba(90, 162, 255, 0.30); color: rgba(90, 162, 255, 0.95);">☰</span>
+            <span class="section-icon" style="border-color: rgba(90, 162, 255, 0.30); color: rgba(90, 162, 255, 0.95);">☰</span>
             <h3 class="panel-title title-blue">Optimierungen</h3>
           </div>
           <div class="panel-body">
@@ -668,42 +435,24 @@
               <div>
                 <button class="acc-btn" type="button" aria-expanded="false" data-acc="a1">
                   Bluteid-Krieg (Blood Oath War)
-                  <span class="chev" aria-hidden="true">˅</span>
+                  <span class="chev">▼</span>
                 </button>
                 <div class="acc-panel" id="a1">
                   <ul>
                     <li>Legionen im Midgard-Meisterschaftskampf von 3 auf 1 reduziert.</li>
                     <li>Garnisonstruppen sammeln denselben Debuff wie zentrale Gebäude.</li>
-                    <li>Ranglisten-Optimierung: Bei gleichen Punkten entscheiden die Gesamttötungspunkte.</li>
                   </ul>
                 </div>
               </div>
-
               <div>
                 <button class="acc-btn" type="button" aria-expanded="false" data-acc="a2">
                   UI &amp; System
-                  <span class="chev" aria-hidden="true">˅</span>
+                  <span class="chev">▼</span>
                 </button>
                 <div class="acc-panel" id="a2">
                   <ul>
-                    <li><strong>Koordinate teilen:</strong> Teile Orte (Gebäude, Monster, etc.) direkt im Chat.</li>
-                    <li><strong>Beschleunigungs-Warteschlange:</strong> Neu organisiert (Training, Forschung, Heilung, Schmiede).</li>
-                    <li><strong>Halle der Tapferkeit:</strong> Interaktionen und Performance verbessert.</li>
-                    <li><strong>Spracheinstellungen:</strong> Unterteilt in System- und Übersetzungs-Sprache.</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div>
-                <button class="acc-btn" type="button" aria-expanded="false" data-acc="a3">
-                  Events &amp; Belohnungen
-                  <span class="chev" aria-hidden="true">˅</span>
-                </button>
-                <div class="acc-panel" id="a3">
-                  <ul>
-                    <li>Rückkehr: Weihnachts-Set 2024 &amp; Kampfflagge [Schneehirsches Schatten].</li>
-                    <li>Eroberungssaison: Mehr Umschmiede-Klingen und angepasster Yggdrasil-Tau.</li>
-                    <li>Kampagnen-Menü: Inaktive Events werden ausgeblendet.</li>
+                    <li>Koordinate teilen: Teile Orte direkt im Chat.</li>
+                    <li>Beschleunigungs-Warteschlange neu organisiert.</li>
                   </ul>
                 </div>
               </div>
@@ -713,17 +462,14 @@
 
         <section class="panel">
           <div class="panel-header">
-            <span class="section-icon" aria-hidden="true" style="border-color: rgba(43, 212, 122, 0.28); color: rgba(43, 212, 122, 0.95);">⚙</span>
+            <span class="section-icon" style="border-color: rgba(43, 212, 122, 0.28); color: rgba(43, 212, 122, 0.95);">⚙</span>
             <h3 class="panel-title title-green">Fehlerbehebungen</h3>
           </div>
           <div class="panel-body">
             <ul class="fix-list">
               <li><span class="dot"></span> Mail-Aktualisierungsprobleme behoben.</li>
               <li><span class="dot"></span> Anzeige des Drill-Grounds (PC) korrigiert.</li>
-              <li><span class="dot"></span> Heldentalente im Drill-Ground nun wirksam.</li>
               <li><span class="dot"></span> Anzeigefehler beim Schmiedefortschritt.</li>
-              <li><span class="dot"></span> Avatar-Fehler beim Sammeln neutraler Truppen.</li>
-              <li><span class="dot"></span> Lag-Probleme im Magischen Kartenabenteuer behoben.</li>
             </ul>
           </div>
         </section>
@@ -732,11 +478,12 @@
   </main>
 
   <footer class="container">
-    Generated with ♥ based on official patch notes.
+    Viking Rise Unofficial Update Notes
   </footer>
 
   <script>
     (function () {
+      // TAB LOGIC (Highlights vs Details vs Alle)
       function setActiveTab(tab) {
         var tabs = document.querySelectorAll(".tab-btn");
         tabs.forEach(function (btn) {
@@ -746,12 +493,29 @@
         });
 
         var scope = tab.getAttribute("data-tab");
-        var blocks = document.querySelectorAll("[data-scope]");
-        blocks.forEach(function (el) {
-          var elScope = el.getAttribute("data-scope");
-          var show = scope === "all" || elScope === scope;
-          el.classList.toggle("is-hidden", !show);
-        });
+        var leftCol = document.querySelector('[data-scope="highlights"]');
+        var rightCol = document.querySelector('[data-scope="details"]');
+
+        // Logic:
+        // Alle -> Beide Spalten sichtbar
+        // Highlights -> Nur Linke Spalte sichtbar
+        // Details -> Nur Rechte Spalte sichtbar
+        
+        if (scope === "all") {
+            leftCol.classList.remove("is-hidden");
+            rightCol.classList.remove("is-hidden");
+            // Grid wieder auf 2 Spalten setzen (sofern Platz ist)
+            document.querySelector(".grid").style.gridTemplateColumns = "2fr 1fr";
+            document.querySelector(".grid").style.display = "grid";
+        } else if (scope === "highlights") {
+            leftCol.classList.remove("is-hidden");
+            rightCol.classList.add("is-hidden");
+            document.querySelector(".grid").style.display = "block"; // Volle Breite
+        } else if (scope === "details") {
+            leftCol.classList.add("is-hidden");
+            rightCol.classList.remove("is-hidden");
+            document.querySelector(".grid").style.display = "block"; // Volle Breite
+        }
       }
 
       document.querySelectorAll(".tab-btn").forEach(function (btn) {
@@ -760,6 +524,7 @@
         });
       });
 
+      // ACCORDION LOGIC
       function toggleAcc(btn) {
         var targetId = btn.getAttribute("data-acc");
         var panel = document.getElementById(targetId);
