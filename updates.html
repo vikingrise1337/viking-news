@@ -4,69 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Viking Rise Update Notes</title>
-    
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8083367890134296"
-     crossorigin="anonymous"></script>
-
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8083367890134296" crossorigin="anonymous"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Roboto:wght@300;400;500&display=swap');
-        
         body { font-family: 'Roboto', sans-serif; background-color: #0b101b; }
         .viking-font { font-family: 'Cinzel', serif; }
-        
-        .glass-panel {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(10px);
-        }
-        
+        .glass-panel { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); }
         .gold-text { color: #d4af37; }
         .gold-border { border-color: #d4af37; }
-        
-        /* Listen-Styles für Details */
         ul.detail-list { list-style: none; padding: 0; margin: 0; }
-        ul.detail-list li {
-            position: relative;
-            padding-left: 24px;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-            color: #cbd5e1;
-            line-height: 1.5;
-        }
-        ul.detail-list li::before {
-            content: "•";
-            position: absolute; left: 8px; color: #64748b; font-weight: bold;
-        }
-        /* Hervorhebung wichtiger Keywords */
-        .highlight { color: #e2e8f0; font-weight: 500; }
-
+        ul.detail-list li { position: relative; padding-left: 24px; margin-bottom: 8px; font-size: 0.9rem; color: #cbd5e1; line-height: 1.5; }
+        ul.detail-list li::before { content: "•"; position: absolute; left: 8px; color: #64748b; font-weight: bold; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0f172a; }
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #d4af37; }
+        .lang-active { color: #d4af37; font-weight: bold; }
+        .lang-inactive { color: #64748b; }
+        .lang-inactive:hover { color: white; }
     </style>
 </head>
-
 <body class="min-h-screen pb-20 text-gray-200">
 
     <nav class="w-full z-50 border-b border-white/10 bg-[#0b101b]">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition">
-                </a>
-
+                <span class="material-symbols-outlined text-gray-400">arrow_back</span>
+                <span class="viking-font text-lg font-bold text-white">Zurück zur <span class="text-[#d4af37]">Startseite</span></span>
+            </a>
             <div class="flex items-center gap-2">
-                <a href="updates.html" class="text-xs font-bold text-[#d4af37]">DE</a>
+                <a href="updates.html" class="text-xs lang-active">DE</a>
                 <span class="text-xs text-white/20">|</span>
-                <a href="updates_en.html" class="text-xs text-gray-500 hover:text-white transition-colors">EN</a>
+                <a href="updates_en.html" class="text-xs lang-inactive transition-colors">EN</a>
             </div>
         </div>
     </nav>
+
     <div class="relative w-full h-80 md:h-96 overflow-hidden border-b-4 border-[#d4af37]">
         <img src="header-bg.jpg" alt="Viking Update Hero" class="absolute inset-0 w-full h-full object-cover opacity-80" style="object-position: center top;">
-        
         <div class="absolute inset-0 bg-gradient-to-t from-[#0b101b] via-transparent to-transparent"></div>
         <div class="absolute bottom-0 left-0 p-6 md:p-12 w-full text-center md:text-left">
             <span class="inline-block px-3 py-1 mb-2 text-xs font-bold tracking-wider text-black bg-[#d4af37] rounded uppercase">Wartungsarbeiten</span>
@@ -76,7 +53,6 @@
     </div>
 
     <div class="container mx-auto px-4 -mt-10 relative z-10">
-        
         <div class="glass-panel rounded-xl p-6 mb-8 border border-gray-700 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl">
             <div class="flex items-center gap-4">
                 <span class="material-symbols-outlined text-4xl gold-text">schedule</span>
@@ -100,9 +76,7 @@
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            
             <div id="major-updates-section" class="lg:col-span-2 space-y-8">
-                
                 <div class="glass-panel rounded-xl overflow-hidden shadow-lg border border-gray-700 group hover:border-[#d4af37] transition-all duration-300 filter-item major">
                     <div class="relative h-64 overflow-hidden">
                         <img src="surtr.jpg" alt="Surtrs Flammen" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
@@ -110,153 +84,55 @@
                         <h3 class="absolute bottom-4 left-4 text-2xl font-bold text-white drop-shadow-lg viking-font">Surtrs Flammen <span class="text-sm bg-red-600/80 px-2 py-0.5 rounded ml-2 align-middle font-sans text-white">KVK Saison</span></h3>
                     </div>
                     <div class="p-6">
-                        <p class="text-gray-300 leading-relaxed">
-                            Die Königreich-Chaos Eroberungssaison <strong>[Surtrs Flammen]</strong> steht kurz bevor! Die Feuer brüllen in Muspelheim und Surtrs Schwert droht, die neun Welten einzuäschern. Wikingerkrieger, ihr müsst kämpfen, um Surtrs Flammen zu löschen!
-                        </p>
+                        <p class="text-gray-300 leading-relaxed">Die Königreich-Chaos Eroberungssaison beginnt! Wikinger, kämpft, um Surtrs Flammen zu löschen!</p>
                     </div>
                 </div>
-
-                <div class="glass-panel rounded-xl overflow-hidden shadow-lg border border-gray-700 group hover:border-[#d4af37] transition-all duration-300 filter-item major">
+                 <div class="glass-panel rounded-xl overflow-hidden shadow-lg border border-gray-700 group hover:border-[#d4af37] transition-all duration-300 filter-item major">
                     <div class="relative h-64 overflow-hidden">
-                        <img src="dragon.jpg" alt="Drachenzähmen Kollaboration" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" style="object-position: top center;">
+                        <img src="dragon.jpg" alt="Drachenzähmen" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" style="object-position: top center;">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0b101b] to-transparent"></div>
                         <h3 class="absolute bottom-4 left-4 text-2xl font-bold text-white drop-shadow-lg viking-font">Drachenzähmen <span class="text-sm bg-blue-600/80 px-2 py-0.5 rounded ml-2 align-middle font-sans text-white">Kollaboration</span></h3>
                     </div>
                     <div class="p-6">
-                        <p class="text-gray-300 leading-relaxed mb-4">
-                            Eine brandneue Zusammenarbeit hat begonnen! In Partnerschaft mit <strong>&lt;Drachenzähmen leicht gemacht&gt;</strong> begeben wir uns gemeinsam auf eine Reise!
-                        </p>
-                        <ul class="space-y-2 text-gray-400 text-sm">
-                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[#d4af37] text-base">flight</span> Erkunde eine neue Fantasiewelt.</li>
-                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[#d4af37] text-base">swords</span> Erlebe neue Abenteuer und Herausforderungen.</li>
-                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[#d4af37] text-base">radio_button_unchecked</span> Erobere die Lüfte und schreibe deine eigene Legende!</li>
-                        </ul>
+                        <p class="text-gray-300 leading-relaxed">Partnering mit &lt;Drachenzähmen leicht gemacht&gt;. Erkundet eine neue Fantasiewelt!</p>
                     </div>
                 </div>
-
-                <div class="glass-panel rounded-xl overflow-hidden shadow-lg border border-gray-700 group hover:border-[#d4af37] transition-all duration-300 filter-item major">
+                 <div class="glass-panel rounded-xl overflow-hidden shadow-lg border border-gray-700 group hover:border-[#d4af37] transition-all duration-300 filter-item major">
                     <div class="relative h-64 overflow-hidden">
-                        <img src="christmas.jpg" alt="Weihnachts Event" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="christmas.jpg" alt="Weihnachten" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0b101b] to-transparent"></div>
                         <h3 class="absolute bottom-4 left-4 text-2xl font-bold text-white drop-shadow-lg viking-font">Weihnachts-Event <span class="text-sm bg-green-600/80 px-2 py-0.5 rounded ml-2 align-middle font-sans text-white">Event</span></h3>
                     </div>
                     <div class="p-6">
-                        <p class="text-gray-300 leading-relaxed">
-                            Wenn die Glocken läuten, beginnt das <strong>Kutschenrennen-Event</strong>. Bildet Teams und legt die Strecke gemeinsam zurück! Der neu gestaltete Weihnachtsskin bringt Farbe in dein Abenteuer.
-                        </p>
+                        <p class="text-gray-300 leading-relaxed">Kutschenrennen und neue Skins warten auf euch!</p>
                     </div>
                 </div>
-
             </div>
 
             <div id="details-section" class="lg:col-span-1 space-y-6">
-                
                 <div class="glass-panel p-5 rounded-xl border border-gray-700 filter-item opt">
                     <h3 class="text-xl font-bold text-[#d4af37] mb-4 flex items-center gap-2 viking-font">
                         <span class="material-symbols-outlined">radio_button_unchecked</span> Neu
                     </h3>
-                    <ul class="detail-list">
-                        <li><span class="highlight">Monatskarte [Lichtschatten-Reise]:</span> Aktiviert sofort den [Stamm Auto-Assistenz] Perk.</li>
-                        <li><span class="highlight">2. Forschungswarteschlange:</span> Freischaltbar durch das [Forschungsauftrag-Paket].</li>
-                        <li><span class="highlight">Schnell-Upgrade (Skills & Talente):</span> Interaktion und Anzeige optimiert.</li>
-                        <li><span class="highlight">Stammesladen - Splittermarkt:</span> Tausch von Helden/Skill-Splittern mit Mitgliedern.</li>
-                        <li><span class="highlight">Tribe Day Treasure Hunt:</span> [2025 Hero Skin Choice Chest I] hinzugefügt.</li>
-                        <li><span class="highlight">Stammestechnik:</span> Massenspende-Funktion (Bulk Donate) hinzugefügt.</li>
-                        <li><span class="highlight">Freunde hinzufügen:</span> Button im [Chief Profile] anderer Spieler.</li>
-                        <li><span class="highlight">Inventar:</span> Mengenanzeige-Bubbles hinzugefügt.</li>
-                        <li><span class="highlight">Chat:</span> Entwürfe werden lokal gespeichert (Save Draft).</li>
-                        <li><span class="highlight">Kampfeinstellungen (Mobile):</span> Option zur Garnisonierung nach Angriff hinzugefügt.</li>
-                    </ul>
+                    <ul class="detail-list" id="list-new"></ul>
                 </div>
 
                 <div class="glass-panel p-5 rounded-xl border border-gray-700 filter-item opt">
                     <h3 class="text-xl font-bold text-blue-400 mb-4 flex items-center gap-2 viking-font">
                         <span class="material-symbols-outlined">tune</span> Optimierungen
                     </h3>
-                    
-                    <ul class="detail-list mb-4">
-                        <li><strong>Weihnachts-Serie 2024:</strong> [Sparkling Holiday Night] Set & [Snowy Deer's Shadow] Flagge kehren zurück!</li>
-                    </ul>
-
-                    <div class="space-y-2">
-                        <details class="group bg-black/20 rounded-lg open:bg-black/40 transition-colors">
-                            <summary class="cursor-pointer p-3 font-bold text-gray-200 flex justify-between items-center select-none text-sm hover:bg-white/5 rounded">
-                                Bluteid-Krieg (Optimiert)
-                                <span class="material-symbols-outlined text-sm transition-transform group-open:rotate-180">expand_more</span>
-                            </summary>
-                            <div class="p-3 pt-0 text-xs text-gray-400 space-y-2 border-t border-gray-700/50 mt-2">
-                                <ul class="detail-list">
-                                    <li>Legionen im Midgard-Meisterschaftskampf von 3 auf 1 reduziert.</li>
-                                    <li>Garnisonstruppen in spezifischen Gebäuden sammeln denselben Debuff wie zentrale Gebäude.</li>
-                                    <li>Ranglisten-Optimierung: Bei gleichen Member Credits entscheiden die höheren Kill Points.</li>
-                                    <li>Anmeldung: Das Menü zeigt nun klar die Legions-Mitglieder-Regeln.</li>
-                                </ul>
-                            </div>
-                        </details>
-                    
-                        <details class="group bg-black/20 rounded-lg open:bg-black/40 transition-colors">
-                            <summary class="cursor-pointer p-3 font-bold text-gray-200 flex justify-between items-center select-none text-sm hover:bg-white/5 rounded">
-                                UI & System Updates
-                                <span class="material-symbols-outlined text-sm transition-transform group-open:rotate-180">expand_more</span>
-                            </summary>
-                            <div class="p-3 pt-0 text-xs text-gray-400 space-y-2 border-t border-gray-700/50 mt-2">
-                                <ul class="detail-list">
-                                    <li><strong>Koordinate teilen:</strong> Für offene Flächen, Gebäude, Städte, Truppen, Monster/Bosse.</li>
-                                    <li><strong>Performance:</strong> Anzeige einiger Seiten verbessert.</li>
-                                    <li><strong>Beschleunigungs-Warteschlange:</strong> Neu organisiert (Training, Forschung, Heilung, Schmiede).</li>
-                                    <li><strong>Marschieren:</strong> Multi-Truppen-Auswahl Logik optimiert.</li>
-                                    <li><strong>Glücksrad/Skill-Rad:</strong> Seitenanzeige optimiert & Hinweistext hinzugefügt.</li>
-                                    <li><strong>Königserlasse:</strong> Interface für Voreinstellungen optimiert.</li>
-                                    <li><strong>Mail:</strong> Sortierung & Bereinigung optimiert. Ablaufzeit verlängert.</li>
-                                    <li><strong>Halle der Tapferkeit:</strong> Interaktionen & Performance verbessert.</li>
-                                    <li><strong>Sprache:</strong> Unterteilt in [Systemsprache] und [Chat-Übersetzungssprache].</li>
-                                    <li><strong>Kampagne:</strong> Menü blendet inaktive Events aus.</li>
-                                    <li><strong>Sammler-Übersicht:</strong> Zeigt nun Boni von Skins mit Freischalt-Attributen korrekt an.</li>
-                                    <li><strong>Chat-Übersetzung:</strong> Hinweistext optimiert.</li>
-                                    <li><strong>Helden-Skin Freischaltung:</strong> Es werden keine 10 entsprechenden Splitter mehr geschenkt.</li>
-                                </ul>
-                            </div>
-                        </details>
-
-                        <details class="group bg-black/20 rounded-lg open:bg-black/40 transition-colors">
-                            <summary class="cursor-pointer p-3 font-bold text-gray-200 flex justify-between items-center select-none text-sm hover:bg-white/5 rounded">
-                                Eroberungssaison Belohnungen
-                                <span class="material-symbols-outlined text-sm transition-transform group-open:rotate-180">expand_more</span>
-                            </summary>
-                            <div class="p-3 pt-0 text-xs text-gray-400 space-y-2 border-t border-gray-700/50 mt-2">
-                                <p class="mb-2">Mehr <strong>Umschmiede-Klingen (Recast Blades)</strong> und angepasste Menge an <strong>Yggdrasil-Tau</strong> in:</p>
-                                <ul class="detail-list">
-                                    <li>Fenrir's Judgment: Besatzungserfolge, persönliches Kriegsverdienst-Ranking.</li>
-                                    <li>Hela's Curse: Besatzungserfolge, persönliches Kriegsverdienst-Ranking.</li>
-                                    <li>Baldr's Redemption: Bataillons-Ranking, Besatzungserfolge, persönliches Kriegsverdienst-Ranking.</li>
-                                    <li>Alfheim's Defense: Bataillons-Ranking, Besatzungserfolge, persönliches Kriegsverdienst-Ranking, Shadow Siege.</li>
-                                </ul>
-                            </div>
-                        </details>
-                    </div>
+                    <ul class="detail-list" id="list-opt"></ul>
                 </div>
 
                 <div class="glass-panel p-5 rounded-xl border border-gray-700 filter-item opt">
                     <h3 class="text-xl font-bold text-green-400 mb-4 flex items-center gap-2 viking-font">
                         <span class="material-symbols-outlined">pest_control</span> Fehlerbehebungen
                     </h3>
-                    <ul class="list-disc list-inside text-xs text-gray-400 space-y-2 leading-relaxed">
-                        <li>Abnormales Refresh-Problem in der [Mail] behoben.</li>
-                        <li>Anzeigefehler beim [Campaign - Drill Ground] Eingang (PC Version) behoben.</li>
-                        <li>Problem behoben, dass Heldentalente im [Drill Ground] nicht wirksam waren.</li>
-                        <li>Anzeigefehler beim Schmiedefortschritt nach Wechsel des Ausrüstungsgrads in [Equipment Forge].</li>
-                        <li>Abnormaler Avatar bei [Rallying] neutraler Truppen behoben.</li>
-                        <li>Anzeigefehler bei mittleren Checkpoints in [Hela's Curse] behoben.</li>
-                        <li>Textanzeigefehler in [Magic Card Blessing] behoben.</li>
-                        <li>Anzeigefehler beim Schadensfortschritt im [Sworn Vengeance] Ranking behoben.</li>
-                        <li>Lag-Problem in [Magic Card Adventure] behoben.</li>
-                        <li>Anzeigefehler nach Suche übermächtiger Königreiche in [Time-Limited Migration] behoben.</li>
-                    </ul>
+                    <ul class="detail-list" id="list-fixes"></ul>
                 </div>
                 
                 <div class="glass-panel p-4 rounded-xl border border-gray-700 flex flex-col items-center mt-6">
                     <span class="text-[10px] uppercase tracking-widest text-gray-500 mb-2 w-full text-left">Anzeige</span>
-                    
                     <ins class="adsbygoogle"
                          style="display:block; width: 100%;"
                          data-ad-client="ca-pub-8083367890134296"
@@ -266,73 +142,69 @@
                     <script>
                          (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
-
                 </div>
-
             </div>
-
         </div>
 
-        <div class="text-center mt-12 mb-4 text-gray-600 text-xs">
-            Unofficial Patch Notes Page
-        </div>
-
+        <div class="text-center mt-12 mb-4 text-gray-600 text-xs">Unofficial Patch Notes Page</div>
     </div>
 
     <script>
-        // Automatische Zeitanpassung
-        const maintenanceUTC = new Date(); 
-        maintenanceUTC.setUTCHours(6, 0, 0, 0); 
-        
+        // Zeit
+        const maintenanceUTC = new Date(); maintenanceUTC.setUTCHours(6, 0, 0, 0); 
         const options = { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' };
         const localTimeStr = maintenanceUTC.toLocaleDateString(navigator.language, options);
         const offset = -maintenanceUTC.getTimezoneOffset() / 60;
         const offsetStr = offset >= 0 ? `+${offset}` : offset;
-        
         document.getElementById('local-time-display').innerHTML = `${localTimeStr} <span class="text-sm font-normal text-gray-500">(UTC${offsetStr})</span>`;
 
-        // Filter Funktion
+        // Daten laden (DEUTSCH)
+        async function loadPatchNotes() {
+            try {
+                const response = await fetch('patchnotes.json');
+                const fullData = await response.json();
+                const data = fullData.de; // WICHTIG: Deutsche Daten nutzen
+
+                const fillList = (id, items) => {
+                    const container = document.getElementById(id);
+                    if(!container || !items) return;
+                    let html = '';
+                    items.forEach(item => { html += `<li>${item}</li>`; });
+                    container.innerHTML = html;
+                };
+
+                fillList('list-new', data.new_features);
+                fillList('list-opt', data.optimizations);
+                fillList('list-fixes', data.fixes);
+            } catch (error) { console.error("Fehler beim Laden:", error); }
+        }
+        loadPatchNotes();
+
+        // Filter
         function filterContent(type) {
             const btns = ['all', 'major', 'opt'];
             const leftCol = document.getElementById('major-updates-section');
             const rightCol = document.getElementById('details-section');
             const mainGrid = document.querySelector('.grid');
-
-            // Buttons aktualisieren
             btns.forEach(btn => {
                 const el = document.getElementById(`btn-${btn}`);
-                if(btn === type) {
-                    el.classList.remove('text-gray-400', 'hover:text-white', 'hover:bg-white/10');
-                    el.classList.add('bg-[#d4af37]', 'text-black');
-                } else {
-                    el.classList.add('text-gray-400', 'hover:text-white', 'hover:bg-white/10');
-                    el.classList.remove('bg-[#d4af37]', 'text-black');
-                }
+                if(btn === type) { el.classList.remove('text-gray-400', 'hover:text-white', 'hover:bg-white/10'); el.classList.add('bg-[#d4af37]', 'text-black'); } 
+                else { el.classList.add('text-gray-400', 'hover:text-white', 'hover:bg-white/10'); el.classList.remove('bg-[#d4af37]', 'text-black'); }
             });
-
-            // Grid Logic
             if (type === 'all') {
-                leftCol.style.display = 'block';
-                rightCol.style.display = 'block';
-                mainGrid.classList.add('lg:grid-cols-3');
-                mainGrid.classList.remove('grid-cols-1');
-                leftCol.className = 'lg:col-span-2 space-y-8';
-                rightCol.className = 'lg:col-span-1 space-y-6';
+                leftCol.style.display = 'block'; rightCol.style.display = 'block';
+                mainGrid.classList.add('lg:grid-cols-3'); mainGrid.classList.remove('grid-cols-1');
+                leftCol.className = 'lg:col-span-2 space-y-8'; rightCol.className = 'lg:col-span-1 space-y-6';
             } else if (type === 'major') {
-                leftCol.style.display = 'block';
-                rightCol.style.display = 'none';
-                mainGrid.classList.remove('lg:grid-cols-3');
-                mainGrid.classList.add('grid-cols-1');
+                leftCol.style.display = 'block'; rightCol.style.display = 'none';
+                mainGrid.classList.remove('lg:grid-cols-3'); mainGrid.classList.add('grid-cols-1');
                 leftCol.className = 'space-y-8 mx-auto max-w-3xl';
             } else if (type === 'opt') {
-                leftCol.style.display = 'none';
-                rightCol.style.display = 'block';
-                mainGrid.classList.remove('lg:grid-cols-3');
-                mainGrid.classList.add('grid-cols-1');
+                leftCol.style.display = 'none'; rightCol.style.display = 'block';
+                mainGrid.classList.remove('lg:grid-cols-3'); mainGrid.classList.add('grid-cols-1');
                 rightCol.className = 'space-y-6 mx-auto max-w-2xl';
             }
         }
     </script>
-
 </body>
 </html>
