@@ -1,5 +1,35 @@
 [
   {
+    "id": "1451279488850858035",
+    "meta": {
+      "created_at": "2025-12-18T18:26:33.611000+00:00",
+      "start_timestamp": "2024-12-24T06:00:00+00:00",
+      "display_time": "24.12., 06:00 UTC",
+      "title_en": "Update 24.12.",
+      "title_de": "Update vom 24.12."
+    },
+    "en": {
+      "major": [
+        "Christmas test"
+      ],
+      "new_features": [
+        "have a lot of fun with your Family"
+      ],
+      "optimizations": [],
+      "fixes": []
+    },
+    "de": {
+      "major": [
+        "Weihnachtstest"
+      ],
+      "new_features": [
+        "Viel Spaß mit deiner Familie"
+      ],
+      "optimizations": [],
+      "fixes": []
+    }
+  },
+  {
     "id": "update_17_12_2025",
     "meta": {
       "created_at": "2025-12-15T04:08:00Z",
