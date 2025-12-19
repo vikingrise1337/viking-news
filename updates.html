@@ -19,16 +19,25 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8083367890134296" crossorigin="anonymous"></script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Roboto:wght@300;400;500&family=Ruslan+Display&display=swap');
+        /* Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Roboto:wght@300;400;500&display=swap');
         
+        /* EIGENE SCHRIFTART LADEN */
+        @font-face {
+            font-family: 'CinzelRus';
+            src: url('CinzelRus.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body { font-family: 'Roboto', sans-serif; background-color: #0b101b; }
         
-        /* Standard Wikinger Font */
+        /* Standard */
         .viking-font { font-family: 'Cinzel', serif; }
 
-        /* FIX: Wenn Sprache Russisch ist (lang="ru"), nutze Ruslan Display */
+        /* Wenn Russisch: Nutze CinzelRus */
         :lang(ru) .viking-font {
-            font-family: 'Ruslan Display', cursive;
+            font-family: 'CinzelRus', 'Times New Roman', serif;
             letter-spacing: 0.05em;
         }
 
@@ -168,7 +177,6 @@
     </div>
 
     <script>
-        // --- 1. Übersetzungen ---
         const uiTranslations = {
             en: {
                 back: "Back to", home: "Home", badge: "Update Archive", title: "Patch Notes",
@@ -200,7 +208,6 @@
             }
         };
 
-        // --- 2. Sprache ermitteln ---
         const urlParams = new URLSearchParams(window.location.search);
         let currentLang = urlParams.get('lang');
         const validLangs = ['en', 'de', 'cn', 'ru'];
@@ -213,40 +220,29 @@
             else currentLang = 'en';
         }
 
-        // --- 3. Globale Variablen ---
         let allPatchData = [];
         
-        // --- 4. Live Uhr starten (OBEN RECHTS) ---
+        // Live Clock (OBEN RECHTS)
         function startLiveClock() {
             const clockEl = document.getElementById('nav-clock');
             if(!clockEl) return;
-            
             function tick() {
                 const now = new Date();
-                // Zeigt Zeit im Format HH:MM:SS passend zur Sprache
                 clockEl.innerText = now.toLocaleTimeString(currentLang === 'cn' ? 'zh-CN' : currentLang, {
-                    hour: '2-digit', 
-                    minute: '2-digit', 
-                    second: '2-digit'
+                    hour: '2-digit', minute: '2-digit', second: '2-digit'
                 });
             }
-            
-            tick(); 
-            setInterval(tick, 1000); 
+            tick(); setInterval(tick, 1000); 
         }
 
-        // --- 5. UI Aktualisieren ---
         function updateUI() {
             const t = uiTranslations[currentLang];
-            
-            // Text setzen
             document.getElementById('txt-back').innerText = t.back;
             document.getElementById('txt-home').innerText = t.home;
             document.getElementById('txt-badge').innerText = t.badge;
             document.getElementById('txt-title').innerText = t.title;
             document.getElementById('txt-utc').innerText = t.utc;
             document.getElementById('txt-local').innerText = t.local;
-            
             document.getElementById('btn-all').innerText = t.all;
             document.getElementById('btn-major').innerText = t.major;
             document.getElementById('btn-opt').innerText = t.opt;
@@ -254,26 +250,21 @@
             document.getElementById('txt-cat-opt').innerText = t.cat_opt;
             document.getElementById('txt-cat-fix').innerText = t.cat_fix;
 
-            // WICHTIG: Setzt das lang Attribut (aktiviert CSS :lang(ru))
             document.documentElement.lang = currentLang;
 
-            // Buttons aktiv setzen
             validLangs.forEach(l => {
                 const btn = document.getElementById(`lang-${l}`);
                 btn.className = l === currentLang ? "lang-btn lang-active" : "lang-btn lang-inactive";
             });
             
-            // Back Link Logic
             const homeLink = document.getElementById('nav-home-link');
             homeLink.href = `index.html?lang=${currentLang}`;    
         }
 
-        // --- 6. Daten Laden & Rendern ---
         async function init() {
-            startLiveClock(); // Uhr starten
+            startLiveClock(); 
             updateUI(); 
             try {
-                // Cache Buster: ?v=timestamp damit immer die neueste Datei lädt
                 const response = await fetch('patchnotes.json?v=' + new Date().getTime());
                 allPatchData = await response.json();
                 
@@ -302,7 +293,6 @@
 
             const meta = update.meta;
 
-            // Listen füllen
             const fillList = (id, items) => {
                 const el = document.getElementById(id);
                 if(el) el.innerHTML = (items && Array.isArray(items)) ? items.map(i => `<li>${i}</li>`).join('') : '';
@@ -310,15 +300,10 @@
             fillList('list-new', data.new_features);
             fillList('list-fixes', data.fixes);
 
-            // Highlights (Major) + BILDER
             const majorContainer = document.getElementById('major-updates-section');
             if (majorContainer) {
                 majorContainer.innerHTML = '';
-                
-                // Fallback Bilder, wenn kein KI-Bild da ist
                 const fallbackImages = ["surtr.jpg", "dragon.jpg", "christmas.jpg"];
-                
-                // Prüfen ob KI-Bild im JSON steht
                 let heroImage = null;
                 if (update.meta.image_url && update.meta.image_url !== "") {
                     heroImage = update.meta.image_url;
@@ -351,7 +336,6 @@
                 }
             }
 
-            // Dropdowns (Optimierungen)
             const optContainer = document.getElementById('opt-container');
             if (optContainer) {
                 optContainer.innerHTML = '';
@@ -360,7 +344,6 @@
                         if (opt.title && opt.items) {
                             const details = document.createElement('details');
                             const summary = document.createElement('summary');
-                            // Klasse notranslate zum Pfeil hinzufügen!
                             summary.innerHTML = `${opt.title} <span class="material-symbols-outlined notranslate text-sm transition-transform group-open:rotate-180">expand_more</span>`;
                             const contentDiv = document.createElement('div');
                             contentDiv.className = "dropdown-content";
@@ -380,7 +363,6 @@
                 }
             }
 
-            // Zeit-Anzeige
             document.getElementById('utc-time-display').innerText = meta.display_time || "--";
             if (meta.start_timestamp) {
                 try {
