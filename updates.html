@@ -233,8 +233,7 @@
             
             // Home Link anpassen (damit man in der Sprache bleibt)
             const homeLink = document.getElementById('nav-home-link');
-            if (currentLang === 'de') homeLink.href = "index.html";
-            else homeLink.href = "index_en.html"; // Oder mach index.html auch dynamisch!
+            homeLink.href = `index.html?lang=${currentLang}`;    
         }
 
         // --- 5. Daten Laden & Rendern ---
