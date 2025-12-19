@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    
     <title>Viking Rise Update Notes</title>
     
     <meta name="theme-color" content="#d4af37">
@@ -12,14 +14,24 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/png" href="favicon.png">
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8083367890134296" crossorigin="anonymous"></script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Roboto:wght@300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Roboto:wght@300;400;500&family=Ruslan+Display&display=swap');
         
         body { font-family: 'Roboto', sans-serif; background-color: #0b101b; }
+        
+        /* Standard Wikinger Font */
         .viking-font { font-family: 'Cinzel', serif; }
+
+        /* FIX: Wenn Sprache Russisch ist (lang="ru"), nutze Ruslan Display */
+        :lang(ru) .viking-font {
+            font-family: 'Ruslan Display', cursive;
+            letter-spacing: 0.05em;
+        }
+
         .glass-panel { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); }
         .gold-text { color: #d4af37; }
         
@@ -54,7 +66,7 @@
     <nav class="w-full z-50 border-b border-white/10 bg-[#0b101b]">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="index.html" id="nav-home-link" class="flex items-center gap-2 hover:opacity-80 transition">
-                <span class="material-symbols-outlined text-gray-400">arrow_back</span>
+                <span class="material-symbols-outlined text-gray-400 notranslate">arrow_back</span>
                 <span class="viking-font text-lg font-bold text-white"><span id="txt-back">Back to</span> <span class="text-[#d4af37]" id="txt-home">Home</span></span>
             </a>
             <div class="flex items-center gap-3">
@@ -91,7 +103,7 @@
     <div class="container mx-auto px-4 -mt-10 relative z-10">
         <div class="glass-panel rounded-xl p-6 mb-8 border border-gray-700 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl">
             <div class="flex items-center gap-4">
-                <span class="material-symbols-outlined text-4xl gold-text">schedule</span>
+                <span class="material-symbols-outlined text-4xl gold-text notranslate">schedule</span>
                 <div>
                     <h2 id="txt-utc" class="text-lg font-bold text-white">Maintenance (UTC)</h2>
                     <p id="utc-time-display" class="text-sm text-gray-400">--</p>
@@ -117,21 +129,21 @@
             <div id="details-section" class="lg:col-span-1 space-y-6">
                 <div class="glass-panel p-5 rounded-xl border border-gray-700 filter-item opt">
                     <h3 class="text-xl font-bold text-[#d4af37] mb-4 flex items-center gap-2 viking-font">
-                        <span class="material-symbols-outlined">radio_button_unchecked</span> <span id="txt-cat-new">New</span>
+                        <span class="material-symbols-outlined notranslate">radio_button_unchecked</span> <span id="txt-cat-new">New</span>
                     </h3>
                     <ul class="detail-list" id="list-new"></ul>
                 </div>
 
                 <div class="glass-panel p-5 rounded-xl border border-gray-700 filter-item opt">
                     <h3 class="text-xl font-bold text-blue-400 mb-4 flex items-center gap-2 viking-font">
-                        <span class="material-symbols-outlined">tune</span> <span id="txt-cat-opt">Optimizations</span>
+                        <span class="material-symbols-outlined notranslate">tune</span> <span id="txt-cat-opt">Optimizations</span>
                     </h3>
                     <div id="opt-container" class="space-y-2"></div>
                 </div>
 
                 <div class="glass-panel p-5 rounded-xl border border-gray-700 filter-item opt">
                     <h3 class="text-xl font-bold text-green-400 mb-4 flex items-center gap-2 viking-font">
-                        <span class="material-symbols-outlined">pest_control</span> <span id="txt-cat-fix">Fixes</span>
+                        <span class="material-symbols-outlined notranslate">pest_control</span> <span id="txt-cat-fix">Fixes</span>
                     </h3>
                     <ul class="detail-list" id="list-fixes"></ul>
                 </div>
@@ -199,6 +211,8 @@
         // --- 4. UI Aktualisieren ---
         function updateUI() {
             const t = uiTranslations[currentLang];
+            
+            // Text setzen
             document.getElementById('txt-back').innerText = t.back;
             document.getElementById('txt-home').innerText = t.home;
             document.getElementById('txt-badge').innerText = t.badge;
@@ -211,14 +225,17 @@
             document.getElementById('txt-cat-new').innerText = t.cat_new;
             document.getElementById('txt-cat-opt').innerText = t.cat_opt;
             document.getElementById('txt-cat-fix').innerText = t.cat_fix;
+
+            // WICHTIG: Setzt das lang Attribut (aktiviert CSS :lang(ru))
             document.documentElement.lang = currentLang;
 
+            // Buttons aktiv setzen
             validLangs.forEach(l => {
                 const btn = document.getElementById(`lang-${l}`);
                 btn.className = l === currentLang ? "lang-btn lang-active" : "lang-btn lang-inactive";
             });
             
-            // Fix: Back Link auf Index MIT Sprache
+            // Back Link Logic
             const homeLink = document.getElementById('nav-home-link');
             homeLink.href = `index.html?lang=${currentLang}`;    
         }
@@ -227,7 +244,7 @@
         async function init() {
             updateUI(); 
             try {
-                // Fix: Cache Busting (?v=timestamp)
+                // Cache Buster: ?v=timestamp damit immer die neueste Datei lädt
                 const response = await fetch('patchnotes.json?v=' + new Date().getTime());
                 allPatchData = await response.json();
                 
@@ -251,7 +268,6 @@
             const update = allPatchData[index];
             if(!update) return;
 
-            // Fallback auf Englisch, falls Sprache im JSON fehlt
             const data = update[currentLang] || update['en']; 
             if (!data) return;
 
@@ -281,8 +297,6 @@
 
                 if (data.major && Array.isArray(data.major)) {
                     data.major.forEach((text, i) => {
-                        // Wenn es das erste Highlight ist UND wir ein KI-Bild haben -> KI Bild nehmen
-                        // Sonst -> Fallback Bild rotieren
                         let imgUrl;
                         if (i === 0 && heroImage) {
                             imgUrl = heroImage;
@@ -317,7 +331,8 @@
                         if (opt.title && opt.items) {
                             const details = document.createElement('details');
                             const summary = document.createElement('summary');
-                            summary.innerHTML = `${opt.title} <span class="material-symbols-outlined text-sm transition-transform group-open:rotate-180">expand_more</span>`;
+                            // Klasse notranslate zum Pfeil hinzufügen!
+                            summary.innerHTML = `${opt.title} <span class="material-symbols-outlined notranslate text-sm transition-transform group-open:rotate-180">expand_more</span>`;
                             const contentDiv = document.createElement('div');
                             contentDiv.className = "dropdown-content";
                             const ul = document.createElement('ul');
