@@ -19,10 +19,10 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8083367890134296" crossorigin="anonymous"></script>
 
     <style>
-        /* Google Fonts: Cinzel (Standard) & Roboto (Text) */
+        /* Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Roboto:wght@300;400;500&display=swap');
         
-        /* EIGENE SCHRIFTART LADEN (CinzelRus.ttf muss auf GitHub liegen!) */
+        /* EIGENE SCHRIFTART LADEN (für Russisch) */
         @font-face {
             font-family: 'CinzelRus';
             src: url('CinzelRus.ttf') format('truetype');
@@ -35,7 +35,7 @@
         /* Standard: Nutze Google Cinzel */
         .viking-font { font-family: 'Cinzel', serif; }
 
-        /* WENN RUSSISCH: Nutze zuerst die lokale 'CinzelRus', dann Standard-Serif */
+        /* WENN RUSSISCH: Nutze zuerst die lokale 'CinzelRus' */
         :lang(ru) .viking-font {
             font-family: 'CinzelRus', 'Times New Roman', serif;
             letter-spacing: 0.05em;
@@ -63,10 +63,6 @@
     <nav class="absolute top-0 w-full z-50 py-6">
         <div class="container mx-auto px-6 flex justify-end">
             <div class="flex items-center bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
-                <div class="hidden sm:flex items-center mr-4 pr-4 border-r border-white/20">
-                    <span id="nav-clock" class="text-sm font-mono text-[#d4af37] font-bold">--:--:--</span>
-                </div>
-
                 <div class="flex items-center gap-3">
                     <a href="?lang=en" class="lang-btn" id="lang-en">EN</a>
                     <span class="text-white/20">|</span>
@@ -197,19 +193,6 @@
             else currentLang = 'en';
         }
 
-        // Live Clock
-        function startLiveClock() {
-            const clockEl = document.getElementById('nav-clock');
-            if(!clockEl) return;
-            function tick() {
-                const now = new Date();
-                clockEl.innerText = now.toLocaleTimeString(currentLang === 'cn' ? 'zh-CN' : currentLang, {
-                    hour: '2-digit', minute: '2-digit', second: '2-digit'
-                });
-            }
-            tick(); setInterval(tick, 1000); 
-        }
-
         function updateContent() {
             const t = translations[currentLang];
             document.getElementById('txt-subtitle').innerText = t.subtitle;
@@ -231,7 +214,6 @@
             });
         }
 
-        startLiveClock();
         updateContent();
     </script>
 </body>
