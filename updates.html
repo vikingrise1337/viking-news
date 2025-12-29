@@ -45,7 +45,7 @@
     </nav>
 
     <div class="relative w-full h-80 md:h-96 overflow-hidden border-b-4 border-[#d4af37] mb-12">
-        <img src="header-bg.jpg" id="hero-img" class="absolute inset-0 w-full h-full object-cover opacity-80">
+        <img src="header-bg.jpg" id="hero-img" class="absolute inset-0 w-full h-full object-cover opacity-80 transition-opacity duration-500">
         <div class="absolute inset-0 bg-gradient-to-t from-[#0b101b] to-transparent"></div>
         <div class="absolute bottom-0 left-0 p-6 md:p-12 w-full">
             <span id="txt-badge" class="inline-block px-3 py-1 mb-2 text-xs font-bold text-black bg-[#d4af37] rounded uppercase">Latest Info</span>
@@ -110,9 +110,7 @@
             document.getElementById('txt-cat-new').innerText = t.cat_new;
             document.getElementById('txt-cat-opt').innerText = t.cat_opt;
             document.getElementById('txt-cat-fix').innerText = t.cat_fix;
-            
             document.getElementById('nav-home-link').href = `index.html?lang=${currentLang}`;
-            
             document.documentElement.lang = currentLang;
             ['en','de','cn','ru'].forEach(l => { document.getElementById(`lang-${l}`).className = l === currentLang ? "lang-btn lang-active" : "lang-btn lang-inactive"; });
         }
@@ -124,7 +122,7 @@
                 const res = await fetch('patchnotes.json?v=' + Date.now());
                 const rawData = await res.json();
                 
-                // FILTER: Nur echte Updates laden (keine News, falls alte Daten existieren)
+                // FILTER: Nur echte Updates laden
                 allPatchData = rawData.filter(entry => entry.type !== 'news' && entry.meta);
                 
                 const sel = document.getElementById('version-select');
@@ -143,13 +141,10 @@
                     opt.text = entry.meta[`title_${currentLang}`] || entry.meta.title_en;
                     sel.appendChild(opt);
                 });
-                
-                // Ersten Eintrag laden
                 loadUpdate(0);
             } catch(e) { console.error("Error loading json:", e); }
         }
 
-        // DIESE FUNKTION FEHLTE VORHER:
         function changeVersion(index) {
             loadUpdate(index);
         }
@@ -160,26 +155,31 @@
 
             const data = entry[currentLang] || entry['en'];
             const meta = entry.meta;
-            // Robustere Datenabfrage:
             const pData = data.data || data || {}; 
 
-            if(meta.image_url) document.getElementById('hero-img').src = meta.image_url;
+            // --- BILD LOGIK (Wiederhergestellt) ---
+            const heroImg = document.getElementById('hero-img');
+            // Wenn Bild vorhanden -> Zeigen. Wenn nicht -> Standardbild.
+            if(meta.image_url) {
+                heroImg.src = meta.image_url;
+            } else {
+                heroImg.src = 'header-bg.jpg';
+            }
+
             document.getElementById('entry-date-display').innerText = meta.display_time || "Unknown Date";
-            
             if(meta.start_timestamp) {
                 document.getElementById('local-time-display').innerText = new Date(meta.start_timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
             } else {
                 document.getElementById('local-time-display').innerText = "--:--";
             }
             
-            // Major Highlights
+            // Content filling
             const majorSec = document.getElementById('major-updates-section');
             majorSec.innerHTML = '';
             if(pData.major && Array.isArray(pData.major)) {
                 pData.major.forEach((m, i) => { majorSec.innerHTML += `<div class="glass-panel rounded-xl p-6 border border-gray-700"><h3 class="text-xl font-bold text-white mb-2 viking-font">Highlight #${i+1}</h3><p class="text-gray-300">${m}</p></div>`; });
             }
 
-            // Listen füllen (mit Sicherheitscheck)
             const fill = (id, list) => { 
                 const el = document.getElementById(id);
                 if(list && Array.isArray(list) && list.length > 0) {
@@ -188,11 +188,9 @@
                     el.innerHTML = '<li class="italic text-gray-600">None</li>';
                 }
             }
-            
             fill('list-new', pData.new_features);
             fill('list-fixes', pData.fixes);
             
-            // Optimierungen
             const optCont = document.getElementById('opt-container');
             optCont.innerHTML = '';
             if(pData.optimizations && Array.isArray(pData.optimizations)) {
@@ -211,7 +209,6 @@
              else if(type==='major') { left.classList.remove('hidden'); right.classList.add('hidden'); }
              else if(type==='opt') { left.classList.add('hidden'); right.classList.remove('hidden'); }
         }
-        
         init();
     </script>
 </body>
