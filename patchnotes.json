@@ -1,5 +1,314 @@
 [
   {
+    "id": "1455186438068109510",
+    "meta": {
+      "created_at": "2025-12-29T13:11:22.892000+00:00",
+      "start_timestamp": "2023-11-19T06:00:00+00:00",
+      "display_time": "19. Nov 2023",
+      "title_en": "Update 19. Nov 2023",
+      "title_de": "Update vom 19. Nov 2023",
+      "title_cn": "更新 19. Nov 2023",
+      "title_ru": "Обновление 19. Nov 2023",
+      "image_url": ""
+    },
+    "en": {
+      "data": {
+        "major": [
+          "Added the \"Drill Ground\" feature.",
+          "Added SX heroes Sea's Embrace · Gloa and Crimson Arrow · Dalen.",
+          "Added SX skills \"Raven of Death\", \"Rainbow Bridge Miracle\", and \"Fafnir's Riddle\"."
+        ],
+        "new_features": [
+          "Added the \"Drill Ground\" feature. You can now customize hero combinations for duels and test your optimal hero lineup.",
+          "Added SX heroes Sea's Embrace · Gloa and Crimson Arrow · Dalen. They will be available when the Kingdom reaches 813 days (Dalen) and 809 days (Gloa) respectively.",
+          "Added SX skills \"Raven of Death\", \"Rainbow Bridge Miracle\", and \"Fafnir's Riddle\", which will be available when the Kingdom reaches 803 days.",
+          "The \"2024 Thanksgiving\" event limited-time skin series returns.",
+          "The \"Tribe Day Treasure Hunt\" choice chest has been replaced with the 2025 January~June skin choice chest.",
+          "The Event Hub now has a \"Completed Events\" tab, automatically including events with all rewards claimed.",
+          "Added \"Hero promotion\" feature, Hero Ivor can now be promoted to Legendary Hero."
+        ],
+        "optimizations": [
+          {
+            "title": "Core Gameplay & Interface",
+            "items": [
+              "Kingdom Might now calculates in real-time.",
+              "Lowered the Battalion occupy achievement requirements for \"Alfheim's Defense\", reducing the number of Lv5 and Lv6 Lairs to be occupied simultaneously.",
+              "Increased the weekly purchase limit for Blue Chalcedony and Recast Blade in the Prosperity Shop.",
+              "Increased the weekly purchase limit for the Honing Fruit, Yggdrasil Dew, and Blue Chalcedony in the Prestige Shop. (valid during Conquest Season)",
+              "Increased the weekly purchase limit for Blue Chalcedony, Yggdrasil Dew, and Honing Fruit in the clan shop (effective next refresh).",
+              "Optimized the \"Trial of Courage\" Personal Conquest interface, adding tier and quantity recommendations",
+              "Optimized the \"Sworn Vengeance\" interaction. When Tribe progress reaches the maximum, a secondary confirmation pop-up appears for repeated submissions",
+              "Optimized the \"Hero Reclamation\" gameplay, supporting quick summon and claiming of current map rewards",
+              "Optimized \"Blood Oath War\" & \"Battle of the Ruins\" gameplay",
+              "Optimized \"Battle\" related functions",
+              "Optimized \"Tribe\" feature",
+              "Optimized player inner city operations",
+              "Optimized \"Side Quest\" interaction, supporting quick reward claiming",
+              "Optimized \"Daily Quest\" content. Added a new daily quest type: simply purchase a pack to earn 100 Activity Points and claim all daily rewards",
+              "Optimized the display when \"Enemy Extermination\" Stage goals are achieved.",
+              "Optimized \"mail\" function",
+              "Optimized Arena matching rules, dispatched Troop max quantity now matches defender's league",
+              "Optimized \"forge materials\" interface, the list of equipment available for forging can now be viewed",
+              "Optimized \"Personal Might Ranking\" display, Tribe full name display removed",
+              "Optimized \"Hero\" core ability display",
+              "Optimized \"Hero Talent\" interface",
+              "Optimized \"King's Decree\" tips, now triggers only the first time you become King",
+              "Optimized \"City management\" interaction, interface now includes a 4-hour Shield item",
+              "Optimized \"Brutal Fighter · Cecia\" voice lines"
+            ]
+          }
+        ],
+        "fixes": [
+          "Fixed an error in the march status on the Air Dock minimap",
+          "Fixed abnormal animation in the item acquisition interface",
+          "Fixed abnormal pop-up data when viewing Rainbow Bridge in other season maps",
+          "Fixed incorrect description for occupying Lv 6 buildings during the \"Alfheim's Defense\" Chronicles - Invincible stage",
+          "Fixed abnormal text layout in pop-ups when viewing gathering points in other season maps",
+          "Fixed abnormal display in some season status bars",
+          "Fixed abnormal display of Tribe building construction in some season maps",
+          "Fixed abnormal display of Beast Lair quantity in \"Tribe Territory\"",
+          "Fixed abnormal display in the \"Escort Caravan\" interface",
+          "Fixed an issue where vacant Tribe positions in other Kingdoms showed local Tribe players",
+          "Fixed some display issues in \"Blood Oath War\"",
+          "Fixed abnormal red dot display when switching stages in \"Blood Oath War\" under certain circumstances",
+          "Fixed abnormal display of scout queue in \"Troop Overview\"",
+          "Fixed abnormal display of the locate button when player ranking is not within the ranking quota",
+          "Fixed abnormal display when purchasing items in the Divine Jewel Shop",
+          "Fixed abnormal Might sorting after Tribe member resigns as Jarl",
+          "Fixed abnormal bookmark placement in \"Battle of the Ruins\"",
+          "Fixed abnormal display in the \"Scout Report\"",
+          "Fixed abnormal display when quickly exchanging items in \"Serpent Spirit Potion\"",
+          "Fixed abnormal prompt when converting materials in \"Dragon's Lair\" with insufficient materials",
+          "Fixed abnormal display of local terrain in the Expedition to England map",
+          "Fixed abnormal chat channel issue after switching system language",
+          "Fixed abnormal display of Tribe Leader names in the Tribe Might Ranking"
+        ]
+      }
+    },
+    "de": {
+      "data": {
+        "major": [
+          "Das \"Drill Ground\" Feature wurde hinzugefügt.",
+          "SX-Helden Sea's Embrace · Gloa und Crimson Arrow · Dalen wurden hinzugefügt.",
+          "SX-Fähigkeiten \"Raven of Death\", \"Rainbow Bridge Miracle\" und \"Fafnir's Riddle\" wurden hinzugefügt."
+        ],
+        "new_features": [
+          "Das \"Drill Ground\" Feature wurde hinzugefügt. Sie können jetzt Heldenkombinationen für Duelle anpassen und Ihre optimale Heldenaufstellung testen.",
+          "SX-Helden Sea's Embrace · Gloa und Crimson Arrow · Dalen wurden hinzugefügt. Sie werden verfügbar sein, wenn das Königreich 813 Tage (Dalen) bzw. 809 Tage (Gloa) erreicht.",
+          "SX-Fähigkeiten \"Raven of Death\", \"Rainbow Bridge Miracle\" und \"Fafnir's Riddle\" wurden hinzugefügt, die verfügbar sein werden, wenn das Königreich 803 Tage erreicht.",
+          "Die \"2024 Thanksgiving\" Event-Skin-Serie kehrt zurück.",
+          "Die \"Tribe Day Treasure Hunt\"-Auswahlkiste wurde durch die Skin-Auswahlkiste für Januar-Juni 2025 ersetzt.",
+          "Der Event Hub hat jetzt einen Reiter \"Abgeschlossene Events\", der automatisch Events mit allen beanspruchten Belohnungen auflistet.",
+          "Das Feature \"Heldenbeförderung\" wurde hinzugefügt. Held Ivor kann jetzt zum Legendären Helden befördert werden."
+        ],
+        "optimizations": [
+          {
+            "title": "Kern-Gameplay & Benutzeroberfläche",
+            "items": [
+              "Königs-Macht wird jetzt in Echtzeit berechnet.",
+              "Die Anforderungen für das Besetzen von Bataillonen für \"Alfheim's Defense\" wurden gesenkt, wodurch die Anzahl der gleichzeitig zu besetzenden Lairs der Stufe 5 und 6 reduziert wird.",
+              "Das wöchentliche Kauf-Limit für Blaues Chalzedon und Umformungsklinge im Wohlstands-Shop wurde erhöht.",
+              "Das wöchentliche Kauf-Limit für Honing Fruit, Yggdrasil Dew und Blaues Chalzedon im Prestige-Shop wurde erhöht. (gültig während der Eroberungs-Saison)",
+              "Das wöchentliche Kauf-Limit für Blaues Chalzedon, Yggdrasil Dew und Honing Fruit im Clan-Shop wurde erhöht (wirksam beim nächsten Aktualisieren).",
+              "Die Benutzeroberfläche des \"Trial of Courage\" Personal Conquest wurde optimiert und mit Empfehlungen für Stufen und Mengen ergänzt.",
+              "Die Interaktion mit \"Sworn Vengeance\" wurde optimiert. Wenn der Stamm-Fortschritt das Maximum erreicht, erscheint ein sekundäres Bestätigungsfenster für wiederholte Einreichungen.",
+              "Das Gameplay von \"Hero Reclamation\" wurde optimiert und unterstützt das schnelle Beschwören und Beanspruchen aktueller Kartenbelohnungen.",
+              "Das Gameplay von \"Blood Oath War\" & \"Battle of the Ruins\" wurde optimiert.",
+              "Mit \"Battle\" verwandte Funktionen wurden optimiert.",
+              "Das \"Tribe\"-Feature wurde optimiert.",
+              "Die Operationen der Spieler im inneren Stadtbereich wurden optimiert.",
+              "Die Interaktion mit \"Side Quest\" wurde optimiert und unterstützt das schnelle Beanspruchen von Belohnungen.",
+              "Der Inhalt von \"Daily Quest\" wurde optimiert. Ein neuer Typ von täglichen Quests wurde hinzugefügt: Kaufen Sie einfach ein Paket, um 100 Aktivitätspunkte zu erhalten und alle täglichen Belohnungen einzusammeln.",
+              "Die Anzeige beim Erreichen von Zielen in \"Enemy Extermination\"-Stufen wurde optimiert.",
+              "Die \"mail\"-Funktion wurde optimiert.",
+              "Die Arena-Matching-Regeln wurden optimiert, die maximale Truppenmenge entspricht jetzt der Liga des Verteidigers.",
+              "Die Benutzeroberfläche für \"forge materials\" wurde optimiert, die Liste der zum Schmieden verfügbaren Ausrüstungen kann jetzt eingesehen werden.",
+              "Die Anzeige der \"Personal Might Ranking\" wurde optimiert, die Anzeige des vollständigen Stammesnamens wurde entfernt.",
+              "Die Anzeige der Kernfähigkeiten von \"Hero\" wurde optimiert.",
+              "Die Benutzeroberfläche von \"Hero Talent\" wurde optimiert.",
+              "Die Tipps für \"King's Decree\" wurden optimiert und werden jetzt nur beim ersten Mal ausgelöst, wenn Sie König werden.",
+              "Die Interaktion mit \"City management\" wurde optimiert, die Benutzeroberfläche enthält jetzt einen 4-Stunden-Schild-Gegenstand.",
+              "Die Sprachausgabe von \"Brutal Fighter · Cecia\" wurde optimiert."
+            ]
+          }
+        ],
+        "fixes": [
+          "Ein Fehler im Marschstatus auf der Minikarte des Air Dock wurde behoben.",
+          "Abnormale Animationen in der Benutzeroberfläche für den Erwerb von Gegenständen wurden behoben.",
+          "Abnormale Pop-up-Daten beim Betrachten der Regenbogenbrücke auf anderen Saisonkarten wurden behoben.",
+          "Eine falsche Beschreibung für die Besetzung von Gebäuden der Stufe 6 während der \"Alfheim's Defense\"-Chronik - \"Unbesiegbar\"-Stufe wurde behoben.",
+          "Abnormale Textplatzierung in Pop-ups beim Betrachten von Sammelpunkten auf anderen Saisonkarten wurde behoben.",
+          "Abnormale Anzeige in einigen Saison-Statusleisten wurde behoben.",
+          "Abnormale Anzeige des Stammgebäudebaus in einigen Saisonkarten wurde behoben.",
+          "Abnormale Anzeige der Biesthöhlen-Menge in \"Tribe Territory\" wurde behoben.",
+          "Abnormale Anzeige in der \"Escort Caravan\"-Benutzeroberfläche wurde behoben.",
+          "Ein Problem, bei dem leere Stamm-Positionen in anderen Königreichen lokale Stammesspieler zeigten, wurde behoben.",
+          "Einige Anzeigeprobleme in \"Blood Oath War\" wurden behoben.",
+          "Abnormale Rotpunkt-Anzeige beim Wechseln von Stufen in \"Blood Oath War\" unter bestimmten Umständen wurde behoben.",
+          "Abnormale Anzeige der Spähwarteschlange in \"Troop Overview\" wurde behoben.",
+          "Abnormale Anzeige des Such-Buttons, wenn das Spieler-Ranking nicht innerhalb des Ranking-Kontingents liegt, wurde behoben.",
+          "Abnormale Anzeige beim Kauf von Gegenständen im Divine Jewel Shop wurde behoben.",
+          "Abnormale Macht-Sortierung nach dem Rücktritt eines Stammesmitglieds als Jarl wurde behoben.",
+          "Abnormale Lesezeichenplatzierung in \"Battle of the Ruins\" wurde behoben.",
+          "Abnormale Anzeige im \"Scout Report\" wurde behoben.",
+          "Abnormale Anzeige beim schnellen Umtausch von Gegenständen in \"Serpent Spirit Potion\" wurde behoben.",
+          "Abnormale Meldung beim Umwandeln von Materialien in \"Dragon's Lair\" mit unzureichenden Materialien wurde behoben.",
+          "Abnormale Anzeige des lokalen Geländes auf der Karte Expedition nach England wurde behoben.",
+          "Abnormale Chatkanal-Problem nach dem Wechseln der Systemsprache wurde behoben.",
+          "Abnormale Anzeige von Stammesführer-Namen im Tribe Might Ranking wurde behoben."
+        ]
+      }
+    },
+    "cn": {
+      "data": {
+        "major": [
+          "新增“训练场”功能。",
+          "新增SX英雄沧海之拥·格洛亚和赤翎·达伦。",
+          "新增SX技能“死亡乌鸦”、“虹桥奇迹”和“法布提的谜语”"
+        ],
+        "new_features": [
+          "新增“训练场”功能。您现在可以自定义英雄组合进行决斗，并测试您的最佳英雄阵容。",
+          "新增SX英雄沧海之拥·格洛亚和赤翎·达伦。他们将在王国达到813天（达伦）和809天（格洛亚）时可用。",
+          "新增SX技能“死亡乌鸦”、“虹桥奇迹”和“法布提的谜语”，这些技能将在王国达到803天时可用。",
+          "“2024感恩节”活动限定皮肤系列回归。",
+          "“部落寻宝”选择宝箱已替换为2025年1月至6月皮肤选择宝箱。",
+          "活动中心现新增“已完成活动”标签页，自动包含所有奖励已领取的活动。",
+          "新增“英雄晋升”功能，英雄伊沃尔现可晋升为传奇英雄。"
+        ],
+        "optimizations": [
+          {
+            "title": "核心玩法与界面",
+            "items": [
+              "王国实力现可实时计算。",
+              "降低了“阿尔夫海姆的守护”的军团占领成就要求，减少了需要同时占领的5级和6级巢穴数量。",
+              "增加了繁荣商店中蓝玉和重铸之刃的每周购买上限。",
+              "增加了声望商店中磨炼果实、约顿之露和蓝玉的每周购买上限。（征服赛季有效）",
+              "增加了氏族商店中蓝玉、约顿之露和磨炼果实的每周购买上限（将于下次刷新时生效）。",
+              "优化了“勇者试炼”个人征服界面，增加了等级和数量推荐。",
+              "优化了“誓约复仇”互动。部落进度达到最大值时，会弹出二次确认弹窗以防止重复提交。",
+              "优化了“英雄回收”玩法，支持快速召唤和领取当前地图奖励。",
+              "优化了“Blood Oath War”和“Battle of the Ruins”玩法。",
+              "优化了“战斗”相关功能。",
+              "优化了“部落”功能。",
+              "优化了玩家内城操作。",
+              "优化了“支线任务”互动，支持快速领取奖励。",
+              "优化了“日常任务”内容。新增了一种日常任务类型：只需购买礼包即可获得100活跃点并领取所有日常奖励。",
+              "优化了“敌人驱逐”阶段目标达成时的显示。",
+              "优化了“邮件”功能。",
+              "优化了竞技场匹配规则，派遣部队的最大数量现在将与防御者的联赛匹配。",
+              "优化了“锻造材料”界面，现在可以查看可锻造装备的列表。",
+              "优化了“个人实力排行”显示，移除了部落全称显示。",
+              "优化了“英雄”核心能力显示。",
+              "优化了“英雄天赋”界面。",
+              "优化了“国王诏令”提示，现在仅在您首次成为国王时触发。",
+              "优化了“城市管理”互动，界面现在包含4小时护盾物品。",
+              "优化了“狂战士·塞西娅”的语音台词。"
+            ]
+          }
+        ],
+        "fixes": [
+          "修复了飞空艇码头小地图行军状态的错误。",
+          "修复了物品获取界面动画异常。",
+          "修复了在其他赛季地图中查看彩虹桥时弹出数据异常。",
+          "修复了“阿尔夫海姆的守护”编年史-无敌阶段占领6级建筑时的错误描述。",
+          "修复了在其他赛季地图中查看采集点时弹出文本布局异常。",
+          "修复了某些赛季状态栏显示异常。",
+          "修复了某些赛季地图中部落建筑建造显示异常。",
+          "修复了“部落领地”中野兽巢穴数量显示异常。",
+          "修复了“护送商队”界面显示异常。",
+          "修复了在其他王国中出现的部落空缺职位显示为本地部落玩家的问题。",
+          "修复了“Blood Oath War”中的一些显示问题。",
+          "修复了在某些情况下，“Blood Oath War”下切换阶段时出现的红点显示异常。",
+          "修复了“部队总览”中侦察队列显示异常。",
+          "修复了玩家排名不在排名配额内时，定位按钮显示异常。",
+          "修复了在神圣珠宝商店购买物品时显示异常。",
+          "修复了部落成员辞去首领职位后，部落实力排序异常。",
+          "修复了“Battle of the Ruins”中书签放置异常。",
+          "修复了“侦察报告”显示异常。",
+          "修复了在“蛇灵药剂”中快速兑换物品时显示异常。",
+          "修复了在“龙穴”中材料不足时转换材料时提示异常。",
+          "修复了英格兰远征地图中本地地形显示异常。",
+          "修复了切换系统语言后聊天频道异常。",
+          "修复了部落实力排行榜中部落首领名称显示异常。"
+        ]
+      }
+    },
+    "ru": {
+      "data": {
+        "major": [
+          "Добавлена функция \"Дисциплинарный полигон\".",
+          "Добавлены SX-герои Sea's Embrace · Gloa и Crimson Arrow · Dalen.",
+          "Добавлены SX-навыки \"Raven of Death\", \"Rainbow Bridge Miracle\" и \"Fafnir's Riddle\"."
+        ],
+        "new_features": [
+          "Добавлена функция \"Дисциплинарный полигон\". Теперь вы можете настраивать комбинации героев для поединков и тестировать свой оптимальный состав героев.",
+          "Добавлены SX-герои Sea's Embrace · Gloa и Crimson Arrow · Dalen. Они будут доступны, когда Королевство достигнет 813 дней (Dalen) и 809 дней (Gloa) соответственно.",
+          "Добавлены SX-навыки \"Raven of Death\", \"Rainbow Bridge Miracle\" и \"Fafnir's Riddle\", которые будут доступны, когда Королевство достигнет 803 дней.",
+          "Возвращается серия ограниченных по времени скинов \"2024 Thanksgiving\".",
+          "Сундук выбора \"Tribe Day Treasure Hunt\" был заменен на сундук выбора скинов за январь-июнь 2025 года.",
+          "На вкладке \"Completed Events\" в Центре Событий теперь автоматически отображаются события, по которым получены все награды.",
+          "Добавлена функция \"Hero promotion\". Герой Ivor теперь может быть повышен до Легендарного Героя."
+        ],
+        "optimizations": [
+          {
+            "title": "Core Gameplay & Interface",
+            "items": [
+              "Сила Королевства теперь рассчитывается в реальном времени.",
+              "Снижены требования к достижениям по оккупации батальона для \"Alfheim's Defense\", уменьшено количество Логов 5-го и 6-го уровня, которые необходимо оккупировать одновременно.",
+              "Увеличен еженедельный лимит покупок Blue Chalcedony и Recast Blade в Prosperity Shop.",
+              "Увеличен еженедельный лимит покупок Honing Fruit, Yggdrasil Dew и Blue Chalcedony в Prestige Shop. (действительно в течение Сезона Завоевания)",
+              "Увеличен еженедельный лимит покупок Blue Chalcedony, Yggdrasil Dew и Honing Fruit в клановом магазине (вступает в силу при следующем обновлении).",
+              "Оптимизирован интерфейс \"Trial of Courage\" Personal Conquest, добавлены рекомендации по уровням и количеству",
+              "Оптимизировано взаимодействие \"Sworn Vengeance\". Когда прогресс Племени достигает максимума, появляется вторичное всплывающее окно подтверждения для повторных отправлений",
+              "Оптимизирован игровой процесс \"Hero Reclamation\", поддерживается быстрая телепортация и получение текущих наград карты",
+              "Оптимизирован игровой процесс \"Blood Oath War\" & \"Battle of the Ruins\"",
+              "Оптимизированы функции, связанные с \"Battle\"",
+              "Оптимизирована функция \"Tribe\"",
+              "Оптимизированы внутригородские операции игрока",
+              "Оптимизировано взаимодействие \"Side Quest\", поддерживается быстрое получение наград",
+              "Оптимизировано содержимое \"Daily Quest\". Добавлен новый тип ежедневного задания: просто купите набор, чтобы заработать 100 очков активности и получить все ежедневные награды",
+              "Оптимизировано отображение при достижении целей этапа \"Enemy Extermination\".",
+              "Оптимизирована функция \"mail\"",
+              "Оптимизированы правила подбора противников на Арене, максимальное количество отправленных отрядов теперь соответствует лиге защитника",
+              "Оптимизирован интерфейс \"forge materials\", теперь можно просмотреть список доступного для ковки снаряжения",
+              "Оптимизировано отображение \"Personal Might Ranking\", отображение полного названия племени удалено",
+              "Оптимизировано отображение основных способностей \"Hero\"",
+              "Оптимизирован интерфейс \"Hero Talent\"",
+              "Оптимизированы подсказки \"King's Decree\", теперь они срабатывают только при первом становлении Королем",
+              "Оптимизировано взаимодействие \"City management\", интерфейс теперь включает 4-часовой щит",
+              "Оптимизированы голосовые реплики \"Brutal Fighter · Cecia\""
+            ]
+          }
+        ],
+        "fixes": [
+          "Исправлена ошибка в статусе марша на миникарте Air Dock",
+          "Исправлена аномальная анимация в интерфейсе получения предметов",
+          "Исправлены аномальные всплывающие данные при просмотре Rainbow Bridge на других сезонных картах",
+          "Исправлено неверное описание оккупации зданий 6-го уровня во время этапа \"Alfheim's Defense\" Chronicles - Invincible",
+          "Исправлена аномальная компоновка текста во всплывающих окнах при просмотре точек сбора на других сезонных картах",
+          "Исправлено аномальное отображение в некоторых статусных строках сезонов",
+          "Исправлено аномальное отображение строительства зданий Племени на некоторых сезонных картах",
+          "Исправлено аномальное отображение количества Логов Зверей в \"Tribe Territory\"",
+          "Исправлено аномальное отображение в интерфейсе \"Escort Caravan\"",
+          "Исправлена проблема, из-за которой пустые позиции Племени в других Королевствах отображали местных игроков Племени",
+          "Исправлены некоторые проблемы с отображением в \"Blood Oath War\"",
+          "Исправлено аномальное отображение красной точки при смене этапов в \"Blood Oath War\" при определенных обстоятельствах",
+          "Исправлено аномальное отображение очереди разведки в \"Troop Overview\"",
+          "Исправлено аномальное отображение кнопки поиска, когда рейтинг игрока не входит в квоту",
+          "Исправлено аномальное отображение при покупке предметов в Divine Jewel Shop",
+          "Исправлена аномальная сортировка силы после того, как член Племени уходит с поста Ярла",
+          "Исправлено аномальное размещение закладок в \"Battle of the Ruins\"",
+          "Исправлено аномальное отображение в \"Scout Report\"",
+          "Исправлено аномальное отображение при быстром обмене предметов в \"Serpent Spirit Potion\"",
+          "Исправлена аномальная подсказка при преобразовании материалов в \"Dragon's Lair\" с недостаточным количеством материалов",
+          "Исправлено аномальное отображение местного ландшафта на карте Expedition to England",
+          "Исправлена проблема с аномальным каналом чата после смены системного языка",
+          "Исправлено аномальное отображение имен Лидеров Племени в \"Tribe Might Ranking\""
+        ]
+      }
+    }
+  },
+  {
     "id": "update_17_12_2025",
     "meta": {
       "created_at": "2025-12-15T04:08:00Z",
