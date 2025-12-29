@@ -100,6 +100,7 @@
         if (!['en','de','cn','ru'].includes(currentLang)) currentLang = 'en';
 
         let allPatchData = [];
+        
         function startLiveClock() { setInterval(() => { document.getElementById('nav-clock').innerText = new Date().toLocaleTimeString('de-DE'); }, 1000); }
 
         function updateUI() {
@@ -110,7 +111,6 @@
             document.getElementById('txt-cat-opt').innerText = t.cat_opt;
             document.getElementById('txt-cat-fix').innerText = t.cat_fix;
             
-            // Fix: Back Link
             document.getElementById('nav-home-link').href = `index.html?lang=${currentLang}`;
             
             document.documentElement.lang = currentLang;
@@ -122,43 +122,83 @@
             updateUI();
             try {
                 const res = await fetch('patchnotes.json?v=' + Date.now());
-                allPatchData = await res.json();
+                const rawData = await res.json();
+                
+                // FILTER: Nur echte Updates laden (keine News, falls alte Daten existieren)
+                allPatchData = rawData.filter(entry => entry.type !== 'news' && entry.meta);
+                
                 const sel = document.getElementById('version-select');
                 sel.innerHTML = '';
+                
+                if (allPatchData.length === 0) {
+                    const opt = document.createElement('option');
+                    opt.text = "No Updates found";
+                    sel.appendChild(opt);
+                    return;
+                }
+
                 allPatchData.forEach((entry, idx) => {
-                    if(entry.type === 'news') return; // Skip News in dropdown
                     const opt = document.createElement('option');
                     opt.value = idx;
                     opt.text = entry.meta[`title_${currentLang}`] || entry.meta.title_en;
                     sel.appendChild(opt);
                 });
-                if(allPatchData.length > 0) loadUpdate(0);
-            } catch(e) {}
+                
+                // Ersten Eintrag laden
+                loadUpdate(0);
+            } catch(e) { console.error("Error loading json:", e); }
+        }
+
+        // DIESE FUNKTION FEHLTE VORHER:
+        function changeVersion(index) {
+            loadUpdate(index);
         }
 
         function loadUpdate(index) {
             const entry = allPatchData[index];
             if(!entry) return;
+
             const data = entry[currentLang] || entry['en'];
             const meta = entry.meta;
-            const pData = data.data || {};
+            // Robustere Datenabfrage:
+            const pData = data.data || data || {}; 
 
             if(meta.image_url) document.getElementById('hero-img').src = meta.image_url;
-            document.getElementById('entry-date-display').innerText = meta.display_time;
-            document.getElementById('local-time-display').innerText = new Date(meta.start_timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            document.getElementById('entry-date-display').innerText = meta.display_time || "Unknown Date";
             
+            if(meta.start_timestamp) {
+                document.getElementById('local-time-display').innerText = new Date(meta.start_timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            } else {
+                document.getElementById('local-time-display').innerText = "--:--";
+            }
+            
+            // Major Highlights
             const majorSec = document.getElementById('major-updates-section');
             majorSec.innerHTML = '';
-            if(pData.major) {
+            if(pData.major && Array.isArray(pData.major)) {
                 pData.major.forEach((m, i) => { majorSec.innerHTML += `<div class="glass-panel rounded-xl p-6 border border-gray-700"><h3 class="text-xl font-bold text-white mb-2 viking-font">Highlight #${i+1}</h3><p class="text-gray-300">${m}</p></div>`; });
             }
-            const fill = (id, list) => { document.getElementById(id).innerHTML = list ? list.map(i=>`<li>${i}</li>`).join('') : ''; }
+
+            // Listen füllen (mit Sicherheitscheck)
+            const fill = (id, list) => { 
+                const el = document.getElementById(id);
+                if(list && Array.isArray(list) && list.length > 0) {
+                    el.innerHTML = list.map(i=>`<li>${i}</li>`).join('');
+                } else {
+                    el.innerHTML = '<li class="italic text-gray-600">None</li>';
+                }
+            }
+            
             fill('list-new', pData.new_features);
             fill('list-fixes', pData.fixes);
+            
+            // Optimierungen
             const optCont = document.getElementById('opt-container');
             optCont.innerHTML = '';
-            if(pData.optimizations) {
+            if(pData.optimizations && Array.isArray(pData.optimizations)) {
                 pData.optimizations.forEach(o => { optCont.innerHTML += `<details><summary>${o.title}</summary><div class="dropdown-content"><ul class="detail-list">${o.items.map(i=>`<li>${i}</li>`).join('')}</ul></div></details>`; });
+            } else {
+                optCont.innerHTML = '<p class="italic text-gray-600 pl-4">None</p>';
             }
         }
         
@@ -171,6 +211,7 @@
              else if(type==='major') { left.classList.remove('hidden'); right.classList.add('hidden'); }
              else if(type==='opt') { left.classList.add('hidden'); right.classList.remove('hidden'); }
         }
+        
         init();
     </script>
 </body>
