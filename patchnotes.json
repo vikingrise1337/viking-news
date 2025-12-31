@@ -1,5 +1,52 @@
 [
   {
+    "id": "1455880298548957275",
+    "date": "01. Jan 2026",
+    "image": "",
+    "category": "UPDATE",
+    "raw_analysis": {
+      "category": "UPDATE",
+      "display_date": "01. Jan 2026",
+      "iso_timestamp": "2026-01-01T00:00:00+00:00",
+      "news_data": {
+        "title": null,
+        "summary": null,
+        "promo_code": null,
+        "link": null
+      },
+      "update_data": {
+        "major": [
+          "New building and research system centered around Dragon Crystal power.",
+          "New KVK scenarios.",
+          "Fresh PVE content.",
+          "Expanded hero pool and skill system."
+        ],
+        "optimizations": [
+          {
+            "title": "New Gameplay and Events",
+            "items": [
+              "New PVE mode: Abyssal Cavern",
+              "New KVK and GVG modes inspired by Norse legends (Jormungand, Ragnarök)",
+              "Improved player experience for events with more engaging content and opportunities for free players",
+              "Mount Skin feature incorporation"
+            ]
+          },
+          {
+            "title": "System Improvements",
+            "items": [
+              "More flexible and convenient migration system (expanded group sizes, reduced Migration Pass requirements)",
+              "Continued expansion of building and research content (Dragon Crystal power)",
+              "Redjusted Tribe permissions (subdividing Tribe title permissions)",
+              "New batch of purple hero grade promotions",
+              "Optimized KVK Might matching (fine-tuning metrics like Kingdom Might, personnel composition, historical performance)",
+              "Further optimization of Drill Ground functions (more flexible team composition rules, buff/debuff mechanics)"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
     "id": "update_17_12_2025",
     "meta": {
       "created_at": "2025-12-15T04:08:00Z",
