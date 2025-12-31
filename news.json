@@ -1,5 +1,21 @@
 [
   {
+    "id": "1455893229206638663",
+    "date": "31. Dec 2025",
+    "image": "",
+    "category": "NEWS",
+    "raw_analysis": {
+      "category": "NEWS",
+      "display_date": "31. Dec 2025",
+      "iso_timestamp": "2025-12-31T11:06:00+00:00",
+      "news_data": {
+        "title": "Producer's Letter: Looking Ahead to 2026 - Content Plans & Q&A",
+        "summary": "Johnny, the producer of Viking Rise, extends gratitude to players and unveils the 2026 content roadmap, featuring a new Dragon Crystal building/research system, diverse KVK scenarios, fresh PVE content like 'Abyssal Cavern', expanded hero pool, and the anticipated Mount Skin feature. The letter also addresses player concerns regarding migration, city development, tribe permissions, hero promotions, KVK matching, and Drill Ground optimizations."
+      },
+      "update_data": null
+    }
+  },
+  {
     "id": "1455876592621453456",
     "date": "N/A",
     "image": "",
