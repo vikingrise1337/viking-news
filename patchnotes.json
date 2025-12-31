@@ -1,5 +1,57 @@
 [
   {
+    "id": "1455894569530032241",
+    "date": "Today",
+    "image": "",
+    "category": "UPDATE",
+    "raw_analysis": {
+      "game": "Viking Rise",
+      "type": "game-news",
+      "source": "SERVER",
+      "timestamp": "11:06",
+      "content": {
+        "greeting": "The producer for Viking Rise thanks all Chiefs for their love and support over the past year.",
+        "plans_2026": [
+          "Expand on core gameplay, focusing on Dragon Crystal building and research system.",
+          "Roll out new KVK scenarios.",
+          "Create fresh PVE content.",
+          "Expand hero pool and skill system.",
+          "New PVE mode: Abyssal Cavern.",
+          "New KVK and GVG modes inspired by Norse legends (Jormungand, Ragnarök).",
+          "Improve player experience for events, adding engaging content and opportunities for free players.",
+          "Incorporate Mount Skin feature."
+        ],
+        "q_and_a": [
+          {
+            "question": "Migration system flexibility?",
+            "answer": "Expand migration group sizes and reduce Migration Pass requirements."
+          },
+          {
+            "question": "Further city development updates?",
+            "answer": "Expand building and research content in the form of Dragon Crystal power."
+          },
+          {
+            "question": "Tribe permission readjustment?",
+            "answer": "Reduce the management burden for Tribe leadership, subdividing Tribe title permissions."
+          },
+          {
+            "question": "More low-grade hero promotions?",
+            "answer": "New batch of purple hero grade promotions planned."
+          },
+          {
+            "question": "Fairer KVK Might matching?",
+            "answer": "Optimize the matching in KVK by fine-tuning various metrics and addressing feedback."
+          },
+          {
+            "question": "Further Drill Ground functions?",
+            "answer": "Optimize the Drill Ground with flexible team composition rules and buff/debuff mechanics."
+          }
+        ],
+        "closing": "Thank you for your companionship and trust. Wishing all Chiefs a great time in Viking Rise. See you in 2026!"
+      }
+    }
+  },
+  {
     "id": "1455892565642449000",
     "date": "Today",
     "image": "",
