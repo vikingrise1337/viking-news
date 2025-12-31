@@ -1,5 +1,24 @@
 [
   {
+    "id": "1455906662316769290",
+    "date": "31. Dec 2025",
+    "image": "",
+    "category": "NEWS",
+    "raw_analysis": {
+      "category": "NEWS",
+      "display_date": "31. Dec 2025",
+      "iso_timestamp": "2025-12-31T11:06:00+00:00",
+      "news_data": {
+        "title": "Viking Rise Producer's Letter: 2026 Content Plans & Vision",
+        "summary": "Johnny, the producer of Viking Rise, expresses gratitude to players for their support in 2025 and outlines ambitious content plans for 2026. Highlights include a new Dragon Crystal system, expanded KVK scenarios, fresh PVE content like Abyssal Cavern, and hero pool expansions. The letter also addresses key player concerns such as migration flexibility, city development updates, Tribe permission adjustments, future hero promotions, KVK Might matching, and Drill Ground optimizations."
+      },
+      "update_data": {
+        "major": [],
+        "optimizations": []
+      }
+    }
+  },
+  {
     "id": "1454944217406111948",
     "date": "25. Dec 2025",
     "image": "",
