@@ -217,19 +217,16 @@
             document.getElementById('btn-news').innerText = t.btn_news;
             document.getElementById('btn-discord').innerText = t.btn_discord;
             
-            // Updates Karte
             document.getElementById('card1-title').innerText = t.c1_title;
             if(document.getElementById('card1-desc').innerText === "Loading..." || document.getElementById('card1-desc').innerText === "Always up to date.") {
                  document.getElementById('card1-desc').innerText = t.c1_desc;
             }
 
-            // News Karte
             document.getElementById('card2-title').innerText = t.c2_title;
             if(document.getElementById('card2-desc').innerText.startsWith("Loading")) {
                  document.getElementById('card2-desc').innerText = t.c2_desc;
             }
 
-            // Discord Karte (Neue Labels)
             document.getElementById('discord-official-label').innerText = t.disc_official;
             document.getElementById('discord-community-label').innerText = t.disc_community;
             
@@ -248,7 +245,7 @@
             });
         }
 
-        // --- 1. LATEST UPDATES (Links) ---
+        // --- 1. LATEST UPDATES ---
         async function fetchLatestUpdate() {
             try {
                 const res = await fetch('patchnotes.json?v=' + Date.now());
@@ -276,7 +273,7 @@
             } catch (e) { console.error("Updates error", e); }
         }
 
-        // --- 2. NEWS & TICKER (Rechts) ---
+        // --- 2. NEWS & TICKER ---
         let tickerItems = [];
         let tickerIndex = 0;
 
@@ -329,45 +326,84 @@
             tickerIndex = (tickerIndex + 1) % tickerItems.length;
         }
 
-        // --- 3. DISCORD + BANNER (Mitte) ---
+        // --- 3. DISCORD MIT CACHE ---
+        const CACHE_KEY = 'vr_discord_data';
+        const CACHE_TIME = 1000 * 60 * 10; // 10 Minuten Cache
+
         async function fetchDiscordStatus() {
+            let data = null;
+            
+            // 1. Versuche Cache zu lesen
             try {
-                const res = await fetch('https://discord.com/api/v9/invites/vikingrise?with_counts=true');
-                const data = await res.json();
-
-                if (data && data.guild) {
-                    if (data.guild.icon) {
-                        const iconUrl = `https://cdn.discordapp.com/icons/${data.guild.id}/${data.guild.icon}.png`;
-                        const img = document.getElementById('discord-icon');
-                        img.src = iconUrl;
-                        img.classList.remove('hidden');
-                        document.getElementById('discord-fallback-icon').classList.add('hidden');
+                const cached = localStorage.getItem(CACHE_KEY);
+                if (cached) {
+                    const parsed = JSON.parse(cached);
+                    // Ist Cache noch frisch?
+                    if (Date.now() - parsed.timestamp < CACHE_TIME) {
+                        data = parsed.data;
                     }
-
-                    if (data.guild.banner) {
-                        const bannerUrl = `https://cdn.discordapp.com/banners/${data.guild.id}/${data.guild.banner}.jpg?size=600`;
-                        const card = document.getElementById('discord-card');
-                        card.style.backgroundImage = `linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url(${bannerUrl})`;
-                    }
-
-                    const online = data.approximate_presence_count.toLocaleString();
-                    const total = data.approximate_member_count.toLocaleString();
-                    
-                    const elStatus = document.getElementById('discord-status-text');
-                    const elTotal = document.getElementById('discord-total-text');
-                    const elBadge = document.getElementById('discord-online-badge');
-
-                    const onlineText = curLang === 'de' ? 'Online' : 'Online';
-                    const membersText = curLang === 'de' ? 'Mitglieder' : 'Members';
-
-                    elStatus.innerHTML = `<span class="text-white font-bold text-lg">${online}</span> <span class="text-green-400">${onlineText}</span>`;
-                    elTotal.innerText = `${total} ${membersText}`;
-                    elTotal.classList.remove('hidden');
-
-                    elBadge.innerText = "LIVE";
-                    elBadge.className = "text-[10px] font-mono text-green-400 font-bold";
                 }
-            } catch (e) { document.getElementById('discord-status-text').innerText = "Join the Server"; }
+            } catch(e) {}
+
+            // 2. Wenn kein Cache -> API
+            if (!data) {
+                try {
+                    const res = await fetch('https://discord.com/api/v9/invites/vikingrise?with_counts=true');
+                    if (res.ok) {
+                        const apiData = await res.json();
+                        data = apiData;
+                        // Speichern
+                        localStorage.setItem(CACHE_KEY, JSON.stringify({
+                            timestamp: Date.now(),
+                            data: apiData
+                        }));
+                    }
+                } catch (e) { console.error("API Limit/Error", e); }
+            }
+
+            // 3. Fallback: Alten Cache nutzen (besser als nichts)
+            if (!data) {
+                try {
+                    const cached = localStorage.getItem(CACHE_KEY);
+                    if (cached) data = JSON.parse(cached).data;
+                } catch(e) {}
+            }
+
+            // 4. Update UI
+            if (data && data.guild) {
+                if (data.guild.icon) {
+                    const iconUrl = `https://cdn.discordapp.com/icons/${data.guild.id}/${data.guild.icon}.png`;
+                    const img = document.getElementById('discord-icon');
+                    img.src = iconUrl;
+                    img.classList.remove('hidden');
+                    document.getElementById('discord-fallback-icon').classList.add('hidden');
+                }
+
+                if (data.guild.banner) {
+                    const bannerUrl = `https://cdn.discordapp.com/banners/${data.guild.id}/${data.guild.banner}.jpg?size=600`;
+                    const card = document.getElementById('discord-card');
+                    card.style.backgroundImage = `linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url(${bannerUrl})`;
+                }
+
+                const online = data.approximate_presence_count.toLocaleString();
+                const total = data.approximate_member_count.toLocaleString();
+                
+                const elStatus = document.getElementById('discord-status-text');
+                const elTotal = document.getElementById('discord-total-text');
+                const elBadge = document.getElementById('discord-online-badge');
+
+                const onlineText = curLang === 'de' ? 'Online' : 'Online';
+                const membersText = curLang === 'de' ? 'Mitglieder' : 'Members';
+
+                elStatus.innerHTML = `<span class="text-white font-bold text-lg">${online}</span> <span class="text-green-400">${onlineText}</span>`;
+                elTotal.innerText = `${total} ${membersText}`;
+                elTotal.classList.remove('hidden');
+
+                elBadge.innerText = "LIVE";
+                elBadge.className = "text-[10px] font-mono text-green-400 font-bold";
+            } else {
+                document.getElementById('discord-status-text').innerText = "Join the Server";
+            }
         }
 
         updateContent();
