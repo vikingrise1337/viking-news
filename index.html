@@ -27,6 +27,9 @@
         .lang-btn { cursor: pointer; font-size: 0.85rem; font-weight: bold; transition: color 0.3s; }
         .lang-active { color: #d4af37; text-decoration: underline; text-underline-offset: 4px; }
         .lang-inactive { color: #64748b; } .lang-inactive:hover { color: white; }
+        
+        /* NEU: Ticker Animation */
+        .fade-text { transition: opacity 0.5s ease-in-out; }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
@@ -50,12 +53,12 @@
 
     <div class="hero-bg relative h-screen flex flex-col justify-center items-center text-center px-4">
         <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#0b101b]"></div>
-        <div class="relative z-10 max-w-4xl animate-fade-in-up">
+        <div class="relative z-10 max-w-4xl animate-fade-in-up flex flex-col items-center">
             <img src="favicon.png" alt="Logo" class="w-24 h-24 mx-auto mb-6 opacity-90 shadow-2xl rounded-full border-2 border-[#d4af37]">
             <h1 class="viking-font text-5xl md:text-7xl font-black text-white mb-4 drop-shadow-lg">VIKING RISE <span class="gold-text">HUB</span></h1>
             <p id="txt-subtitle" class="text-lg md:text-2xl text-gray-300 mb-10 font-light tracking-wide">Your unofficial source for Updates, Tools & Community.</p>
             
-            <div class="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center flex-wrap mb-10">
                 <a id="link-updates" href="updates.html" class="group relative px-8 py-4 bg-[#d4af37] text-black font-bold text-lg rounded shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] transition-all overflow-hidden min-w-[200px]">
                     <span class="relative z-10 flex items-center justify-center gap-2">
                         <span class="material-symbols-outlined notranslate">newspaper</span> <span id="btn-updates">Read Patch Notes</span>
@@ -69,6 +72,15 @@
                     <span class="material-symbols-outlined notranslate">forum</span> <span id="btn-discord">Official Discord</span>
                 </a>
             </div>
+
+            <div id="news-ticker" class="hidden w-full max-w-2xl bg-black/60 backdrop-blur-md border border-white/10 rounded-full px-6 py-3 flex items-center gap-4 transition-all hover:border-[#d4af37]/50 cursor-pointer" onclick="window.location.href='news.html'">
+                <div class="bg-[#d4af37] text-black text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shrink-0" id="ticker-badge">LATEST</div>
+                <div class="flex-1 text-left overflow-hidden relative h-6">
+                    <p id="ticker-text" class="text-sm text-white truncate fade-text absolute w-full top-0.5">Loading...</p>
+                </div>
+                <span class="material-symbols-outlined text-gray-400 text-sm notranslate">chevron_right</span>
+            </div>
+
         </div>
     </div>
 
@@ -96,10 +108,10 @@
 
     <script>
         const translations = {
-            en: { subtitle: "Your unofficial source for Updates, Tools & Community.", btn_updates: "Read Patch Notes", btn_news: "Latest News", btn_discord: "Official Discord", c1_title: "Latest Updates", c1_desc: "Read the patch notes in your language.", c2_title: "News & Events", c2_desc: "Check out the latest promo codes.", c3_title: "Community", c3_desc: "Join the official Discord.", news_prefix: "News" },
-            de: { subtitle: "Deine inoffizielle Quelle für Updates, Tools & Community.", btn_updates: "Patch Notes lesen", btn_news: "Aktuelle News", btn_discord: "Offizieller Discord", c1_title: "Aktuelle Updates", c1_desc: "Lies die Patch Notes auf Deutsch.", c2_title: "News & Events", c2_desc: "Die neuesten Promo-Codes & Events.", c3_title: "Community", c3_desc: "Tritt dem offiziellen Discord bei.", news_prefix: "News" },
-            cn: { subtitle: "您的维京崛起非官方更新、工具和社区来源。", btn_updates: "阅读更新说明", btn_news: "最新消息", btn_discord: "官方 Discord", c1_title: "最新更新", c1_desc: "阅读中文版的更新说明。", c2_title: "新闻与活动", c2_desc: "查看最新的礼包码。", c3_title: "社区", c3_desc: "加入官方 Discord。", news_prefix: "新闻" },
-            ru: { subtitle: "Ваш неофициальный источник новостей.", btn_updates: "Читать патчноуты", btn_news: "Новости", btn_discord: "Офиц. Discord", c1_title: "Обновления", c1_desc: "Читайте патчноуты на русском.", c2_title: "Новости и события", c2_desc: "Промокоды и события.", c3_title: "Сообщество", c3_desc: "Присоединяйтесь к Discord.", news_prefix: "Новости" }
+            en: { subtitle: "Your unofficial source for Updates, Tools & Community.", btn_updates: "Read Patch Notes", btn_news: "Latest News", btn_discord: "Official Discord", c1_title: "Latest Updates", c1_desc: "Read the patch notes in your language.", c2_title: "News & Events", c2_desc: "Check out the latest promo codes.", c3_title: "Community", c3_desc: "Join the official Discord.", news_prefix: "News", ticker_badge: "NEW" },
+            de: { subtitle: "Deine inoffizielle Quelle für Updates, Tools & Community.", btn_updates: "Patch Notes lesen", btn_news: "Aktuelle News", btn_discord: "Offizieller Discord", c1_title: "Aktuelle Updates", c1_desc: "Lies die Patch Notes auf Deutsch.", c2_title: "News & Events", c2_desc: "Die neuesten Promo-Codes & Events.", c3_title: "Community", c3_desc: "Tritt dem offiziellen Discord bei.", news_prefix: "News", ticker_badge: "NEU" },
+            cn: { subtitle: "您的维京崛起非官方更新、工具和社区来源。", btn_updates: "阅读更新说明", btn_news: "最新消息", btn_discord: "官方 Discord", c1_title: "最新更新", c1_desc: "阅读中文版的更新说明。", c2_title: "新闻与活动", c2_desc: "查看最新的礼包码。", c3_title: "社区", c3_desc: "加入官方 Discord。", news_prefix: "新闻", ticker_badge: "最新" },
+            ru: { subtitle: "Ваш неофициальный источник новостей.", btn_updates: "Читать патчноуты", btn_news: "Новости", btn_discord: "Офиц. Discord", c1_title: "Обновления", c1_desc: "Читайте патчноуты на русском.", c2_title: "Новости и события", c2_desc: "Промокоды и события.", c3_title: "Сообщество", c3_desc: "Присоединяйтесь к Discord.", news_prefix: "Новости", ticker_badge: "НОВОЕ" }
         };
         const urlParams = new URLSearchParams(window.location.search);
         let curLang = urlParams.get('lang') || 'en';
@@ -118,6 +130,9 @@
             document.getElementById('card3-title').innerText = t.c3_title;
             document.getElementById('card3-desc').innerText = t.c3_desc;
             
+            // Ticker Badge Übersetzung
+            document.getElementById('ticker-badge').innerText = t.ticker_badge;
+            
             document.documentElement.lang = curLang;
             const suffix = `?lang=${curLang}`;
             document.getElementById('link-updates').href = "updates.html" + suffix;
@@ -130,22 +145,64 @@
                 document.getElementById(`lang-${l}`).className = l === curLang ? "lang-btn lang-active" : "lang-btn lang-inactive";
             });
         }
-        async function fetchLatestNews() {
+
+        // --- NEU: TICKER LOGIK ---
+        let tickerItems = [];
+        let tickerIndex = 0;
+
+        async function initTicker() {
             try {
                 const res = await fetch('news.json?v=' + Date.now());
                 const news = await res.json();
-                if (news && news.length > 0) {
-                    const data = news[0][curLang] || news[0]['en'];
+                
+                // Wir nehmen die ersten 3 Einträge
+                tickerItems = news.slice(0, 3);
+                
+                if (tickerItems.length > 0) {
+                    // Ticker sichtbar machen
+                    document.getElementById('news-ticker').classList.remove('hidden');
+                    
+                    // Card 2 Update (bestehende Logik)
+                    const data = tickerItems[0][curLang] || tickerItems[0]['en'];
                     const t = translations[curLang];
                     document.getElementById('card2-title').innerHTML = `<span class="text-blue-400">${t.news_prefix}:</span> ${data.title}`;
                     let summary = data.content.length > 90 ? data.content.substring(0, 90) + "..." : data.content;
-                    const codeHTML = news[0].code ? `<br><span class="inline-block mt-2 text-[#d4af37] border border-[#d4af37] px-2 rounded text-xs">CODE: ${news[0].code}</span>` : '';
+                    const codeHTML = tickerItems[0].code ? `<br><span class="inline-block mt-2 text-[#d4af37] border border-[#d4af37] px-2 rounded text-xs">CODE: ${tickerItems[0].code}</span>` : '';
                     document.getElementById('card2-desc').innerHTML = summary + codeHTML;
+
+                    // Start Loop
+                    rotateTicker();
+                    setInterval(rotateTicker, 4000); // Alle 4 Sekunden wechseln
                 }
-            } catch (e) {}
+            } catch (e) {
+                console.error("News load error", e);
+            }
         }
+
+        function rotateTicker() {
+            if (tickerItems.length === 0) return;
+            
+            const item = tickerItems[tickerIndex];
+            const data = item[curLang] || item['en'];
+            const date = item.date;
+            const textEl = document.getElementById('ticker-text');
+
+            // Fade Out
+            textEl.style.opacity = 0;
+
+            setTimeout(() => {
+                // Text ändern
+                textEl.innerHTML = `<span class="text-gray-400 mr-2">[${date}]</span> ${data.title}`;
+                // Fade In
+                textEl.style.opacity = 1;
+            }, 500); // Warte auf Fade Out
+
+            // Nächster Index (Loop)
+            tickerIndex = (tickerIndex + 1) % tickerItems.length;
+        }
+
         updateContent();
-        fetchLatestNews();
+        initTicker();
     </script>
 </body>
 </html>
