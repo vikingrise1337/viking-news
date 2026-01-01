@@ -36,6 +36,13 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.5); 
         }
         
+        /* Widget Container spezifisch: Kein Hover-Lift, da interaktiv */
+        .widget-panel {
+            background: rgba(30, 41, 59, 0.6); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(88, 101, 242, 0.3); /* Leichtes Discord-Blau im Rahmen */
+        }
+        
         .hero-bg { background-image: url('header-bg.jpg'); background-size: cover; background-position: center; }
         
         .lang-btn { cursor: pointer; font-size: 0.85rem; font-weight: bold; transition: color 0.3s; }
@@ -111,6 +118,7 @@
 
     <div class="bg-[#0b101b] py-12 md:py-20 px-4 -mt-10 md:-mt-20 relative z-20">
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            
             <a id="card-link-updates" href="updates.html" class="glass-panel p-6 md:p-8 rounded-2xl flex flex-col items-center text-center group cursor-pointer">
                 <span class="material-symbols-outlined text-4xl md:text-5xl gold-text mb-3 md:mb-4 notranslate group-hover:scale-110 transition-transform">update</span>
                 <h3 id="card1-title" class="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 viking-font">Latest Updates</h3>
@@ -123,11 +131,17 @@
                 <p id="card2-desc" class="text-sm md:text-base text-gray-300 italic">Loading latest news...</p>
             </a>
             
-            <a href="https://discord.gg/vikingrise" target="_blank" class="glass-panel p-6 md:p-8 rounded-2xl flex flex-col items-center text-center group cursor-pointer">
-                <span class="material-symbols-outlined text-4xl md:text-5xl text-green-400 mb-3 md:mb-4 notranslate group-hover:scale-110 transition-transform">groups</span>
-                <h3 id="card3-title" class="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 viking-font">Community</h3>
-                <p id="card3-desc" class="text-sm md:text-base text-gray-400">Join the official Discord.</p>
-            </a>
+            <div class="widget-panel rounded-2xl overflow-hidden h-[350px] md:h-auto min-h-[300px] flex items-center justify-center">
+                <iframe 
+                    src="https://discord.com/widget?id=989102955569483796&theme=dark" 
+                    width="100%" 
+                    height="100%" 
+                    allowtransparency="true" 
+                    frameborder="0" 
+                    sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+                </iframe>
+            </div>
+
         </div>
     </div>
 
@@ -137,10 +151,10 @@
 
     <script>
         const translations = {
-            en: { subtitle: "Your unofficial source for Updates, Tools & Community.", btn_updates: "Read Patch Notes", btn_news: "Latest News", btn_discord: "Official Discord", c1_title: "Latest Updates", c1_desc: "Read the patch notes in your language.", c2_title: "News & Events", c2_desc: "Check out the latest promo codes.", c3_title: "Community", c3_desc: "Join the official Discord.", news_prefix: "News", ticker_badge: "NEW" },
-            de: { subtitle: "Deine inoffizielle Quelle für Updates, Tools & Community.", btn_updates: "Patch Notes lesen", btn_news: "Aktuelle News", btn_discord: "Offizieller Discord", c1_title: "Aktuelle Updates", c1_desc: "Lies die Patch Notes auf Deutsch.", c2_title: "News & Events", c2_desc: "Die neuesten Promo-Codes & Events.", c3_title: "Community", c3_desc: "Tritt dem offiziellen Discord bei.", news_prefix: "News", ticker_badge: "NEU" },
-            cn: { subtitle: "您的维京崛起非官方更新、工具和社区来源。", btn_updates: "阅读更新说明", btn_news: "最新消息", btn_discord: "官方 Discord", c1_title: "最新更新", c1_desc: "阅读中文版的更新说明。", c2_title: "新闻与活动", c2_desc: "查看最新的礼包码。", c3_title: "社区", c3_desc: "加入官方 Discord。", news_prefix: "新闻", ticker_badge: "最新" },
-            ru: { subtitle: "Ваш неофициальный источник новостей.", btn_updates: "Читать патчноуты", btn_news: "Новости", btn_discord: "Офиц. Discord", c1_title: "Обновления", c1_desc: "Читайте патчноуты на русском.", c2_title: "Новости и события", c2_desc: "Промокоды и события.", c3_title: "Сообщество", c3_desc: "Присоединяйтесь к Discord.", news_prefix: "Новости", ticker_badge: "НОВОЕ" }
+            en: { subtitle: "Your unofficial source for Updates, Tools & Community.", btn_updates: "Read Patch Notes", btn_news: "Latest News", btn_discord: "Official Discord", c1_title: "Latest Updates", c1_desc: "Read the patch notes in your language.", c2_title: "News & Events", c2_desc: "Check out the latest promo codes.", news_prefix: "News", ticker_badge: "NEW" },
+            de: { subtitle: "Deine inoffizielle Quelle für Updates, Tools & Community.", btn_updates: "Patch Notes lesen", btn_news: "Aktuelle News", btn_discord: "Offizieller Discord", c1_title: "Aktuelle Updates", c1_desc: "Lies die Patch Notes auf Deutsch.", c2_title: "News & Events", c2_desc: "Die neuesten Promo-Codes & Events.", news_prefix: "News", ticker_badge: "NEU" },
+            cn: { subtitle: "您的维京崛起非官方更新、工具和社区来源。", btn_updates: "阅读更新说明", btn_news: "最新消息", btn_discord: "官方 Discord", c1_title: "最新更新", c1_desc: "阅读中文版的更新说明。", c2_title: "新闻与活动", c2_desc: "查看最新的礼包码。", news_prefix: "新闻", ticker_badge: "最新" },
+            ru: { subtitle: "Ваш неофициальный источник новостей.", btn_updates: "Читать патчноуты", btn_news: "Новости", btn_discord: "Офиц. Discord", c1_title: "Обновления", c1_desc: "Читайте патчноуты на русском.", c2_title: "Новости и события", c2_desc: "Промокоды и события.", news_prefix: "Новости", ticker_badge: "НОВОЕ" }
         };
         const urlParams = new URLSearchParams(window.location.search);
         let curLang = urlParams.get('lang') || 'en';
@@ -156,8 +170,7 @@
             document.getElementById('card1-desc').innerText = t.c1_desc;
             document.getElementById('card2-title').innerText = t.c2_title;
             document.getElementById('card2-desc').innerText = t.c2_desc;
-            document.getElementById('card3-title').innerText = t.c3_title;
-            document.getElementById('card3-desc').innerText = t.c3_desc;
+            // Card 3 Title entfällt, da Widget Inhalt liefert
             
             document.getElementById('ticker-badge').innerText = t.ticker_badge;
             
@@ -180,17 +193,12 @@
 
         async function initTicker() {
             try {
-                // Wir laden die News mit Cache-Busting
                 const res = await fetch('news.json?v=' + Date.now());
                 const news = await res.json();
-                
-                // Nur die neuesten 3 News nehmen
                 tickerItems = news.slice(0, 3);
                 
                 if (tickerItems.length > 0) {
                     document.getElementById('news-ticker').classList.remove('hidden');
-                    
-                    // Wir füllen auch gleich die "News & Events" Karte mit dem allerneuesten Eintrag
                     const data = tickerItems[0][curLang] || tickerItems[0]['en'];
                     const t = translations[curLang];
                     document.getElementById('card2-title').innerHTML = `<span class="text-blue-400">${t.news_prefix}:</span> ${data.title}`;
@@ -199,34 +207,23 @@
                     const codeHTML = tickerItems[0].code ? `<br><span class="inline-block mt-2 text-[#d4af37] border border-[#d4af37] px-2 rounded text-xs">CODE: ${tickerItems[0].code}</span>` : '';
                     document.getElementById('card2-desc').innerHTML = summary + codeHTML;
 
-                    // Start der Animation
                     rotateTicker();
                     setInterval(rotateTicker, 4000);
                 }
-            } catch (e) {
-                console.error("News load error", e);
-            }
+            } catch (e) { console.error("News load error", e); }
         }
 
         function rotateTicker() {
             if (tickerItems.length === 0) return;
-            
             const item = tickerItems[tickerIndex];
             const data = item[curLang] || item['en'];
             const date = item.date;
             const textEl = document.getElementById('ticker-text');
-
-            // 1. Text ausblenden
             textEl.style.opacity = 0;
-
             setTimeout(() => {
-                // 2. Text ändern
                 textEl.innerHTML = `<span class="text-gray-400 mr-2">[${date}]</span> ${data.title}`;
-                // 3. Text einblenden
                 textEl.style.opacity = 1;
             }, 500);
-
-            // Nächster Index
             tickerIndex = (tickerIndex + 1) % tickerItems.length;
         }
 
