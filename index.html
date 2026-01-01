@@ -36,7 +36,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
         }
 
-        /* HIGHLIGHT CARD (Discord) */
+        /* HIGHLIGHT CARD (Jetzt für Discord in der Mitte) */
         .highlight-card {
             border: 1px solid #d4af37; 
             box-shadow: 0 0 15px rgba(212, 175, 55, 0.15); 
@@ -65,6 +65,7 @@
                 <span class="material-symbols-outlined text-[#d4af37] notranslate text-lg md:text-2xl">campaign</span>
                 <span class="font-bold text-xs md:text-sm uppercase tracking-widest">News</span>
             </a>
+            
             <div class="flex items-center bg-black/40 backdrop-blur-md px-3 py-2 md:px-4 md:py-2 rounded-full border border-white/10">
                 <div class="flex items-center gap-2 md:gap-3 text-xs md:text-sm font-bold">
                     <a href="?lang=en" class="lang-btn" id="lang-en">EN</a><span class="text-white/20">|</span>
@@ -118,19 +119,9 @@
             
             <a id="card-link-updates" href="updates.html" class="glass-panel p-6 md:p-8 rounded-2xl flex flex-col items-center text-center group cursor-pointer relative overflow-hidden">
                 <div id="update-date-badge" class="absolute top-4 right-4 text-[10px] font-mono text-gray-500 border border-gray-700 px-2 py-1 rounded opacity-0 transition-opacity duration-500">--</div>
-
                 <span class="material-symbols-outlined text-4xl md:text-5xl gold-text mb-3 md:mb-4 notranslate group-hover:scale-110 transition-transform">update</span>
                 <h3 id="card1-title" class="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 viking-font">Latest Updates</h3>
-                <p id="card1-desc" class="text-sm md:text-base text-gray-400 line-clamp-3">Always up to date.</p>
-            </a>
-            
-            <a id="card-link-news" href="news.html" class="glass-panel p-6 md:p-8 rounded-2xl flex flex-col items-center text-center group cursor-pointer relative overflow-hidden">
-                <div id="news-date-badge" class="absolute top-4 right-4 text-[10px] font-mono text-gray-500 border border-gray-700 px-2 py-1 rounded opacity-0 transition-opacity duration-500">--</div>
-                
-                <span class="material-symbols-outlined text-4xl md:text-5xl text-blue-400 mb-3 md:mb-4 notranslate group-hover:scale-110 transition-transform">campaign</span>
-                <h3 id="card2-title" class="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 viking-font">News & Events</h3>
-                <div id="card2-desc" class="text-sm md:text-base text-gray-300 italic">Loading latest news...</div>
-                <div id="news-expiry" class="mt-3 text-xs text-red-400 font-bold hidden"></div>
+                <p id="card1-desc" class="text-sm md:text-base text-gray-400 line-clamp-3">Loading...</p>
             </a>
             
             <a href="https://discord.gg/vikingrise" target="_blank" class="glass-panel highlight-card p-6 md:p-8 rounded-2xl flex flex-col items-center text-center group cursor-pointer relative overflow-hidden">
@@ -145,17 +136,24 @@
                 <img id="discord-icon" src="favicon.png" class="w-16 h-16 rounded-full mb-3 shadow-lg border-2 border-[#5865F2] hidden group-hover:scale-110 transition-transform duration-500">
                 <span id="discord-fallback-icon" class="material-symbols-outlined text-4xl md:text-5xl text-[#5865F2] mb-3 md:mb-4 notranslate group-hover:scale-110 transition-transform">groups</span>
                 
-                <h3 id="card3-title" class="text-xl md:text-2xl font-bold text-white mb-1 viking-font">Community</h3>
+                <h3 id="card-discord-title" class="text-lg md:text-xl font-bold text-white mb-1 viking-font leading-tight px-2">Official Viking Rise Community Discord</h3>
                 
                 <div class="flex items-center justify-center gap-1 mb-3">
-                    <span class="material-symbols-outlined text-[#d4af37] text-sm notranslate" title="Verified">verified</span>
-                    <span id="discord-official-text" class="text-[10px] uppercase tracking-wider text-[#d4af37] font-bold">Official Discord</span>
+                    <span class="material-symbols-outlined text-blue-400 text-sm notranslate" title="Verified">verified</span>
                 </div>
                 
                 <div class="text-sm md:text-base text-gray-400 space-y-1">
                     <p id="discord-status-text">Connecting...</p>
                     <p id="discord-total-text" class="text-xs text-gray-500 hidden">0 Members</p>
                 </div>
+            </a>
+
+            <a id="card-link-news" href="news.html" class="glass-panel p-6 md:p-8 rounded-2xl flex flex-col items-center text-center group cursor-pointer relative overflow-hidden">
+                <div id="news-date-badge" class="absolute top-4 right-4 text-[10px] font-mono text-gray-500 border border-gray-700 px-2 py-1 rounded opacity-0 transition-opacity duration-500">--</div>
+                <span class="material-symbols-outlined text-4xl md:text-5xl text-blue-400 mb-3 md:mb-4 notranslate group-hover:scale-110 transition-transform">campaign</span>
+                <h3 id="card2-title" class="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 viking-font">News & Events</h3>
+                <div id="card2-desc" class="text-sm md:text-base text-gray-300 italic line-clamp-3">Loading...</div>
+                <div id="news-expiry" class="mt-3 text-xs text-red-400 font-bold hidden"></div>
             </a>
 
         </div>
@@ -167,10 +165,38 @@
 
     <script>
         const translations = {
-            en: { subtitle: "Your unofficial source for Updates, Tools & Community.", btn_updates: "Read Patch Notes", btn_news: "Latest News", btn_discord: "Official Discord", c1_title: "Latest Updates", c1_desc: "Read the patch notes in your language.", c2_title: "News & Events", c2_desc: "Check out the latest promo codes.", c3_title: "Community", news_prefix: "News", ticker_badge: "NEW", discord_official: "Official VR Community Discord", expiry: "Expires:" },
-            de: { subtitle: "Deine inoffizielle Quelle für Updates, Tools & Community.", btn_updates: "Patch Notes lesen", btn_news: "Aktuelle News", btn_discord: "Offizieller Discord", c1_title: "Aktuelle Updates", c1_desc: "Lies die Patch Notes auf Deutsch.", c2_title: "News & Events", c2_desc: "Die neuesten Promo-Codes & Events.", c3_title: "Community", news_prefix: "News", ticker_badge: "NEU", discord_official: "Offizieller VR Community Discord", expiry: "Läuft ab:" },
-            cn: { subtitle: "您的维京崛起非官方更新、工具和社区来源。", btn_updates: "阅读更新说明", btn_news: "最新消息", btn_discord: "官方 Discord", c1_title: "最新更新", c1_desc: "阅读中文版的更新说明。", c2_title: "新闻与活动", c2_desc: "查看最新的礼包码。", c3_title: "社区", news_prefix: "新闻", ticker_badge: "最新", discord_official: "官方 VR 社区 Discord", expiry: "过期:" },
-            ru: { subtitle: "Ваш неофициальный источник новостей.", btn_updates: "Читать патчноуты", btn_news: "Новости", btn_discord: "Офиц. Discord", c1_title: "Обновления", c1_desc: "Читайте патчноуты на русском.", c2_title: "Новости и события", c2_desc: "Промокоды и события.", c3_title: "Сообщество", news_prefix: "Новости", ticker_badge: "НОВОЕ", discord_official: "Официальный Discord VR", expiry: "Истекает:" }
+            en: { 
+                subtitle: "Your unofficial source for Updates, Tools & Community.", 
+                btn_updates: "Read Patch Notes", btn_news: "Latest News", btn_discord: "Official Discord", 
+                c1_title: "Latest Updates", c1_desc: "Always up to date.", 
+                c2_title: "News & Events", c2_desc: "Loading latest news...", 
+                discord_title: "Official Viking Rise Community Discord", 
+                news_prefix: "News", ticker_badge: "NEW", expiry: "Expires:" 
+            },
+            de: { 
+                subtitle: "Deine inoffizielle Quelle für Updates, Tools & Community.", 
+                btn_updates: "Patch Notes lesen", btn_news: "Aktuelle News", btn_discord: "Offizieller Discord", 
+                c1_title: "Aktuelle Updates", c1_desc: "Immer auf dem neuesten Stand.", 
+                c2_title: "News & Events", c2_desc: "Lade aktuelle News...", 
+                discord_title: "Offizieller Viking Rise Community Discord", 
+                news_prefix: "News", ticker_badge: "NEU", expiry: "Läuft ab:" 
+            },
+            cn: { 
+                subtitle: "您的维京崛起非官方更新、工具和社区来源。", 
+                btn_updates: "阅读更新说明", btn_news: "最新消息", btn_discord: "官方 Discord", 
+                c1_title: "最新更新", c1_desc: "始终保持最新。", 
+                c2_title: "新闻与活动", c2_desc: "正在加载最新新闻...", 
+                discord_title: "官方 Viking Rise 社区 Discord", 
+                news_prefix: "新闻", ticker_badge: "最新", expiry: "过期:" 
+            },
+            ru: { 
+                subtitle: "Ваш неофициальный источник новостей.", 
+                btn_updates: "Читать патчноуты", btn_news: "Новости", btn_discord: "Офиц. Discord", 
+                c1_title: "Обновления", c1_desc: "Всегда актуально.", 
+                c2_title: "Новости и события", c2_desc: "Загрузка новостей...", 
+                discord_title: "Официальный Discord сообщества VR", 
+                news_prefix: "Новости", ticker_badge: "НОВОЕ", expiry: "Истекает:" 
+            }
         };
         const urlParams = new URLSearchParams(window.location.search);
         let curLang = urlParams.get('lang') || 'en';
@@ -182,12 +208,23 @@
             document.getElementById('btn-updates').innerText = t.btn_updates;
             document.getElementById('btn-news').innerText = t.btn_news;
             document.getElementById('btn-discord').innerText = t.btn_discord;
+            
+            // Updates Karte
             document.getElementById('card1-title').innerText = t.c1_title;
-            // c1_desc wird dynamisch überschrieben, wenn Update geladen wird
+            // Falls keine dynamischen Daten da sind, Fallback-Text setzen
+            if(document.getElementById('card1-desc').innerText === "Loading...") {
+                 document.getElementById('card1-desc').innerText = t.c1_desc;
+            }
+
+            // News Karte
             document.getElementById('card2-title').innerText = t.c2_title;
-            // c2_desc wird dynamisch überschrieben
-            document.getElementById('card3-title').innerText = t.c3_title;
-            document.getElementById('discord-official-text').innerText = t.discord_official;
+            if(document.getElementById('card2-desc').innerText === "Loading...") {
+                 document.getElementById('card2-desc').innerText = t.c2_desc;
+            }
+
+            // Discord Karte (Titel)
+            document.getElementById('card-discord-title').innerText = t.discord_title;
+            
             document.getElementById('ticker-badge').innerText = t.ticker_badge;
             
             document.documentElement.lang = curLang;
@@ -203,42 +240,35 @@
             });
         }
 
-        // --- 1. LATEST UPDATES (Karte 1) ---
+        // --- 1. LATEST UPDATES (Links) ---
         async function fetchLatestUpdate() {
             try {
                 const res = await fetch('patchnotes.json?v=' + Date.now());
                 const updates = await res.json();
-                
-                // Filtere News-Einträge raus
                 const realUpdates = updates.filter(u => u.type !== 'news');
-                
                 if (realUpdates.length > 0) {
                     const latest = realUpdates[0];
                     const meta = latest.meta;
                     const data = latest[curLang] || latest['en'];
-                    const content = data.data || data; // Support old/new format
+                    const content = data.data || data; 
 
-                    // Datum setzen
                     const dateBadge = document.getElementById('update-date-badge');
-                    // Nimm display_time (z.B. "17. Dez") und kürze ggf. Zeit weg
                     const dateText = meta.display_time ? meta.display_time.split(',')[0] : 'New';
                     dateBadge.innerText = dateText;
                     dateBadge.classList.remove('opacity-0');
 
-                    // Titel setzen
                     const titleKey = `title_${curLang}`;
                     const title = meta[titleKey] || meta.title_en || "Update";
                     document.getElementById('card1-title').innerText = title;
 
-                    // Inhalt (Erstes Highlight)
                     if (content.major && content.major.length > 0) {
                         document.getElementById('card1-desc').innerText = content.major[0];
                     }
                 }
-            } catch (e) { console.error("Updates load error", e); }
+            } catch (e) { console.error("Updates error", e); }
         }
 
-        // --- 2. NEWS & TICKER (Karte 2) ---
+        // --- 2. NEWS & TICKER (Rechts) ---
         let tickerItems = [];
         let tickerIndex = 0;
 
@@ -247,11 +277,9 @@
                 const res = await fetch('news.json?v=' + Date.now());
                 const news = await res.json();
                 tickerItems = news.slice(0, 3);
-                
                 if (tickerItems.length > 0) {
                     document.getElementById('news-ticker').classList.remove('hidden');
                     
-                    // Karte 2 befüllen
                     const item = tickerItems[0];
                     const data = item[curLang] || item['en'];
                     const t = translations[curLang];
@@ -275,7 +303,7 @@
                     rotateTicker();
                     setInterval(rotateTicker, 4000);
                 }
-            } catch (e) { console.error("News load error", e); }
+            } catch (e) { console.error("News error", e); }
         }
 
         function rotateTicker() {
@@ -292,7 +320,7 @@
             tickerIndex = (tickerIndex + 1) % tickerItems.length;
         }
 
-        // --- 3. DISCORD (Karte 3) ---
+        // --- 3. DISCORD (Mitte) ---
         async function fetchDiscordStatus() {
             try {
                 const res = await fetch('https://discord.com/api/v9/invites/vikingrise?with_counts=true');
@@ -329,7 +357,7 @@
 
         updateContent();
         initTicker();
-        fetchLatestUpdate(); // Neu!
+        fetchLatestUpdate();
         fetchDiscordStatus();
     </script>
 </body>
