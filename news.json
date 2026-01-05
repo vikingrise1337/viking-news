@@ -1,5 +1,29 @@
 [
   {
+    "id": "1457711177936277688",
+    "date": "05. Jan 2024",
+    "image": "",
+    "code": null,
+    "expiry": "Event ends 1/11 (UTC)",
+    "link": null,
+    "en": {
+      "title": "Viking Rise 10 Billion Resource Giveaway Event",
+      "content": "Participate in an exciting event to share a prize pool of 10,000,000,000 random resources (Food or Lumber). Follow simple steps to claim your share."
+    },
+    "de": {
+      "title": "**Viking Rise 10 Milliarden Resource-Giveaway-Event**",
+      "content": "Nimm an einem spannenden Event teil, um einen **prize pool** von 10.000.000.000 **random resources (Food or Lumber)** zu teilen. Befolge einfache Schritte, um dir deinen Anteil zu sichern."
+    },
+    "cn": {
+      "title": "Viking Rise 一百亿 Resource Giveaway Event",
+      "content": "参与精彩活动，瓜分 100亿 random resources (Food 或 Lumber) 的奖池。仅需简单几步，即可领取你的份额。"
+    },
+    "ru": {
+      "title": "**Viking Rise: 10 миллиардов Resource Giveaway Event**",
+      "content": "Участвуйте в захватывающем **event**'е, чтобы разделить **prize pool** в размере 10 000 000 000 **random resources** (**Food** или **Lumber**). Выполните простые шаги, чтобы получить свою долю."
+    }
+  },
+  {
     "id": "1457707112468844779",
     "date": "05. Jan 2024",
     "image": "",
