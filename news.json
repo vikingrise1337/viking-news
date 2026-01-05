@@ -1,5 +1,29 @@
 [
   {
+    "id": "1457701662834561096",
+    "date": "05. Jan 2026",
+    "image": "",
+    "code": null,
+    "expiry": null,
+    "link": "https://www.tiktok.com/@vikingrise",
+    "en": {
+      "title": "New Era: Dragon Crystal Power",
+      "content": "The wise Vikings discovered the immense power contained within Dragon Crystal. Dragon Crystal Buildings can now reach higher level caps, and new Dragon Crystal Technologies await discovery by Viking warriors. The tribe enters a new era of Eternal Brilliance."
+    },
+    "de": {
+      "title": "Neue Ära: Drachenkristall-Kraft",
+      "content": "Die weisen Wikinger haben die immense Kraft der Drachenkristalle entdeckt. Drachenkristall-Gebäude können nun höhere Level erreichen und neue Technologien warten auf ihre Entdeckung. Der Stamm tritt in eine neue Ära des ewigen Glanzes ein."
+    },
+    "cn": {
+      "title": "新纪元：龙晶之力",
+      "content": "明智的维京人发现了龙晶中蕴含的巨大力量。龙晶建筑现在的等级上限更高，新的龙晶科技正等待维京勇士去发现。部落将进入永恒辉煌的新时代。"
+    },
+    "ru": {
+      "title": "Новая эра: Сила Кристалла Дракона",
+      "content": "Мудрые викинги открыли огромную силу, заключенную в Кристалле Дракона. Здания Кристалла Дракона теперь могут достигать более высоких уровней, а новые технологии ожидают открытия. Племя вступает в новую эру Вечного Сияния."
+    }
+  },
+  {
     "id": "1456239743418237063",
     "date": "01. Jan 2026",
     "image": "",
