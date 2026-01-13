@@ -22,11 +22,12 @@
             background: rgba(30, 41, 59, 0.6); 
             backdrop-filter: blur(10px); 
             border: 1px solid rgba(255, 255, 255, 0.1); 
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            transition: all 0.3s ease;
         }
         .glass-panel:hover {
             border-color: #d4af37;
             transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .lang-btn { cursor: pointer; font-size: 0.85rem; font-weight: bold; transition: color 0.3s; }
@@ -60,17 +61,16 @@
     <div class="relative w-full h-64 md:h-80 overflow-hidden border-b-4 border-[#d4af37] mb-8">
         <img src="header-bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60">
         <div class="absolute inset-0 bg-gradient-to-t from-[#0b101b] via-[#0b101b]/60 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 p-6 md:p-12 w-full text-center md:text-left">
+        <div class="absolute bottom-0 left-0 p-6 md:p-12 w-full">
             <span class="inline-block px-3 py-1 mb-2 text-xs font-bold text-black bg-[#d4af37] rounded uppercase tracking-widest">Community Hub</span>
             <h1 id="txt-title" class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg viking-font">News & Events</h1>
         </div>
     </div>
 
     <div class="container mx-auto px-4 relative z-10 flex-grow">
-        <div id="news-container" class="grid grid-cols-1 gap-8 max-w-5xl mx-auto">
+        <div id="news-container" class="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
             <div class="text-center py-10">
                 <span class="material-symbols-outlined text-4xl text-[#d4af37] animate-spin notranslate">refresh</span>
-                <p class="text-gray-500 mt-2">Loading news...</p>
             </div>
         </div>
     </div>
@@ -80,26 +80,26 @@
     </footer>
 
     <script>
-        // --- TEXT RESOURCES ---
+        // --- Translations ---
         const uiTranslations = {
-            en: { back: "Back to", home: "Home", title: "News & Events", copy: "Copy Code", copied: "Copied!", valid: "Active", expired: "Expired", readmore: "Read More" },
-            de: { back: "Zurück", home: "Start", title: "News & Events", copy: "Code kopieren", copied: "Kopiert!", valid: "Aktiv", expired: "Abgelaufen", readmore: "Mehr lesen" },
-            cn: { back: "返回", home: "主页", title: "新闻与活动", copy: "复制代码", copied: "已复制!", valid: "有效", expired: "已过期", readmore: "阅读更多" },
-            ru: { back: "Назад", home: "Главная", title: "Новости", copy: "Копировать", copied: "Скопировано!", valid: "Активен", expired: "Истек", readmore: "Читать далее" }
+            en: { back: "Back to", home: "Home", title: "News & Events", copy: "Copy Code", copied: "Copied!", readmore: "Read More" },
+            de: { back: "Zurück", home: "Start", title: "News & Events", copy: "Code kopieren", copied: "Kopiert!", readmore: "Mehr lesen" },
+            cn: { back: "返回", home: "主页", title: "新闻与活动", copy: "复制代码", copied: "已复制!", readmore: "阅读更多" },
+            ru: { back: "Назад", home: "Главная", title: "Новости", copy: "Копировать", copied: "Скопировано!", readmore: "Читать далее" }
         };
 
-        // --- SETUP ---
+        // --- Setup ---
         const urlParams = new URLSearchParams(window.location.search);
         let curLang = urlParams.get('lang') || 'en';
         if(!['en','de','cn','ru'].includes(curLang)) curLang = 'en';
 
-        // --- CLOCK ---
+        // --- Clock ---
         setInterval(() => {
             const date = new Date();
             document.getElementById('nav-clock').innerText = date.toLocaleTimeString(curLang === 'cn' ? 'zh-CN' : curLang);
         }, 1000);
 
-        // --- UI UPDATE ---
+        // --- Update UI ---
         function updateUI() {
             const t = uiTranslations[curLang];
             document.getElementById('txt-back').innerText = t.back;
@@ -115,35 +115,32 @@
             });
         }
 
-        // --- CODE COPY FUNCTION ---
+        // --- Copy Code ---
         window.copyCode = function(btn, code) {
             navigator.clipboard.writeText(code).then(() => {
                 const t = uiTranslations[curLang];
                 const originalText = btn.innerText;
                 btn.innerText = t.copied;
-                btn.classList.remove('bg-black/50', 'text-[#d4af37]', 'border-[#d4af37]');
                 btn.classList.add('bg-green-600', 'text-white', 'border-green-600');
                 
                 setTimeout(() => {
-                    btn.innerText = t.copy; // Reset text to localized string
-                    btn.classList.add('bg-black/50', 'text-[#d4af37]', 'border-[#d4af37]');
+                    btn.innerText = t.copy;
                     btn.classList.remove('bg-green-600', 'text-white', 'border-green-600');
                 }, 2000);
             });
         }
 
-        // --- MAIN LOGIC ---
+        // --- Load News ---
         async function loadNews() {
             updateUI();
             const container = document.getElementById('news-container');
             
             try {
-                // Cache Buster
                 const res = await fetch('news.json?v=' + Date.now());
                 if (!res.ok) throw new Error("File not found");
                 const newsData = await res.json();
                 
-                container.innerHTML = ''; // Clear loading spinner
+                container.innerHTML = '';
 
                 if(!Array.isArray(newsData) || newsData.length === 0) {
                     container.innerHTML = '<p class="text-center text-gray-500 py-10">No news entries found.</p>';
@@ -151,73 +148,56 @@
                 }
 
                 newsData.forEach(item => {
-                    // Sprachdaten holen (Fallback auf EN)
                     const langData = item[curLang] || item['en'];
-                    if (!langData) return; // Skip broken items
+                    if (!langData) return;
 
                     const t = uiTranslations[curLang];
                     
-                    // --- Expiry Logic ---
-                    // Wir versuchen es simpel zu prüfen, da Datumsformate variieren können
-                    let isExpired = false;
-                    let statusText = "";
-                    if (item.expiry) {
-                        // Einfacher String-Check, idealerweise würde man parsen
-                        statusText = item.expiry; 
-                    }
-
-                    // --- Image Block ---
+                    // Bild Block
                     let imageHTML = '';
                     if (item.image && item.image.trim().length > 0) {
                         imageHTML = `
-                        <div class="w-full md:w-1/3 h-56 md:h-auto relative overflow-hidden bg-black/50">
-                            <img src="${item.image}" alt="News Image" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="w-full md:w-48 h-48 md:h-auto relative overflow-hidden bg-black/50 shrink-0">
+                            <img src="${item.image}" alt="News Image" class="absolute inset-0 w-full h-full object-cover">
                         </div>`;
                     }
 
-                    // --- Code Block ---
+                    // Code Block
                     let codeHTML = '';
                     if (item.code) {
                         codeHTML = `
-                        <div class="mt-5 p-4 bg-black/40 border border-[#d4af37]/30 rounded-lg flex flex-col sm:flex-row gap-4 items-center justify-between shadow-inner">
-                            <div class="text-left w-full">
-                                <p class="text-[10px] text-gray-400 uppercase tracking-wider mb-1 font-bold">Promo Code</p>
-                                <p class="text-2xl font-mono font-bold text-[#d4af37] tracking-widest break-all">${item.code}</p>
-                                ${item.expiry ? `<p class="text-xs text-gray-500 mt-1 flex items-center gap-1"><span class="material-symbols-outlined text-[14px] notranslate">event</span> ${item.expiry}</p>` : ''}
-                            </div>
-                            <button onclick="copyCode(this, '${item.code}')" class="shrink-0 w-full sm:w-auto px-6 py-3 text-sm font-bold border border-[#d4af37] text-[#d4af37] rounded hover:bg-[#d4af37] hover:text-black transition uppercase bg-black/50 shadow-lg">
+                        <div class="mt-3 p-3 bg-black/40 border border-[#d4af37]/30 rounded-lg flex items-center justify-between gap-4">
+                            <code class="text-lg font-mono font-bold text-[#d4af37]">${item.code}</code>
+                            <button onclick="copyCode(this, '${item.code}')" class="px-4 py-2 text-xs font-bold border border-[#d4af37] text-[#d4af37] rounded hover:bg-[#d4af37] hover:text-black transition uppercase">
                                 ${t.copy}
                             </button>
                         </div>`;
                     }
 
-                    // --- Link Block ---
+                    // Link Block
                     let linkHTML = '';
                     if (item.link) {
                         linkHTML = `
-                        <div class="mt-4 text-right">
-                            <a href="${item.link}" target="_blank" class="inline-flex items-center gap-1 text-[#d4af37] hover:text-white text-sm font-bold border-b border-[#d4af37] hover:border-white pb-0.5 transition">
-                                ${t.readmore} <span class="material-symbols-outlined text-[16px] notranslate">arrow_outward</span>
+                        <div class="mt-3 text-right">
+                            <a href="${item.link}" target="_blank" class="text-[#d4af37] hover:text-white text-xs font-bold border-b border-[#d4af37] hover:border-white pb-0.5 transition">
+                                ${t.readmore} &rarr;
                             </a>
                         </div>`;
                     }
 
-                    // --- Card Render ---
+                    // Card HTML
                     const card = document.createElement('div');
-                    card.className = "glass-panel rounded-xl overflow-hidden flex flex-col md:flex-row group shadow-xl";
+                    card.className = "glass-panel rounded-xl overflow-hidden flex flex-col md:flex-row";
                     
                     card.innerHTML = `
                         ${imageHTML}
-                        <div class="p-6 md:p-8 flex flex-col justify-between flex-grow">
+                        <div class="p-6 flex flex-col justify-between flex-grow">
                             <div>
-                                <div class="flex flex-wrap justify-between items-center mb-3 gap-2">
-                                    <span class="text-xs font-mono text-gray-400 border border-gray-700 px-2 py-1 rounded bg-black/30 flex items-center gap-1">
-                                        <span class="material-symbols-outlined text-[14px] notranslate">calendar_today</span> ${item.date}
-                                    </span>
-                                    ${item.code ? `<span class="text-[10px] uppercase font-bold px-2 py-1 rounded border border-green-500 text-green-400 bg-green-900/20 tracking-wider">Gift Code</span>` : ''}
-                                </div>
-                                <h2 class="text-2xl md:text-3xl font-bold text-white mb-3 viking-font leading-tight drop-shadow-md">${langData.title}</h2>
-                                <p class="text-gray-300 text-sm md:text-base leading-relaxed whitespace-pre-line">${langData.content}</p>
+                                <span class="text-xs font-mono text-gray-400 border border-gray-700 px-2 py-1 rounded bg-black/30 mb-2 inline-block">
+                                    ${item.date}
+                                </span>
+                                <h2 class="text-xl md:text-2xl font-bold text-white mb-2 viking-font">${langData.title}</h2>
+                                <p class="text-gray-300 text-sm leading-relaxed whitespace-pre-line">${langData.content}</p>
                             </div>
                             <div>
                                 ${codeHTML}
@@ -230,12 +210,7 @@
 
             } catch(e) {
                 console.error(e);
-                container.innerHTML = `
-                    <div class="text-center py-10 bg-red-900/20 border border-red-900/50 rounded-lg">
-                        <span class="material-symbols-outlined text-4xl text-red-400 mb-2 notranslate">error</span>
-                        <p class="text-red-300">Error loading news data.</p>
-                        <p class="text-xs text-red-400 mt-2 font-mono">${e.message}</p>
-                    </div>`;
+                container.innerHTML = '<p class="text-center text-red-400">Error loading news data.</p>';
             }
         }
 
