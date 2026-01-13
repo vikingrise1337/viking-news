@@ -1,5 +1,267 @@
 [
   {
+    "id": "update_14_01_2025",
+    "meta": {
+      "created_at": "2026-01-13T19:09:13.595000Z",
+      "start_timestamp": "2025-01-14T06:00:00Z",
+      "display_time": "1/14 6:00 - 06:30 (UTC)",
+      "title_en": "Update 14.01.2025",
+      "title_de": "Update vom 14.01.2025",
+      "title_cn": "更新 14.01.2025",
+      "title_ru": "Обновление 14.01.2025",
+      "image_url": "",
+      "image_urls": []
+    },
+    "en": {
+      "major": [
+        "Epic progression expansion! New Dragon Crystal buildings, Dragon Crystal research, and a new Troop Tier are coming soon. Be the first to seize the Dragon Crystals and dominate the Viking Age!",
+        "Shrine Ritual event coming soon. As the polar night blankets the North, the ancient altars stir once more. Arise, Viking warriors! Ignite the fires of the shrine!"
+      ],
+      "new_features": [
+        "New \"Wishing Orb\" event. Let the Wishing Orb light your path to conquest!",
+        "Main Quest chapters have been extended to Chapter 35, featuring new quests related to Dragon Crystals.",
+        "New \"Dragon Crystal Legend\" event. Complete quests for a chance to trigger the \"Giant Dragon's Blessing\", granting massive discounts or enhanced pack rewards.",
+        "New \"Kingdom Mayhem\" Conquest Season event, \"Odin's Summon\". Use \"Chaos Badges\" to exchange for current-season Skills, Heroes, and other items.",
+        "2025 \"Flaming Sacrifice\" series of events and Skins is returning!",
+        "The initial download size has been reduced. Additional resources will now download automatically after entering the game."
+      ],
+      "optimizations": [
+        {
+          "title": "Migration and Kingdom Events",
+          "items": [
+            "Reduced the Migration Pass Consumption for Strong and Common Kingdoms at certain Might brackets.",
+            "Optimized Kingdom Mayhem Endless Battle event with reward selection chests and increased Chief Ranking rewards."
+          ]
+        },
+        {
+          "title": "Game Content and Difficulty",
+          "items": [
+            "Optimized city management by removing Monster Cave quests and reducing Enemy Extermination stages.",
+            "Optimized Tribe Trial difficulty for Levels 20-25 and added Levels 26-30 challenges.",
+            "Optimized Sworn Vengeance and Hero Redemption difficulty scaling and rewards for Conquest Seasons."
+          ]
+        },
+        {
+          "title": "Items and Economy",
+          "items": [
+            "Optimized event and pack contents to include Dragon Crystal materials.",
+            "Added previous season Heroes and Skills to the Exchange Shop for certain Conquest Seasons.",
+            "Adjusted quantities for Yggdrasil Dew, Sx Hero Shard, Blue Chalcedony, and Honing Fruit.",
+            "Optimized recycling conditions for Monster Essence, Thorny Spike, War Horn, and Speedups."
+          ]
+        },
+        {
+          "title": "User Interface and Interactions",
+          "items": [
+            "Added filter feature for Troop creation.",
+            "Blood Oath War map and interaction optimizations including reduced map size and automatic R4 commander permissions.",
+            "Added Quick Hone button and optimized interaction for Mount Honing and Skill Drawing.",
+            "Optimized building interaction logic allowing research, healing, crafting, and training during upgrades.",
+            "Troop presets can now be used at the Arena and Manor.",
+            "Optimized notifications for Skin Shop, Ranking selections, and Tribe Day Treasure Hunt animation."
+          ]
+        }
+      ],
+      "fixes": [
+        "Fixed the Tribe Shop \"Shard Market\" issue where certain items could not be gifted.",
+        "Fixed the \"Dragon Taming Journey\" issue where event quests occasionally fail to refresh in time.",
+        "Fixed the issue where the status of the \"Kingdom Mayhem-Surtr's Flames\" survey icon did not update immediately.",
+        "Fixed the abnormal Kingdom Might fluctuation issue in migration events.",
+        "Fixed the visual effect issue when obtaining Legendary-grade rewards from the Wheel of Fortune.",
+        "Fixed the issue where the assists were not being recorded in the Tribe Assist Ranking.",
+        "Fixed the display issue of Wounded Troop data that could occur in \"Pillage Weston\".",
+        "Fixed the issue where sending Emotes while multiple Troops were selected prevented the pop-up window from closing.",
+        "Fixed the issue that prevented the auto-attack setting from being applied to \"Beast Lairs\" in \"Kingdom Mayhem\"."
+      ]
+    },
+    "de": {
+      "major": [
+        "Epische Fortschrittserweiterung! Neue Dragon Crystal Gebäude, Dragon Crystal Forschung und eine neue Troop Tier kommen bald. Sei der Erste, der die Dragon Crystals ergreift und das Viking Age dominiert!",
+        "Shrine Ritual Event in Kürze. Während die Polarnacht den Norden einhüllt, regen sich die alten Altäre erneut. Erhebt euch, Wikinger-Krieger! Entfacht die Feuer des Shrine!"
+      ],
+      "new_features": [
+        "Neues „Wishing Orb“ Event. Lass den Wishing Orb deinen Weg zur Eroberung erleuchten!",
+        "Main Quest Kapitel wurden bis Kapitel 35 erweitert, mit neuen Quests rund um Dragon Crystals.",
+        "Neues „Dragon Crystal Legend“ Event. Schließe Quests ab, um die Chance auf den „Giant Dragon's Blessing“ zu erhalten, der massive Rabatte oder verbesserte Pack-Belohnungen gewährt.",
+        "Neues „Kingdom Mayhem“ Conquest Season Event, „Odin's Summon“. Nutze „Chaos Badges“, um sie gegen Skills, Heroes und andere Gegenstände der aktuellen Saison einzutauschen.",
+        "Die 2025 „Flaming Sacrifice“ Eventreihe und Skins kehren zurück!",
+        "Die anfängliche Download-Größe wurde reduziert. Zusätzliche Ressourcen werden nun nach dem Betreten des Spiels automatisch heruntergeladen."
+      ],
+      "optimizations": [
+        {
+          "title": "Migration und Kingdom Events",
+          "items": [
+            "Migration Pass Verbrauch für Strong und Common Kingdoms in bestimmten Might-Bereichen reduziert.",
+            "Optimierung des Kingdom Mayhem Endless Battle Events mit Belohnungstruhen und erhöhten Chief Ranking Belohnungen."
+          ]
+        },
+        {
+          "title": "Spielinhalt und Schwierigkeitsgrad",
+          "items": [
+            "Stadtverwaltung optimiert durch Entfernen von Monster Cave Quests und Reduzierung der Enemy Extermination Stufen.",
+            "Tribe Trial Schwierigkeitsgrad für Level 20-25 optimiert und Level 26-30 Herausforderungen hinzugefügt.",
+            "Schwierigkeitsskalierung und Belohnungen für Sworn Vengeance und Hero Redemption für Conquest Seasons optimiert."
+          ]
+        },
+        {
+          "title": "Gegenstände und Wirtschaft",
+          "items": [
+            "Event- und Paketinhalt optimiert, um Dragon Crystal Materialien einzuschließen.",
+            "Heroes und Skills der vorherigen Saison zum Exchange Shop für bestimmte Conquest Seasons hinzugefügt.",
+            "Mengen für Yggdrasil Dew, Sx Hero Shard, Blue Chalcedony und Honing Fruit angepasst.",
+            "Recycling-Bedingungen für Monster Essence, Thorny Spike, War Horn und Speedups optimiert."
+          ]
+        },
+        {
+          "title": "Benutzeroberfläche und Interaktionen",
+          "items": [
+            "Filterfunktion für Troop Erstellung hinzugefügt.",
+            "Blood Oath War Karten- und Interaktionsoptimierungen, einschließlich reduzierter Kartengröße und automatischer R4 Commander-Berechtigungen.",
+            "Quick Hone Button hinzugefügt und Interaktion für Mount Honing und Skill Drawing optimiert.",
+            "Interaktionslogik für Gebäude optimiert, sodass Forschung, Heilung, Handwerk und Training während Upgrades möglich sind.",
+            "Troop Presets können jetzt in der Arena und im Manor verwendet werden.",
+            "Benachrichtigungen für Skin Shop, Ranking-Auswahl und Tribe Day Treasure Hunt Animation optimiert."
+          ]
+        }
+      ],
+      "fixes": [
+        "Problem im Tribe Shop „Shard Market“ behoben, bei dem bestimmte Gegenstände nicht verschenkt werden konnten.",
+        "Problem bei „Dragon Taming Journey“ behoben, bei dem Event-Quests gelegentlich nicht rechtzeitig aktualisiert wurden.",
+        "Problem behoben, bei dem der Status des „Kingdom Mayhem-Surtr's Flames“ Umfrage-Icons nicht sofort aktualisiert wurde.",
+        "Problem mit abnormalen Kingdom Might Schwankungen bei Migration Events behoben.",
+        "Visueller Effektfehler beim Erhalt von Legendary-Belohnungen aus dem Wheel of Fortune behoben.",
+        "Problem behoben, bei dem Assists nicht im Tribe Assist Ranking erfasst wurden.",
+        "Anzeigefehler der Wounded Troop Daten behoben, der in „Pillage Weston“ auftreten konnte.",
+        "Problem behoben, bei dem das Senden von Emotes bei Auswahl mehrerer Troops das Schließen des Pop-up-Fensters verhinderte.",
+        "Problem behoben, das verhinderte, dass die Auto-Attack-Einstellung auf „Beast Lairs“ in „Kingdom Mayhem“ angewendet wurde."
+      ]
+    },
+    "cn": {
+      "major": [
+        "史诗级进度扩张！全新的 Dragon Crystal 建筑、Dragon Crystal 研究和全新的 Troop Tier 即将上线。抢先夺取 Dragon Crystals，统治 Viking Age！",
+        "Shrine Ritual 活动即将开启。随着极夜笼罩北方，古老的祭坛再次躁动。觉醒吧，Viking 勇士！点燃 Shrine 的火焰！"
+      ],
+      "new_features": [
+        "全新“Wishing Orb”活动。让 Wishing Orb 照亮你的征服之路！",
+        "主线任务章节已扩展至第 35 章，新增与 Dragon Crystals 相关的任务。",
+        "全新“Dragon Crystal Legend”活动。完成任务有机会触发“Giant Dragon's Blessing”，获得巨额折扣或强化礼包奖励。",
+        "全新“Kingdom Mayhem” Conquest Season 活动“Odin's Summon”。使用“Chaos Badges”兑换本赛季的 Skills、Heroes 和其他道具。",
+        "2025“Flaming Sacrifice”系列活动和 Skins 重磅回归！",
+        "初始下载包体已减小。进入游戏后将自动下载额外资源。"
+      ],
+      "optimizations": [
+        {
+          "title": "Migration and Kingdom Events",
+          "items": [
+            "降低了 Strong 和 Common Kingdoms 在特定 Might 区间的 Migration Pass 消耗。",
+            "优化了 Kingdom Mayhem Endless Battle 活动，增加了奖励选择宝箱并提升了 Chief Ranking 奖励。"
+          ]
+        },
+        {
+          "title": "Game Content and Difficulty",
+          "items": [
+            "优化了城市管理，移除了 Monster Cave 任务并减少了 Enemy Extermination 阶段。",
+            "优化了 Tribe Trial 第 20-25 级的难度，并增加了 26-30 级的挑战。",
+            "优化了 Conquest Seasons 中 Sworn Vengeance 和 Hero Redemption 的难度梯度和奖励。"
+          ]
+        },
+        {
+          "title": "Items and Economy",
+          "items": [
+            "优化了活动和礼包内容，加入了 Dragon Crystal 材料。",
+            "在特定的 Conquest Seasons 中，Exchange Shop 增加了往季的 Heroes 和 Skills。",
+            "调整了 Yggdrasil Dew、Sx Hero Shard、Blue Chalcedony 和 Honing Fruit 的数量。",
+            "优化了 Monster Essence、Thorny Spike、War Horn 和 Speedups 的回收条件。"
+          ]
+        },
+        {
+          "title": "User Interface and Interactions",
+          "items": [
+            "增加了 Troop 创建的筛选功能。",
+            "Blood Oath War 地图和交互优化，包括缩小地图尺寸和自动 R4 指挥官权限。",
+            "增加了 Quick Hone 按钮，并优化了 Mount Honing 和 Skill Drawing 的交互。",
+            "优化了建筑交互逻辑，允许在升级期间进行研究、治疗、制造和训练。",
+            "Troop 预设现在可以在 Arena 和 Manor 中使用。",
+            "优化了 Skin Shop、Ranking 选择的通知以及 Tribe Day Treasure Hunt 的动画。"
+          ]
+        }
+      ],
+      "fixes": [
+        "修复了 Tribe Shop “Shard Market” 中某些道具无法赠送的问题。",
+        "修复了“Dragon Taming Journey”活动任务偶尔无法及时刷新的问题。",
+        "修复了“Kingdom Mayhem-Surtr's Flames”问卷图标状态未立即更新的问题。",
+        "修复了 Migration 活动中 Kingdom Might 异常波动的问题。",
+        "修复了从 Wheel of Fortune 获得 Legendary 级奖励时的视觉特效问题。",
+        "修复了 Tribe Assist Ranking 中未记录助攻的问题。",
+        "修复了“Pillage Weston”中可能出现的 Wounded Troop 数据显示问题。",
+        "修复了在选中多个 Troops 时发送 Emotes 导致弹窗无法关闭的问题。",
+        "修复了“Kingdom Mayhem”中自动攻击设置无法应用于“Beast Lairs”的问题。"
+      ]
+    },
+    "ru": {
+      "major": [
+        "Эпическое расширение прогрессии! Скоро появятся новые здания Dragon Crystal, исследования Dragon Crystal и новый Troop Tier. Станьте первым, кто захватит Dragon Crystals и покорит Viking Age!",
+        "Скоро начнется событие Shrine Ritual. Пока полярная ночь укрывает Север, древние алтари снова пробуждаются. Восстаньте, воины викингов! Зажгите огни святилища!"
+      ],
+      "new_features": [
+        "Новое событие «Wishing Orb». Пусть Wishing Orb осветит ваш путь к завоеваниям!",
+        "Главы Main Quest были расширены до главы 35, включая новые задания, связанные с Dragon Crystals.",
+        "Новое событие «Dragon Crystal Legend». Выполняйте задания, чтобы получить шанс активировать «Giant Dragon's Blessing», дающее огромные скидки или улучшенные награды за наборы.",
+        "Новое событие сезона Conquest «Kingdom Mayhem» — «Odin's Summon». Используйте «Chaos Badges» для обмена на Skills, Heroes текущего сезона и другие предметы.",
+        "Серия событий и Skins 2025 года «Flaming Sacrifice» возвращается!",
+        "Начальный размер загрузки был уменьшен. Дополнительные ресурсы теперь будут загружаться автоматически после входа в игру."
+      ],
+      "optimizations": [
+        {
+          "title": "Миграция и события королевства",
+          "items": [
+            "Снижено потребление Migration Pass для Strong и Common Kingdoms в определенных диапазонах Might.",
+            "Оптимизировано событие Endless Battle в Kingdom Mayhem: добавлены сундуки с выбором наград и увеличены награды Chief Ranking."
+          ]
+        },
+        {
+          "title": "Игровой контент и сложность",
+          "items": [
+            "Оптимизировано управление городом: удалены задания Monster Cave и сокращены этапы Enemy Extermination.",
+            "Оптимизирована сложность Tribe Trial для уровней 20–25 и добавлены испытания уровней 26–30.",
+            "Оптимизировано масштабирование сложности и награды Sworn Vengeance и Hero Redemption для сезонов Conquest."
+          ]
+        },
+        {
+          "title": "Предметы и экономика",
+          "items": [
+            "Оптимизировано содержимое событий и наборов: добавлены материалы Dragon Crystal.",
+            "Добавлены Heroes и Skills предыдущих сезонов в Exchange Shop для определенных сезонов Conquest.",
+            "Скорректировано количество Yggdrasil Dew, Sx Hero Shard, Blue Chalcedony и Honing Fruit.",
+            "Оптимизированы условия переработки для Monster Essence, Thorny Spike, War Horn и Speedups."
+          ]
+        },
+        {
+          "title": "Интерфейс и взаимодействие",
+          "items": [
+            "Добавлена функция фильтрации при создании Troop.",
+            "Оптимизация карты Blood Oath War и взаимодействия, включая уменьшение размера карты и автоматические разрешения для командиров R4.",
+            "Добавлена кнопка Quick Hone и оптимизировано взаимодействие для Mount Honing и Skill Drawing.",
+            "Оптимизирована логика взаимодействия со зданиями, позволяющая проводить исследования, исцеление, создание предметов и обучение во время улучшения.",
+            "Пресеты Troop теперь можно использовать в Arena и Manor.",
+            "Оптимизированы уведомления для Skin Shop, выбора рейтинга и анимации Tribe Day Treasure Hunt."
+          ]
+        }
+      ],
+      "fixes": [
+        "Исправлена проблема в Tribe Shop «Shard Market», из-за которой некоторые предметы нельзя было подарить.",
+        "Исправлена проблема в «Dragon Taming Journey», из-за которой задания события иногда не обновлялись вовремя.",
+        "Исправлена проблема, из-за которой статус иконки опроса «Kingdom Mayhem-Surtr's Flames» не обновлялся немедленно.",
+        "Исправлена проблема аномальных колебаний Kingdom Might в событиях миграции.",
+        "Исправлена проблема с визуальным эффектом при получении наград ранга Legendary в Wheel of Fortune.",
+        "Исправлена проблема, из-за которой помощь не учитывалась в Tribe Assist Ranking.",
+        "Исправлена проблема отображения данных Wounded Troop, которая могла возникать в «Pillage Weston».",
+        "Исправлена проблема, из-за которой отправка Emotes при выборе нескольких Troops препятствовала закрытию всплывающего окна.",
+        "Исправлена проблема, из-за которой настройка автоатаки не применялась к «Beast Lairs» в «Kingdom Mayhem»."
+      ]
+    }
+  },
+  {
     "id": "update_17_12_2025",
     "meta": {
       "created_at": "2025-12-15T04:08:00Z",
