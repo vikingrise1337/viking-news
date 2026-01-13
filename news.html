@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google" content="notranslate">
     <title>Viking Rise News</title>
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -18,7 +16,7 @@
         .viking-font { font-family: 'Cinzel', serif; }
         :lang(ru) .viking-font { font-family: 'CinzelRus', serif; }
         
-        /* DEIN ALTES KARTEN DESIGN */
+        /* --- DEIN ALTES KARTEN DESIGN --- */
         .glass-card { 
             background: rgba(30, 41, 59, 0.6); 
             backdrop-filter: blur(10px); 
@@ -27,9 +25,20 @@
         }
         .glass-card:hover { transform: translateY(-5px); border-color: #d4af37; box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.2); }
         
-        /* DEINE PROMO BOX */
         .promo-box { border: 1px dashed #d4af37; background: rgba(212,175,55,0.1); }
-        .lang-btn.active { color: #d4af37; text-decoration: underline; }
+        
+        .lang-btn { cursor: pointer; font-weight: bold; }
+        .lang-btn.active { color: #d4af37; text-decoration: underline; text-underline-offset: 4px; }
+        .lang-btn.inactive { color: gray; }
+        .lang-btn.inactive:hover { color: white; }
+
+        /* Für Text-Expand */
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body class="min-h-screen pb-20">
@@ -41,10 +50,10 @@
                 <span class="viking-font text-lg font-bold text-white">Home</span>
             </a>
             <div class="flex gap-3 text-sm font-bold text-gray-400">
-                <a href="?lang=en" id="lang-en" class="lang-btn">EN</a> | 
-                <a href="?lang=de" id="lang-de" class="lang-btn">DE</a> | 
-                <a href="?lang=cn" id="lang-cn" class="lang-btn">CN</a> | 
-                <a href="?lang=ru" id="lang-ru" class="lang-btn">RU</a>
+                <span onclick="setLang('en')" id="lang-en" class="lang-btn">EN</span> | 
+                <span onclick="setLang('de')" id="lang-de" class="lang-btn">DE</span> | 
+                <span onclick="setLang('cn')" id="lang-cn" class="lang-btn">CN</span> | 
+                <span onclick="setLang('ru')" id="lang-ru" class="lang-btn">RU</span>
             </div>
         </div>
     </nav>
@@ -59,73 +68,130 @@
 
     <script>
         const translations = {
-            en: { sub: "Latest events, codes and announcements.", copy: "Copy", copied: "Copied!", readmore: "Read More" },
-            de: { sub: "Aktuelle Events, Codes und Ankündigungen.", copy: "Kopieren", copied: "Kopiert!", readmore: "Mehr lesen" },
-            cn: { sub: "最新活动、代码和公告。", copy: "复制", copied: "已复制!", readmore: "阅读更多" },
-            ru: { sub: "Последние события, коды и анонсы.", copy: "Копировать", copied: "Скопировано!", readmore: "Читать далее" }
+            en: { sub: "Latest events, codes and announcements.", copy: "Copy", copied: "Copied!", readmore: "Read More", showless: "Show Less", expired: "Expired", valid: "Active" },
+            de: { sub: "Aktuelle Events, Codes und Ankündigungen.", copy: "Kopieren", copied: "Kopiert!", readmore: "Mehr anzeigen", showless: "Weniger anzeigen", expired: "Abgelaufen", valid: "Aktiv" },
+            cn: { sub: "最新活动、代码和公告。", copy: "复制", copied: "已复制!", readmore: "阅读更多", showless: "收起", expired: "已过期", valid: "有效" },
+            ru: { sub: "Последние события, коды и анонсы.", copy: "Копировать", copied: "Скопировано!", readmore: "Читать далее", showless: "Свернуть", expired: "Истек", valid: "Активен" }
         };
 
         const urlParams = new URLSearchParams(window.location.search);
         let curLang = urlParams.get('lang') || 'en';
         if(!['en','de','cn','ru'].includes(curLang)) curLang = 'en';
 
-        // UI Setup
-        document.documentElement.lang = curLang;
-        document.getElementById(`lang-${curLang}`).className = "lang-btn active text-[#d4af37]";
-        document.getElementById('sub-title').innerText = translations[curLang].sub;
+        function updateUI() {
+            document.documentElement.lang = curLang;
+            ['en','de','cn','ru'].forEach(l => {
+                const el = document.getElementById(`lang-${l}`);
+                el.className = l === curLang ? "lang-btn active" : "lang-btn inactive";
+            });
+            document.getElementById('sub-title').innerText = translations[curLang].sub;
+        }
+
+        function setLang(lang) {
+            curLang = lang;
+            const newUrl = new URL(window.location);
+            newUrl.searchParams.set('lang', lang);
+            window.history.pushState({}, '', newUrl);
+            updateUI();
+            loadNews(); // Neu laden mit neuer Sprache
+        }
+
+        // --- EXPIRY CHECKER ---
+        function checkExpiry(expiryStr) {
+            if (!expiryStr) return { expired: false, text: "" };
+            try {
+                // Erwartet Format MM/DD/YY HH:MM (UTC) vom Bot
+                // Wir entfernen "(UTC)" für JS Parser
+                const cleanStr = expiryStr.replace('(UTC)', '').trim();
+                const expDate = new Date(cleanStr + ' UTC');
+                const now = new Date();
+                
+                if (isNaN(expDate.getTime())) return { expired: false, text: expiryStr }; // Fallback falls Format anders
+
+                const isExpired = now > expDate;
+                return { 
+                    expired: isExpired, 
+                    text: isExpired ? translations[curLang].expired : translations[curLang].valid 
+                };
+            } catch(e) { return { expired: false, text: expiryStr }; }
+        }
 
         async function loadNews() {
             try {
                 const res = await fetch('news.json?v=' + Date.now());
                 const news = await res.json();
                 const container = document.getElementById('news-grid');
-                container.innerHTML = ''; // Leeren vor dem Füllen
+                container.innerHTML = ''; 
                 
-                news.forEach(item => {
+                news.forEach((item, index) => {
                     const data = item[curLang] || item['en'];
                     if (!data) return;
 
+                    const t = translations[curLang];
                     const hasCode = item.code ? true : false;
-                    const hasLink = item.link ? true : false;
                     
-                    // Fallback Bild Logik
+                    // Bild Logik
                     let imgUrl = item.image;
-                    if (!imgUrl || imgUrl.trim() === "") imgUrl = "header-bg.jpg"; // Dein Default
+                    if (!imgUrl || imgUrl.trim() === "") imgUrl = "header-bg.jpg"; // Default Bild
+
+                    // Expiry Check
+                    let expiryHTML = '';
+                    if (item.expiry) {
+                        const status = checkExpiry(item.expiry);
+                        const colorClass = status.expired ? "text-red-500" : "text-green-500";
+                        expiryHTML = `<p class="text-[10px] text-gray-500 mt-2 text-center flex justify-between">
+                            <span>Expires: ${item.expiry}</span>
+                            <span class="${colorClass} font-bold uppercase">${status.text}</span>
+                        </p>`;
+                    }
+
+                    // IDs für Toggle
+                    const txtId = `txt-${index}`;
+                    const btnId = `btn-${index}`;
 
                     const card = `
-                    <div class="glass-card rounded-xl overflow-hidden flex flex-col h-full group">
-                        <div class="h-48 overflow-hidden relative border-b border-white/5">
+                    <div class="glass-card rounded-xl overflow-hidden flex flex-col h-full group relative">
+                        
+                        <div class="h-48 overflow-hidden relative border-b border-white/5 bg-black/50">
                             <img src="${imgUrl}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                            <div class="absolute top-3 right-3 bg-black/70 px-2 py-1 rounded text-xs text-[#d4af37] font-bold border border-[#d4af37] font-mono">
+                            
+                            <div class="absolute top-3 right-3 bg-black/70 px-2 py-1 rounded text-xs text-[#d4af37] font-bold border border-[#d4af37] font-mono shadow-lg">
                                 ${item.date}
                             </div>
+
+                            ${item.link ? `
+                            <a href="${item.link}" target="_blank" class="absolute bottom-3 right-3 bg-black/60 hover:bg-[#d4af37] text-white hover:text-black p-1.5 rounded-full transition border border-white/20 hover:border-[#d4af37]" title="Open Source">
+                                <span class="material-symbols-outlined text-sm notranslate block">open_in_new</span>
+                            </a>` : ''}
                         </div>
                         
                         <div class="p-6 flex flex-col flex-1">
-                            <h3 class="viking-font text-xl text-white mb-3 line-clamp-2 leading-tight group-hover:text-[#d4af37] transition-colors">
+                            <h3 class="viking-font text-xl text-white mb-3 leading-tight group-hover:text-[#d4af37] transition-colors">
                                 ${data.title}
                             </h3>
                             
-                            <p class="text-gray-400 text-sm mb-4 line-clamp-3 flex-1">
-                                ${data.content}
-                            </p>
-                            
-                            ${hasLink ? `
-                            <a href="${item.link}" target="_blank" class="text-xs font-bold text-[#d4af37] hover:text-white mb-4 block text-right border-b border-transparent hover:border-white w-fit ml-auto transition">
-                                ${translations[curLang].readmore} &rarr;
-                            </a>` : ''}
-
-                            ${hasCode ? `
-                            <div class="promo-box rounded-lg p-3 flex items-center justify-between gap-2 mt-auto">
-                                <div class="overflow-hidden">
-                                    <p class="text-[10px] uppercase text-[#d4af37] tracking-wider font-bold">Promo Code</p>
-                                    <p class="font-mono text-white text-lg tracking-widest truncate">${item.code}</p>
-                                </div>
-                                <button onclick="copyCode(this, '${item.code}')" class="bg-[#d4af37] hover:bg-white text-black p-2 rounded transition shrink-0">
-                                    <span class="material-symbols-outlined text-lg notranslate">content_copy</span>
+                            <div class="flex-1 mb-4">
+                                <p id="${txtId}" class="text-gray-400 text-sm line-clamp-3 cursor-pointer hover:text-gray-300 transition-colors" onclick="toggleText('${txtId}', '${btnId}')">
+                                    ${data.content}
+                                </p>
+                                <button id="${btnId}" onclick="toggleText('${txtId}', '${btnId}')" class="text-xs font-bold text-[#d4af37] hover:text-white border-b border-transparent hover:border-white transition uppercase mt-1">
+                                    ${t.readmore}
                                 </button>
                             </div>
-                            ${item.expiry ? `<p class="text-[10px] text-gray-500 mt-2 text-center">Valid until: ${item.expiry}</p>` : ''}
+                            
+                            ${hasCode ? `
+                            <div class="mt-auto">
+                                <div class="promo-box rounded-lg p-3 flex items-center justify-between gap-2">
+                                    <div class="overflow-hidden">
+                                        <p class="text-[10px] uppercase text-[#d4af37] tracking-wider font-bold">Promo Code</p>
+                                        <p class="font-mono text-white text-lg tracking-widest truncate">${item.code}</p>
+                                    </div>
+                                    <button onclick="copyCode(this, '${item.code}')" class="bg-[#d4af37] hover:bg-white text-black p-2 rounded transition shrink-0 shadow-lg">
+                                        <span class="material-symbols-outlined text-lg notranslate">content_copy</span>
+                                    </button>
+                                </div>
+                                ${expiryHTML}
+                            </div>
                             ` : ''}
                         </div>
                     </div>`;
@@ -138,22 +204,35 @@
             }
         }
 
+        function toggleText(txtId, btnId) {
+            const txt = document.getElementById(txtId);
+            const btn = document.getElementById(btnId);
+            const t = translations[curLang];
+
+            if (txt.classList.contains('line-clamp-3')) {
+                txt.classList.remove('line-clamp-3');
+                btn.innerText = t.showless;
+            } else {
+                txt.classList.add('line-clamp-3');
+                btn.innerText = t.readmore;
+            }
+        }
+
         function copyCode(btn, code) {
             navigator.clipboard.writeText(code);
-            const originalHTML = btn.innerHTML;
-            
-            // Wechsel zu Checkmark
+            const originalIcon = btn.innerHTML;
             btn.innerHTML = `<span class="material-symbols-outlined text-lg notranslate">check</span>`;
-            btn.classList.remove('bg-[#d4af37]', 'text-black');
             btn.classList.add('bg-green-600', 'text-white');
+            btn.classList.remove('bg-[#d4af37]', 'text-black');
             
             setTimeout(() => {
-                btn.innerHTML = originalHTML;
+                btn.innerHTML = originalIcon;
                 btn.classList.remove('bg-green-600', 'text-white');
                 btn.classList.add('bg-[#d4af37]', 'text-black');
             }, 2000);
         }
 
+        updateUI();
         loadNews();
     </script>
 </body>
