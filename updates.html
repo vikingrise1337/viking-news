@@ -96,7 +96,6 @@
 </nav>
 
 <div class="header-mobile-fix relative w-full h-80 md:h-96 overflow-hidden border-b-4 border-[#d4af37] mb-12">
-    <!-- WICHTIG: id für dynamisches Setzen -->
     <img id="hero-img" src="header-bg.jpg" alt="Viking Update Hero"
          class="absolute inset-0 w-full h-full object-cover opacity-80" style="object-position: center top;">
     <div class="absolute inset-0 bg-gradient-to-t from-[#0b101b] via-transparent to-transparent"></div>
@@ -282,8 +281,7 @@
             btn.className = l === currentLang ? "lang-btn lang-active" : "lang-btn lang-inactive";
         });
 
-        const homeLink = document.getElementById('nav-home-link');
-        homeLink.href = `index.html?lang=${currentLang}`;
+        document.getElementById('nav-home-link').href = `index.html?lang=${currentLang}`;
     }
 
     function isNonEmptyString(value) {
@@ -341,17 +339,12 @@
         if (!imgEl || list.length === 0) return;
 
         let i = 0;
-
         function tryNext() {
             if (i >= list.length) return;
             imgEl.src = list[i];
             i += 1;
         }
-
-        imgEl.onerror = () => {
-            tryNext();
-        };
-
+        imgEl.onerror = () => { tryNext(); };
         tryNext();
     }
 
@@ -395,7 +388,7 @@
                 const option = document.createElement('option');
                 option.value = index;
                 const titleKey = `title_${currentLang}`;
-                option.text = update.meta[titleKey] || update.meta.title_en || `Update #${index + 1}`;
+                option.text = (update.meta && update.meta[titleKey]) || (update.meta && update.meta.title_en) || `Update #${index + 1}`;
                 selector.appendChild(option);
             });
 
@@ -415,9 +408,14 @@
         const meta = update.meta || {};
         const t = uiTranslations[currentLang] || uiTranslations.en;
 
-        // --- HERO IMAGE OBEN (Update-spezifisch + Fallback-Kette) ---
+        // --- NEU: Bilderliste aus JSON ---
+        const images = Array.isArray(meta.images) ? meta.images : [];
+        const heroFromList = isNonEmptyString(images[0]) ? images[0].trim() : "";
+        const heroFromLegacy = isNonEmptyString(meta.image_url) ? meta.image_url.trim() : "";
+
+        // HERO: bevorzugt images[0], sonst image_url, sonst header-bg.jpg
+        const heroRaw = heroFromList || heroFromLegacy || "header-bg.jpg";
         const heroImgEl = document.getElementById("hero-img");
-        const heroRaw = isNonEmptyString(meta.image_url) ? meta.image_url.trim() : "";
         setImgWithFallback(heroImgEl, buildImageCandidates(heroRaw, ["header-bg.jpg"]));
 
         const fillList = (id, items) => {
@@ -431,12 +429,13 @@
         if (majorContainer) {
             majorContainer.innerHTML = '';
 
-            const fallbackImages = ["surtr.jpg", "dragon.jpg", "christmas.jpg"];
-            const heroImage = isNonEmptyString(meta.image_url) ? meta.image_url.trim() : "";
+            const fallbackImages = ["surtr.jpg", "dragon.jpg", "christmas.jpg", "header-bg.jpg"];
 
             if (data.major && Array.isArray(data.major)) {
                 data.major.forEach((text, i) => {
-                    const rawImg = (i === 0 && heroImage) ? heroImage : fallbackImages[i % fallbackImages.length];
+                    // NEU: pro Highlight bevorzugt meta.images[i] (gleicher Index wie major[i])
+                    const listImg = isNonEmptyString(images[i]) ? images[i].trim() : "";
+                    const rawImg = listImg || (i === 0 ? heroRaw : fallbackImages[i % fallbackImages.length]);
 
                     const cardEl = document.createElement("div");
                     cardEl.className = "glass-panel rounded-xl overflow-hidden shadow-lg border border-gray-700 group hover:border-[#d4af37] transition-all duration-300 filter-item major";
@@ -447,7 +446,7 @@
                                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#0b101b] to-transparent"></div>
                             <h3 class="absolute bottom-4 left-4 text-xl font-bold text-white drop-shadow-lg viking-font">
-                                ${i === 0 && heroImage ? t.main_feature : `${t.highlight_prefix} #${i + 1}`}
+                                ${i === 0 ? t.main_feature : `${t.highlight_prefix} #${i + 1}`}
                             </h3>
                         </div>
                         <div class="p-6">
