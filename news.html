@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google" content="notranslate">
-    <title>Viking Rise News</title>
-    
+    <title>Viking Rise News & Events</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -17,259 +15,228 @@
         body { font-family: 'Roboto', sans-serif; background-color: #0b101b; color: #e2e8f0; }
         .viking-font { font-family: 'Cinzel', serif; }
         :lang(ru) .viking-font { font-family: 'CinzelRus', serif; }
+        .gold-text { color: #d4af37; }
         
-        /* Karten Styles */
-        .glass-card { 
+        /* Glass Panel Styling */
+        .glass-panel { 
             background: rgba(30, 41, 59, 0.6); 
             backdrop-filter: blur(10px); 
-            border: 1px solid rgba(255,255,255,0.1); 
-            transition: all 0.3s ease;
-            cursor: pointer; /* Zeigt an, dass es klickbar ist */
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        .glass-card:hover { 
-            transform: translateY(-5px); 
-            border-color: #d4af37; 
-            box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.2); 
+        .glass-panel:hover {
+            border-color: #d4af37;
+            transform: translateY(-2px);
         }
-        
-        .promo-box { border: 1px dashed #d4af37; background: rgba(212,175,55,0.1); }
-        .lang-btn.active { color: #d4af37; text-decoration: underline; }
 
-        /* MODAL (POPUP) STYLES */
-        #news-modal {
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        #news-modal.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-        #news-modal:not(.hidden) {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-        }
-        /* Scrollbar im Modal hübsch machen */
-        .modal-scroll::-webkit-scrollbar { width: 8px; }
-        .modal-scroll::-webkit-scrollbar-track { background: #0b101b; }
-        .modal-scroll::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-        .modal-scroll::-webkit-scrollbar-thumb:hover { background: #d4af37; }
+        .lang-btn { cursor: pointer; font-size: 0.85rem; font-weight: bold; transition: color 0.3s; }
+        .lang-active { color: #d4af37; text-decoration: underline; text-underline-offset: 4px; }
+        .lang-inactive { color: #64748b; } 
+        .lang-inactive:hover { color: white; }
+
+        /* Code Copy Button Animation */
+        .copy-feedback { animation: fadeOut 2s forwards; }
+        @keyframes fadeOut { 0% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; } }
     </style>
 </head>
-<body class="min-h-screen pb-20">
+<body class="min-h-screen pb-20 flex flex-col">
 
-    <nav class="w-full z-50 border-b border-white/10 bg-[#0b101b] sticky top-0 backdrop-blur-md">
+    <nav class="w-full z-50 border-b border-white/10 bg-[#0b101b] sticky top-0 backdrop-blur-md bg-opacity-80">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-2 hover:opacity-80">
+            <a href="index.html" id="nav-home-link" class="flex items-center gap-2 hover:opacity-80 transition">
                 <span class="material-symbols-outlined text-gray-400 notranslate">arrow_back</span>
-                <span class="viking-font text-lg font-bold text-white">Home</span>
+                <span class="viking-font text-lg font-bold text-white"><span id="txt-back">Back to</span> <span class="text-[#d4af37]" id="txt-home">Home</span></span>
             </a>
-            <div class="flex gap-3 text-sm font-bold text-gray-400">
-                <a href="?lang=en" id="lang-en">EN</a> | <a href="?lang=de" id="lang-de">DE</a> | 
-                <a href="?lang=cn" id="lang-cn">CN</a> | <a href="?lang=ru" id="lang-ru">RU</a>
+            <div class="flex items-center gap-4">
+                <div class="hidden sm:flex items-center mr-4 pr-4 border-r border-white/20">
+                    <span id="nav-clock" class="text-sm font-mono text-[#d4af37] font-bold">--:--:--</span>
+                </div>
+                <div class="flex gap-3">
+                    <a href="?lang=en" class="lang-btn" id="lang-en">EN</a> | 
+                    <a href="?lang=de" class="lang-btn" id="lang-de">DE</a> | 
+                    <a href="?lang=cn" class="lang-btn" id="lang-cn">CN</a> | 
+                    <a href="?lang=ru" class="lang-btn" id="lang-ru">RU</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <div class="container mx-auto px-4 py-12">
-        <h1 class="viking-font text-4xl md:text-5xl text-center text-white mb-2">Community <span class="text-[#d4af37]">News</span></h1>
-        <p id="sub-title" class="text-center text-gray-400 mb-12">Latest events, codes and announcements.</p>
-
-        <div id="news-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            </div>
-    </div>
-
-    <div id="news-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden" onclick="closeModal()">
-        <div class="glass-card w-full max-w-3xl max-h-[90vh] flex flex-col rounded-2xl overflow-hidden shadow-2xl border-[#d4af37]" onclick="event.stopPropagation()">
-            
-            <div class="relative h-64 shrink-0">
-                <img id="modal-img" src="" class="w-full h-full object-cover">
-                <button onclick="closeModal()" class="absolute top-4 right-4 bg-black/50 hover:bg-black/80 text-white rounded-full p-2 transition">
-                    <span class="material-symbols-outlined notranslate">close</span>
-                </button>
-                <div id="modal-date" class="absolute bottom-4 left-4 bg-[#d4af37] text-black text-xs font-bold px-3 py-1 rounded uppercase">
-                    DATE
-                </div>
-            </div>
-
-            <div class="p-8 overflow-y-auto modal-scroll bg-[#1e293b]">
-                <h2 id="modal-title" class="viking-font text-3xl text-white mb-6">Title</h2>
-                
-                <div id="modal-content" class="text-gray-300 text-lg leading-relaxed whitespace-pre-line mb-8">
-                    Content goes here...
-                </div>
-
-                <div id="modal-promo-box" class="hidden bg-[#0b101b] border border-[#d4af37] rounded-xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div class="flex items-center gap-4">
-                        <span class="material-symbols-outlined text-[#d4af37] text-3xl notranslate">redeem</span>
-                        <div>
-                            <p class="text-xs text-gray-400 uppercase tracking-widest">Official Promo Code</p>
-                            <p id="modal-code" class="font-mono text-2xl text-white font-bold tracking-widest mt-1">CODE</p>
-                        </div>
-                    </div>
-                    <button id="modal-copy-btn" class="bg-[#d4af37] hover:bg-white text-black font-bold py-3 px-6 rounded-lg transition flex items-center gap-2">
-                        <span>Copy</span> <span class="material-symbols-outlined notranslate">content_copy</span>
-                    </button>
-                </div>
-
-                <div id="modal-expiry" class="hidden text-center text-gray-500 text-sm mt-4">
-                    Expires: --
-                </div>
-                
-                <a id="modal-link" href="#" target="_blank" class="hidden mt-8 flex justify-center text-[#d4af37] hover:underline font-bold items-center gap-2">
-                    Open original Source <span class="material-symbols-outlined text-sm notranslate">open_in_new</span>
-                </a>
-            </div>
+    <div class="relative w-full h-64 md:h-80 overflow-hidden border-b-4 border-[#d4af37] mb-8">
+        <img src="header-bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0b101b] via-[#0b101b]/50 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-6 md:p-12 w-full text-center md:text-left">
+            <span class="inline-block px-3 py-1 mb-2 text-xs font-bold text-black bg-[#d4af37] rounded uppercase tracking-widest">Community Hub</span>
+            <h1 id="txt-title" class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg viking-font">News & Events</h1>
         </div>
     </div>
 
+    <div class="container mx-auto px-4 relative z-10 flex-grow">
+        <div id="news-container" class="grid grid-cols-1 gap-8 max-w-5xl mx-auto">
+            <p class="text-center text-gray-500 animate-pulse">Loading news...</p>
+        </div>
+    </div>
+
+    <footer class="mt-20 py-8 border-t border-white/10 text-center text-gray-600 text-xs">
+        <p>&copy; 2025 Viking Rise Community Hub. Unofficial Fan Project.</p>
+    </footer>
+
     <script>
-        const translations = {
-            en: { sub: "Latest events, codes and announcements.", copy: "Copy", copied: "Copied!", open: "Read More" },
-            de: { sub: "Aktuelle Events, Codes und Ankündigungen.", copy: "Kopieren", copied: "Kopiert!", open: "Mehr lesen" },
-            cn: { sub: "最新活动、代码和公告。", copy: "复制", copied: "已复制!", open: "阅读更多" },
-            ru: { sub: "Последние события, коды и анонсы.", copy: "Копировать", copied: "Скопировано!", open: "Читать далее" }
+        // --- TEXT RESOURCES ---
+        const uiTranslations = {
+            en: { back: "Back to", home: "Home", title: "News & Events", copy: "Copy Code", copied: "Copied!", valid: "Active", expired: "Expired", readmore: "Read More" },
+            de: { back: "Zurück", home: "Start", title: "News & Events", copy: "Code kopieren", copied: "Kopiert!", valid: "Aktiv", expired: "Abgelaufen", readmore: "Mehr lesen" },
+            cn: { back: "返回", home: "主页", title: "新闻与活动", copy: "复制代码", copied: "已复制!", valid: "有效", expired: "已过期", readmore: "阅读更多" },
+            ru: { back: "Назад", home: "Главная", title: "Новости", copy: "Копировать", copied: "Скопировано!", valid: "Активен", expired: "Истек", readmore: "Читать далее" }
         };
 
+        // --- SETUP ---
         const urlParams = new URLSearchParams(window.location.search);
         let curLang = urlParams.get('lang') || 'en';
         if(!['en','de','cn','ru'].includes(curLang)) curLang = 'en';
 
-        // UI Setup
-        document.documentElement.lang = curLang;
-        document.getElementById(`lang-${curLang}`).className = "active text-[#d4af37]";
-        document.getElementById('sub-title').innerText = translations[curLang].sub;
+        // --- CLOCK ---
+        setInterval(() => {
+            const date = new Date();
+            document.getElementById('nav-clock').innerText = date.toLocaleTimeString(curLang === 'cn' ? 'zh-CN' : curLang);
+        }, 1000);
 
-        let allNewsData = []; // Speicher für alle News
+        // --- UI UPDATE ---
+        function updateUI() {
+            const t = uiTranslations[curLang];
+            document.getElementById('txt-back').innerText = t.back;
+            document.getElementById('txt-home').innerText = t.home;
+            document.getElementById('txt-title').innerText = t.title;
+            
+            document.getElementById('nav-home-link').href = `index.html?lang=${curLang}`;
+            document.documentElement.lang = curLang;
 
+            ['en','de','cn','ru'].forEach(l => {
+                const btn = document.getElementById(`lang-${l}`);
+                btn.className = l === curLang ? "lang-btn lang-active" : "lang-btn lang-inactive";
+            });
+        }
+
+        // --- EXPIRY CHECK ---
+        function getExpiryStatus(expiryStr) {
+            if (!expiryStr) return { isExpired: false, text: "" };
+            
+            // Erwartetes Format aus JSON: "1/5/26 23:59 (UTC)" oder ähnlich
+            // Wir versuchen es robust zu parsen
+            try {
+                // Entferne "(UTC)" für JS Date Parser
+                let cleanStr = expiryStr.replace('(UTC)', '').trim(); 
+                // JS Date (MM/DD/YY)
+                let expDate = new Date(cleanStr + ' UTC'); 
+                
+                if (isNaN(expDate.getTime())) return { isExpired: false, text: "" }; // Fallback bei Parse Error
+
+                const now = new Date();
+                const isExpired = now > expDate;
+                return { isExpired: isExpired, text: isExpired ? uiTranslations[curLang].expired : uiTranslations[curLang].valid };
+            } catch(e) { return { isExpired: false, text: "" }; }
+        }
+
+        // --- COPY FUNCTION ---
+        window.copyCode = function(btn, code) {
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = btn.innerHTML;
+                btn.innerText = uiTranslations[curLang].copied;
+                btn.classList.add('bg-green-600', 'border-green-500', 'text-white');
+                btn.classList.remove('bg-black/50', 'text-[#d4af37]');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.remove('bg-green-600', 'border-green-500', 'text-white');
+                    btn.classList.add('bg-black/50', 'text-[#d4af37]');
+                }, 2000);
+            });
+        }
+
+        // --- LOAD NEWS ---
         async function loadNews() {
+            updateUI();
+            const container = document.getElementById('news-container');
+            
             try {
                 const res = await fetch('news.json?v=' + Date.now());
-                allNewsData = await res.json();
-                const container = document.getElementById('news-grid');
+                const newsData = await res.json();
                 
-                allNewsData.forEach((item, index) => {
-                    const data = item[curLang] || item['en'];
-                    const hasCode = item.code ? true : false;
-                    
-                    // Wir speichern den INDEX in onclick, um später die Daten zu holen
-                    const card = `
-                    <div class="glass-card rounded-xl overflow-hidden flex flex-col h-full group" onclick="openModal(${index})">
-                        <div class="h-48 overflow-hidden relative">
-                            <img src="${item.image || 'header-bg.jpg'}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                            <div class="absolute top-3 right-3 bg-black/70 px-2 py-1 rounded text-xs text-[#d4af37] font-bold border border-[#d4af37]">${item.date}</div>
-                        </div>
-                        
-                        <div class="p-6 flex flex-col flex-1">
-                            <h3 class="viking-font text-xl text-white mb-3 line-clamp-2 group-hover:text-[#d4af37] transition">${data.title}</h3>
-                            <p class="text-gray-400 text-sm mb-4 line-clamp-3 flex-1">${data.content}</p>
-                            
-                            ${hasCode ? `
-                            <div class="promo-box rounded-lg p-3 flex items-center justify-between gap-2 mt-auto">
-                                <div>
-                                    <p class="text-[10px] uppercase text-[#d4af37] tracking-wider">Code</p>
-                                    <p class="font-mono text-white text-lg tracking-widest">${item.code}</p>
-                                </div>
-                                <button onclick="event.stopPropagation(); copyCode(this, '${item.code}')" class="bg-[#d4af37] hover:bg-white text-black p-2 rounded transition">
-                                    <span class="material-symbols-outlined text-lg notranslate">content_copy</span>
-                                </button>
-                            </div>
-                            ` : `
-                            <div class="mt-auto pt-4 border-t border-white/5 text-center text-[#d4af37] text-sm font-bold uppercase tracking-widest group-hover:text-white transition">
-                                ${translations[curLang].open}
-                            </div>
-                            `}
-                        </div>
-                    </div>`;
-                    container.innerHTML += card;
-                });
-            } catch(e) { console.error(e); }
-        }
+                container.innerHTML = '';
 
-        // --- MODAL LOGIC ---
-        const modal = document.getElementById('news-modal');
-
-        function openModal(index) {
-            const item = allNewsData[index];
-            if(!item) return;
-            
-            const data = item[curLang] || item['en'];
-            
-            // Inhalte setzen
-            document.getElementById('modal-img').src = item.image || 'header-bg.jpg';
-            document.getElementById('modal-date').innerText = item.date;
-            document.getElementById('modal-title').innerText = data.title;
-            document.getElementById('modal-content').innerText = data.content;
-            
-            // Promo Code Logik im Modal
-            const promoBox = document.getElementById('modal-promo-box');
-            const expiry = document.getElementById('modal-expiry');
-            
-            if(item.code) {
-                promoBox.classList.remove('hidden');
-                document.getElementById('modal-code').innerText = item.code;
-                // Button Reset
-                const btn = document.getElementById('modal-copy-btn');
-                btn.innerHTML = `<span>${translations[curLang].copy}</span> <span class="material-symbols-outlined notranslate">content_copy</span>`;
-                btn.onclick = function() { copyCode(this, item.code, true); };
-                
-                if(item.expiry) {
-                    expiry.classList.remove('hidden');
-                    expiry.innerText = `Expires: ${item.expiry}`;
-                } else { expiry.classList.add('hidden'); }
-            } else {
-                promoBox.classList.add('hidden');
-                expiry.classList.add('hidden');
-            }
-
-            // External Link
-            const linkBtn = document.getElementById('modal-link');
-            if(item.link) {
-                linkBtn.classList.remove('hidden');
-                linkBtn.href = item.link;
-            } else {
-                linkBtn.classList.add('hidden');
-            }
-
-            // Anzeigen
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Scrollen im Hintergrund verhindern
-        }
-
-        function closeModal() {
-            modal.classList.add('hidden');
-            document.body.style.overflow = ''; // Scrollen wieder erlauben
-        }
-
-        // Close on ESC key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === "Escape") { closeModal(); }
-        });
-
-        function copyCode(btn, code, isModal = false) {
-            navigator.clipboard.writeText(code);
-            const originalHTML = btn.innerHTML;
-            
-            if(isModal) {
-                 btn.innerHTML = `<span>${translations[curLang].copied}</span> <span class="material-symbols-outlined notranslate">check</span>`;
-                 btn.classList.add('bg-green-500', 'text-white');
-                 btn.classList.remove('bg-[#d4af37]', 'text-black');
-            } else {
-                 btn.innerHTML = `<span class="material-symbols-outlined text-lg notranslate">check</span>`;
-                 btn.classList.add('bg-green-500', 'text-white');
-                 btn.classList.remove('bg-[#d4af37]');
-            }
-
-            setTimeout(() => {
-                btn.innerHTML = originalHTML;
-                if(isModal) {
-                    btn.classList.remove('bg-green-500', 'text-white');
-                    btn.classList.add('bg-[#d4af37]', 'text-black');
-                } else {
-                    btn.classList.remove('bg-green-500', 'text-white');
-                    btn.classList.add('bg-[#d4af37]');
+                if(newsData.length === 0) {
+                    container.innerHTML = '<p class="text-center text-gray-500">No news available.</p>';
+                    return;
                 }
-            }, 2000);
+
+                newsData.forEach(item => {
+                    const data = item[curLang] || item['en'];
+                    const t = uiTranslations[curLang];
+                    
+                    // Expiry Logic
+                    const expStatus = getExpiryStatus(item.expiry);
+                    const statusBadge = item.code ? 
+                        `<span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded border ${expStatus.isExpired ? 'border-red-500 text-red-500 bg-red-500/10' : 'border-green-500 text-green-500 bg-green-500/10'}">${expStatus.text}</span>` 
+                        : '';
+
+                    // Image Logic
+                    let imageHTML = '';
+                    if (item.image && item.image.trim() !== "") {
+                        imageHTML = `
+                        <div class="w-full md:w-1/3 h-48 md:h-auto relative overflow-hidden shrink-0">
+                            <img src="${item.image}" alt="News Image" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        </div>`;
+                    }
+
+                    // Code Logic
+                    let codeHTML = '';
+                    if (item.code) {
+                        codeHTML = `
+                        <div class="mt-4 p-3 bg-black/40 border border-[#d4af37]/30 rounded-lg flex flex-col sm:flex-row gap-3 items-center justify-between">
+                            <div class="text-left">
+                                <p class="text-xs text-gray-400 uppercase tracking-wider mb-1">Promo Code</p>
+                                <p class="text-xl font-mono font-bold text-[#d4af37] tracking-widest">${item.code}</p>
+                            </div>
+                            <button onclick="copyCode(this, '${item.code}')" class="px-4 py-2 text-sm font-bold border border-[#d4af37] text-[#d4af37] rounded hover:bg-[#d4af37] hover:text-black transition uppercase bg-black/50 min-w-[120px]">
+                                ${t.copy}
+                            </button>
+                        </div>
+                        ${item.expiry ? `<p class="text-xs text-gray-500 mt-2 text-right">Valid until: ${item.expiry}</p>` : ''}
+                        `;
+                    }
+
+                    // Link Logic
+                    let linkHTML = '';
+                    if (item.link) {
+                        linkHTML = `<a href="${item.link}" target="_blank" class="inline-block mt-4 text-[#d4af37] hover:text-white text-sm font-bold border-b border-[#d4af37] hover:border-white pb-0.5 transition">${t.readmore} &rarr;</a>`;
+                    }
+
+                    // Card HTML Construction
+                    const card = document.createElement('div');
+                    card.className = "glass-panel rounded-xl overflow-hidden flex flex-col md:flex-row";
+                    card.innerHTML = `
+                        ${imageHTML}
+                        <div class="p-6 flex flex-col justify-between flex-grow">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <span class="text-xs font-mono text-gray-400 border border-gray-700 px-2 py-1 rounded bg-black/30">${item.date}</span>
+                                    ${statusBadge}
+                                </div>
+                                <h2 class="text-2xl font-bold text-white mb-3 viking-font leading-tight">${data.title}</h2>
+                                <p class="text-gray-300 text-sm leading-relaxed whitespace-pre-line">${data.content}</p>
+                            </div>
+                            <div>
+                                ${codeHTML}
+                                ${linkHTML}
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+
+            } catch(e) {
+                console.error(e);
+                container.innerHTML = '<p class="text-center text-red-400">Error loading news.</p>';
+            }
         }
 
         loadNews();
