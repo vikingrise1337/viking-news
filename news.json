@@ -1,29 +1,5 @@
 [
   {
-    "id": "1460689307621785744",
-    "date": "N/A",
-    "image": "images/news/1460689307621785744.jpg",
-    "code": null,
-    "expiry": null,
-    "link": null,
-    "en": {
-      "title": "Test Message",
-      "content": "The user provided a test message: Das ist ein weiterer Test."
-    }
-  },
-  {
-    "id": "1460683758184169574",
-    "date": "2023-10-27",
-    "image": "images/news/1460683758184169574.jpg",
-    "code": null,
-    "expiry": null,
-    "link": null,
-    "en": {
-      "title": "Testnachricht",
-      "content": "Dies ist eine Testnachricht für Viking Rise."
-    }
-  },
-  {
     "id": "1459494741426176132",
     "date": "09. Jan 2024",
     "image": "",
