@@ -509,18 +509,6 @@
             document.getElementById('local-time-display').innerText = "--";
         }
     }
-        const dt = parseTimestamp(meta.start_timestamp);
-        if (dt) {
-            const loc = (currentLang === 'cn') ? 'zh-CN' : currentLang;
-            const localStr = dt.toLocaleString(loc, { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-            const offset = -(dt.getTimezoneOffset() / 60);
-            const offsetStr = offset >= 0 ? `+${offset}` : offset;
-            document.getElementById('local-time-display').innerHTML =
-                `${localStr} <span class="text-sm font-normal text-gray-500">(UTC${offsetStr})</span>`;
-        } else {
-            document.getElementById('local-time-display').innerText = "--";
-        }
-    }
 
     function changeVersion(index) { loadUpdate(index); }
 
