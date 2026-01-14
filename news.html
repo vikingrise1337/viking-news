@@ -16,7 +16,7 @@
         .viking-font { font-family: 'Cinzel', serif; }
         :lang(ru) .viking-font { font-family: 'CinzelRus', serif; }
         
-        /* --- DEIN ALTES KARTEN DESIGN --- */
+        /* Glass Card */
         .glass-card { 
             background: rgba(30, 41, 59, 0.6); 
             backdrop-filter: blur(10px); 
@@ -32,7 +32,7 @@
         .lang-btn.inactive { color: gray; }
         .lang-btn.inactive:hover { color: white; }
 
-        /* Für Text-Expand */
+        /* Clamp Logic */
         .line-clamp-3 {
             display: -webkit-box;
             -webkit-line-clamp: 3;
@@ -63,7 +63,10 @@
         <p id="sub-title" class="text-center text-gray-400 mb-12">Latest events, codes and announcements.</p>
 
         <div id="news-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="col-span-full text-center py-10">
+                <span class="material-symbols-outlined text-4xl text-[#d4af37] animate-spin notranslate">refresh</span>
             </div>
+        </div>
     </div>
 
     <script>
@@ -93,21 +96,16 @@
             newUrl.searchParams.set('lang', lang);
             window.history.pushState({}, '', newUrl);
             updateUI();
-            loadNews(); // Neu laden mit neuer Sprache
+            loadNews();
         }
 
-        // --- EXPIRY CHECKER ---
         function checkExpiry(expiryStr) {
             if (!expiryStr) return { expired: false, text: "" };
             try {
-                // Erwartet Format MM/DD/YY HH:MM (UTC) vom Bot
-                // Wir entfernen "(UTC)" für JS Parser
                 const cleanStr = expiryStr.replace('(UTC)', '').trim();
                 const expDate = new Date(cleanStr + ' UTC');
                 const now = new Date();
-                
-                if (isNaN(expDate.getTime())) return { expired: false, text: expiryStr }; // Fallback falls Format anders
-
+                if (isNaN(expDate.getTime())) return { expired: false, text: expiryStr };
                 const isExpired = now > expDate;
                 return { 
                     expired: isExpired, 
@@ -121,20 +119,23 @@
                 const res = await fetch('news.json?v=' + Date.now());
                 const news = await res.json();
                 const container = document.getElementById('news-grid');
-                container.innerHTML = ''; 
+                container.innerHTML = '';
+                
+                if(!news || news.length === 0) {
+                    container.innerHTML = '<p class="text-center text-gray-500 col-span-full">No news available.</p>';
+                    return;
+                }
                 
                 news.forEach((item, index) => {
                     const data = item[curLang] || item['en'];
                     if (!data) return;
 
-                    const t = translations[curLang];
                     const hasCode = item.code ? true : false;
+                    const t = translations[curLang];
                     
-                    // Bild Logik
                     let imgUrl = item.image;
-                    if (!imgUrl || imgUrl.trim() === "") imgUrl = "header-bg.jpg"; // Default Bild
+                    if (!imgUrl || imgUrl.trim() === "") imgUrl = "header-bg.jpg";
 
-                    // Expiry Check
                     let expiryHTML = '';
                     if (item.expiry) {
                         const status = checkExpiry(item.expiry);
@@ -145,20 +146,17 @@
                         </p>`;
                     }
 
-                    // IDs für Toggle
                     const txtId = `txt-${index}`;
                     const btnId = `btn-${index}`;
 
-                    const card = `
+                    // WICHTIG: Button hat klasse 'hidden' initial
+                    const cardHTML = `
                     <div class="glass-card rounded-xl overflow-hidden flex flex-col h-full group relative">
-                        
-                        <div class="h-48 overflow-hidden relative border-b border-white/5 bg-black/50">
+                        <div class="h-48 overflow-hidden relative border-b border-white/5 bg-black/50 shrink-0">
                             <img src="${imgUrl}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                            
                             <div class="absolute top-3 right-3 bg-black/70 px-2 py-1 rounded text-xs text-[#d4af37] font-bold border border-[#d4af37] font-mono shadow-lg">
                                 ${item.date}
                             </div>
-
                             ${item.link ? `
                             <a href="${item.link}" target="_blank" class="absolute bottom-3 right-3 bg-black/60 hover:bg-[#d4af37] text-white hover:text-black p-1.5 rounded-full transition border border-white/20 hover:border-[#d4af37]" title="Open Source">
                                 <span class="material-symbols-outlined text-sm notranslate block">open_in_new</span>
@@ -171,10 +169,10 @@
                             </h3>
                             
                             <div class="flex-1 mb-4">
-                                <p id="${txtId}" class="text-gray-400 text-sm line-clamp-3 cursor-pointer hover:text-gray-300 transition-colors" onclick="toggleText('${txtId}', '${btnId}')">
+                                <p id="${txtId}" class="text-gray-400 text-sm line-clamp-3">
                                     ${data.content}
                                 </p>
-                                <button id="${btnId}" onclick="toggleText('${txtId}', '${btnId}')" class="text-xs font-bold text-[#d4af37] hover:text-white border-b border-transparent hover:border-white transition uppercase mt-1">
+                                <button id="${btnId}" onclick="toggleText('${txtId}', '${btnId}')" class="text-xs font-bold text-[#d4af37] hover:text-white border-b border-transparent hover:border-white transition uppercase mt-2 hidden">
                                     ${t.readmore}
                                 </button>
                             </div>
@@ -196,8 +194,25 @@
                         </div>
                     </div>`;
                     
-                    container.innerHTML += card;
+                    // Wir erstellen ein temporäres Element, um es ins DOM einzufügen
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = cardHTML;
+                    const cardElement = tempDiv.firstElementChild;
+                    container.appendChild(cardElement);
+
+                    // INTELLIGENTER CHECK NACH DEM RENDERN:
+                    // Wir prüfen, ob der Text tatsächlich gekürzt wurde (scrollHeight > clientHeight)
+                    const txtEl = document.getElementById(txtId);
+                    const btnEl = document.getElementById(btnId);
+                    
+                    if (txtEl && btnEl) {
+                        // Da line-clamp aktiv ist, ist clientHeight kleiner als scrollHeight, wenn Text versteckt ist
+                        if (txtEl.scrollHeight > txtEl.clientHeight) {
+                            btnEl.classList.remove('hidden'); // Zeige Button nur dann an
+                        }
+                    }
                 });
+
             } catch(e) { 
                 console.error(e); 
                 document.getElementById('news-grid').innerHTML = '<p class="text-center text-red-500 col-span-full">Error loading news.</p>';
@@ -220,19 +235,15 @@
 
         function copyCode(btn, code) {
             navigator.clipboard.writeText(code);
-            const originalIcon = btn.innerHTML;
+            const originalHTML = btn.innerHTML;
             btn.innerHTML = `<span class="material-symbols-outlined text-lg notranslate">check</span>`;
-            btn.classList.add('bg-green-600', 'text-white');
-            btn.classList.remove('bg-[#d4af37]', 'text-black');
-            
+            btn.classList.add('bg-green-500');
             setTimeout(() => {
-                btn.innerHTML = originalIcon;
-                btn.classList.remove('bg-green-600', 'text-white');
-                btn.classList.add('bg-[#d4af37]', 'text-black');
+                btn.innerHTML = originalHTML;
+                btn.classList.remove('bg-green-500');
             }, 2000);
         }
 
-        updateUI();
         loadNews();
     </script>
 </body>
