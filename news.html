@@ -16,7 +16,7 @@
         .viking-font { font-family: 'Cinzel', serif; }
         :lang(ru) .viking-font { font-family: 'CinzelRus', serif; }
         
-        /* Glass Card */
+        /* Glass Card Design */
         .glass-card { 
             background: rgba(30, 41, 59, 0.6); 
             backdrop-filter: blur(10px); 
@@ -32,12 +32,24 @@
         .lang-btn.inactive { color: gray; }
         .lang-btn.inactive:hover { color: white; }
 
-        /* Clamp Logic */
+        /* Text Begrenzung */
         .line-clamp-3 {
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
+        }
+        
+        /* Links im Text stylen */
+        .content-text a {
+            color: #d4af37;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+        .content-text a:hover {
+            border-bottom-color: #d4af37;
+            color: white;
         }
     </style>
 </head>
@@ -99,6 +111,16 @@
             loadNews();
         }
 
+        // Hilfsfunktion: Macht URLs im Text klickbar
+        function formatText(text) {
+            if (!text) return "";
+            // 1. URLs finden und in <a> tags umwandeln
+            let formatted = text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
+            // 2. Zeilenumbrüche in <br> umwandeln
+            formatted = formatted.replace(/\n/g, '<br>');
+            return formatted;
+        }
+
         function checkExpiry(expiryStr) {
             if (!expiryStr) return { expired: false, text: "" };
             try {
@@ -130,12 +152,13 @@
                     const data = item[curLang] || item['en'];
                     if (!data) return;
 
-                    const hasCode = item.code ? true : false;
                     const t = translations[curLang];
+                    const hasCode = item.code ? true : false;
                     
                     let imgUrl = item.image;
                     if (!imgUrl || imgUrl.trim() === "") imgUrl = "header-bg.jpg";
 
+                    // Expiry Check
                     let expiryHTML = '';
                     if (item.expiry) {
                         const status = checkExpiry(item.expiry);
@@ -149,7 +172,9 @@
                     const txtId = `txt-${index}`;
                     const btnId = `btn-${index}`;
 
-                    // WICHTIG: Button hat klasse 'hidden' initial
+                    // Text formatieren (Links klickbar machen)
+                    const contentHTML = formatText(data.content);
+
                     const cardHTML = `
                     <div class="glass-card rounded-xl overflow-hidden flex flex-col h-full group relative">
                         <div class="h-48 overflow-hidden relative border-b border-white/5 bg-black/50 shrink-0">
@@ -157,10 +182,6 @@
                             <div class="absolute top-3 right-3 bg-black/70 px-2 py-1 rounded text-xs text-[#d4af37] font-bold border border-[#d4af37] font-mono shadow-lg">
                                 ${item.date}
                             </div>
-                            ${item.link ? `
-                            <a href="${item.link}" target="_blank" class="absolute bottom-3 right-3 bg-black/60 hover:bg-[#d4af37] text-white hover:text-black p-1.5 rounded-full transition border border-white/20 hover:border-[#d4af37]" title="Open Source">
-                                <span class="material-symbols-outlined text-sm notranslate block">open_in_new</span>
-                            </a>` : ''}
                         </div>
                         
                         <div class="p-6 flex flex-col flex-1">
@@ -169,9 +190,9 @@
                             </h3>
                             
                             <div class="flex-1 mb-4">
-                                <p id="${txtId}" class="text-gray-400 text-sm line-clamp-3">
-                                    ${data.content}
-                                </p>
+                                <div id="${txtId}" class="text-gray-400 text-sm line-clamp-3 content-text">
+                                    ${contentHTML}
+                                </div>
                                 <button id="${btnId}" onclick="toggleText('${txtId}', '${btnId}')" class="text-xs font-bold text-[#d4af37] hover:text-white border-b border-transparent hover:border-white transition uppercase mt-2 hidden">
                                     ${t.readmore}
                                 </button>
@@ -194,21 +215,18 @@
                         </div>
                     </div>`;
                     
-                    // Wir erstellen ein temporäres Element, um es ins DOM einzufügen
                     const tempDiv = document.createElement('div');
                     tempDiv.innerHTML = cardHTML;
                     const cardElement = tempDiv.firstElementChild;
                     container.appendChild(cardElement);
 
-                    // INTELLIGENTER CHECK NACH DEM RENDERN:
-                    // Wir prüfen, ob der Text tatsächlich gekürzt wurde (scrollHeight > clientHeight)
+                    // Check ob "Mehr lesen" nötig ist
                     const txtEl = document.getElementById(txtId);
                     const btnEl = document.getElementById(btnId);
                     
                     if (txtEl && btnEl) {
-                        // Da line-clamp aktiv ist, ist clientHeight kleiner als scrollHeight, wenn Text versteckt ist
                         if (txtEl.scrollHeight > txtEl.clientHeight) {
-                            btnEl.classList.remove('hidden'); // Zeige Button nur dann an
+                            btnEl.classList.remove('hidden');
                         }
                     }
                 });
@@ -237,13 +255,17 @@
             navigator.clipboard.writeText(code);
             const originalHTML = btn.innerHTML;
             btn.innerHTML = `<span class="material-symbols-outlined text-lg notranslate">check</span>`;
-            btn.classList.add('bg-green-500');
+            btn.classList.add('bg-green-600', 'text-white');
+            btn.classList.remove('bg-[#d4af37]', 'text-black');
+            
             setTimeout(() => {
                 btn.innerHTML = originalHTML;
-                btn.classList.remove('bg-green-500');
+                btn.classList.remove('bg-green-600', 'text-white');
+                btn.classList.add('bg-[#d4af37]', 'text-black');
             }, 2000);
         }
 
+        updateUI();
         loadNews();
     </script>
 </body>
