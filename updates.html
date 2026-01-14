@@ -408,13 +408,15 @@
         const meta = update.meta || {};
         const t = uiTranslations[currentLang] || uiTranslations.en;
 
-        // --- NEU: Bilderliste aus JSON ---
+        // --- BILDER LOGIK ANGEPASST ---
         const images = Array.isArray(meta.images) ? meta.images : [];
         const heroFromList = isNonEmptyString(images[0]) ? images[0].trim() : "";
         const heroFromLegacy = isNonEmptyString(meta.image_url) ? meta.image_url.trim() : "";
 
-        // HERO: bevorzugt images[0], sonst image_url, sonst header-bg.jpg
-        const heroRaw = heroFromList || heroFromLegacy || "header-bg.jpg";
+        // NEU: Zuerst schauen ob ein explizites Header-Bild da ist (heroFromLegacy),
+        // sonst das erste aus der Liste (heroFromList) nehmen.
+        const heroRaw = heroFromLegacy || heroFromList || "header-bg.jpg";
+        
         const heroImgEl = document.getElementById("hero-img");
         setImgWithFallback(heroImgEl, buildImageCandidates(heroRaw, ["header-bg.jpg"]));
 
@@ -433,7 +435,6 @@
 
             if (data.major && Array.isArray(data.major)) {
                 data.major.forEach((text, i) => {
-                    // NEU: pro Highlight bevorzugt meta.images[i] (gleicher Index wie major[i])
                     const listImg = isNonEmptyString(images[i]) ? images[i].trim() : "";
                     const rawImg = listImg || (i === 0 ? heroRaw : fallbackImages[i % fallbackImages.length]);
 
