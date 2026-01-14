@@ -408,13 +408,12 @@
         const meta = update.meta || {};
         const t = uiTranslations[currentLang] || uiTranslations.en;
 
-        // --- BILDER LOGIK ANGEPASST ---
+        // --- BILDER LOGIK ---
         const images = Array.isArray(meta.images) ? meta.images : [];
         const heroFromList = isNonEmptyString(images[0]) ? images[0].trim() : "";
         const heroFromLegacy = isNonEmptyString(meta.image_url) ? meta.image_url.trim() : "";
 
-        // NEU: Zuerst schauen ob ein explizites Header-Bild da ist (heroFromLegacy),
-        // sonst das erste aus der Liste (heroFromList) nehmen.
+        // HERO: Bevorzugt explizites Header-Bild, sonst das erste der Liste
         const heroRaw = heroFromLegacy || heroFromList || "header-bg.jpg";
         
         const heroImgEl = document.getElementById("hero-img");
@@ -441,8 +440,9 @@
                     const cardEl = document.createElement("div");
                     cardEl.className = "glass-panel rounded-xl overflow-hidden shadow-lg border border-gray-700 group hover:border-[#d4af37] transition-all duration-300 filter-item major";
 
+                    // HIER IST DER FIX: "aspect-video" statt "h-64"
                     cardEl.innerHTML = `
-                        <div class="relative h-64 overflow-hidden">
+                        <div class="relative aspect-video w-full overflow-hidden">
                             <img alt="Highlight image" loading="lazy"
                                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#0b101b] to-transparent"></div>
@@ -497,6 +497,18 @@
 
         document.getElementById('utc-time-display').innerText = meta.display_time || "--";
 
+        const dt = parseTimestamp(meta.start_timestamp);
+        if (dt) {
+            const loc = (currentLang === 'cn') ? 'zh-CN' : currentLang;
+            const localStr = dt.toLocaleString(loc, { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+            const offset = -(dt.getTimezoneOffset() / 60);
+            const offsetStr = offset >= 0 ? `+${offset}` : offset;
+            document.getElementById('local-time-display').innerHTML =
+                `${localStr} <span class="text-sm font-normal text-gray-500">(UTC${offsetStr})</span>`;
+        } else {
+            document.getElementById('local-time-display').innerText = "--";
+        }
+    }
         const dt = parseTimestamp(meta.start_timestamp);
         if (dt) {
             const loc = (currentLang === 'cn') ? 'zh-CN' : currentLang;
