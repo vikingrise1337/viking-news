@@ -1,13 +1,14 @@
-{
+[
+  {
     "id": "update_14_01_2025",
     "meta": {
       "created_at": "2026-01-13T19:09:13.595000Z",
       "start_timestamp": "2025-01-14T06:00:00Z",
       "display_time": "1/14 6:00 - 06:30 (UTC)",
       "title_en": "Update 14.01.2025",
-      "title_de": "Update vom 14.01.2026",
-      "title_cn": "更新 14.01.2026",
-      "title_ru": "Обновление 14.01.2026",
+      "title_de": "Update vom 14.01.2025",
+      "title_cn": "更新 14.01.2025",
+      "title_ru": "Обновление 14.01.2025",
       "image_url": "images/updates/update_14_01_2025_header.jpg",
       "images": [
         "images/updates/update_14_01_2025_highlight1.jpg",
@@ -262,4 +263,305 @@
         "Исправлена проблема, из-за которой настройка автоатаки не применялась к «Beast Lairs» в «Kingdom Mayhem»."
       ]
     }
+  },
+  {
+    "id": "update_17_12_2025",
+    "meta": {
+      "created_at": "2025-12-15T04:08:00Z",
+      "start_timestamp": "2025-12-17T06:00:00+00:00",
+      "display_time": "17. Dez 2025, 06:00 - 06:30 (UTC)",
+      "title_en": "Update Dec 17",
+      "title_de": "Update vom 17.12.",
+      "title_cn": "12月17日更新",
+      "title_ru": "Обновление 17 декабря"
+    },
+    "en": {
+      "major": [
+        "The Kingdom Mayhem Conquest Season [Surtr's Flames] is about to begin. Flames roar in Muspelheim!",
+        "New Collaboration: Partnering with <How to Train Your Dragon>, let us embark on a Dragon Taming Journey!",
+        "Christmas Event: Carriage racing event and newly designed Christmas Skins."
+      ],
+      "new_features": [
+        "Added monthly card [Lightshade Journey] (activates Tribe Auto-Assist).",
+        "Added a second Research queue (via Research Order Pack).",
+        "Optimized [Quick Upgrade] for Hero Talents and added [Quick Upgrade] for skills.",
+        "Added [Tribe Shop] - [Shard Market] to exchange Hero/Skill Shards.",
+        "Added [2025 Hero Skin Choice Chest I] to Tribe Day Treasure Hunt.",
+        "Added bulk donate function to Tribe Tech.",
+        "Added [Add Friend] feature when viewing other players' Chief Profile.",
+        "Added item quantity display bubbles in Inventory.",
+        "Added a save draft function for Chat (stored locally).",
+        "Added [Combat Settings] on mobile (Option to garrison after attacking)."
+      ],
+      "optimizations": [
+        {
+          "title": "Events & Returning",
+          "items": [
+            "Returning: 2024 Christmas series [Sparkling Holiday Night] set & [Snowy Deer's Shadow] flag."
+          ]
+        },
+        {
+          "title": "Blood Oath War",
+          "items": [
+            "Legions reduced from 3 to 1 in Midgard Championship.",
+            "Garrisoned troops accumulate the same debuff as central buildings.",
+            "Ranking rules optimized: Ties are decided by higher total kill points.",
+            "Registration menu now clearly displays Legion member rules."
+          ]
+        },
+        {
+          "title": "UI & System",
+          "items": [
+            "Added coordinate sharing function (share spaces, buildings, cities, troops, monsters).",
+            "Optimized display and performance of some pages.",
+            "Optimized [Speedup Queue] menu organization (Training, Research, Healing, Forge).",
+            "Optimized multi-troop selection logic for Marching.",
+            "Optimized display for [Wheel of Fortune] & [Skill Wheel] + added notification text.",
+            "Optimized interface for preset King's Decrees.",
+            "Optimized [Mail] sorting/cleanup and extended expiration times.",
+            "Optimized [Hall of Valor] interactions and performance.",
+            "Optimized [Language Settings]: Split into System Language and Chat Translation Language.",
+            "Optimized [Campaign] menu: Inactive events are hidden.",
+            "Collector overview: Now displays bonuses from skins with unlock attributes.",
+            "Optimized notification text after translating chat.",
+            "Hero Skin unlocking: No longer gifts 10 corresponding shards."
+          ]
+        },
+        {
+          "title": "Rewards",
+          "items": [
+            "Conquest Season: Increased Recast Blades & adjusted Yggdrasil Dew distribution (Fenrir's Judgment, Hela's Curse, Baldr's Redemption, Alfheim's Defense)."
+          ]
+        }
+      ],
+      "fixes": [
+        "Fixed an abnormal refresh issue in [Mail].",
+        "Fixed display issue with [Campaign - Drill Ground] on PC.",
+        "Fixed Hero Talents not taking effect in [Drill Ground].",
+        "Fixed forge progress display issue in [Equipment Forge].",
+        "Fixed avatar display issue when rallying neutral troops.",
+        "Fixed medium checkpoints display in [Hela's Curse].",
+        "Fixed text display issue in [Magic Card Blessing].",
+        "Fixed damage progress display in [Sworn Vengeance] ranking.",
+        "Fixed lag issue in [Magic Card Adventure].",
+        "Fixed display issue in [Time-Limited Migration] searches."
+      ]
+    },
+    "de": {
+      "major": [
+        "Die Königreich-Chaos Eroberungssaison [Surtrs Flammen] beginnt. Muspelheim brennt!",
+        "Neue Kollaboration: Gemeinsam mit <Drachenzähmen leicht gemacht> auf Drachenjagd gehen!",
+        "Weihnachts-Event: Kutschenrennen und neue Weihnachts-Skins."
+      ],
+      "new_features": [
+        "Monatskarte [Lichtschatten-Reise] hinzugefügt (Aktiviert Stamm Auto-Assistenz).",
+        "Zweite Forschungswarteschlange hinzugefügt (via Forschungsauftrag-Paket).",
+        "Optimiertes [Schnell-Upgrade] für Talente und neu für Skills hinzugefügt.",
+        "[Stamm-Shop] - [Splittermarkt] hinzugefügt (Tausch von Helden/Skill-Splittern).",
+        "[2025 Helden-Skin-Auswahltruhe I] zur Stammestag-Schatzsuche hinzugefügt.",
+        "Massenspende-Funktion für Stammestechnik hinzugefügt.",
+        "[Freund hinzufügen] Funktion im Häuptlingsprofil ergänzt.",
+        "Mengenanzeige-Bubbles im Inventar hinzugefügt.",
+        "Entwurf-Speicherfunktion für den Chat hinzugefügt (lokal gespeichert).",
+        "[Kampfeinstellungen] auf Mobile: Option zum Garnisonieren nach Angriff hinzugefügt."
+      ],
+      "optimizations": [
+        {
+          "title": "Events & Rückkehr",
+          "items": [
+            "Rückkehr: Weihnachts-Serie 2024 [Funkelnde Weihnachtsnacht] Set & [Schneehirsches Schatten] Flagge."
+          ]
+        },
+        {
+          "title": "Bluteid-Krieg (Optimiert)",
+          "items": [
+            "Legionen in der Midgard-Meisterschaft von 3 auf 1 reduziert.",
+            "Garnisonstruppen sammeln nun denselben Debuff wie zentrale Gebäude.",
+            "Ranglistenregeln optimiert: Bei Gleichstand entscheiden höhere Kill-Punkte.",
+            "Anmeldemenü zeigt nun klar die Regeln für Legionsmitglieder."
+          ]
+        },
+        {
+          "title": "UI & System",
+          "items": [
+            "Koordinaten-Teilen Funktion hinzugefügt (für leere Flächen, Gebäude, Städte, Truppen, Monster).",
+            "Anzeige und Performance einiger Seiten optimiert.",
+            "[Beschleunigungs-Warteschlange] neu organisiert (Training, Forschung, Heilung, Schmiede).",
+            "Multi-Truppen-Auswahl beim Marschieren optimiert.",
+            "Anzeige für [Glücksrad] und [Skill-Rad] optimiert + Hinweistext.",
+            "Interface für Königserlasse-Voreinstellungen optimiert.",
+            "[Post]: Sortierung/Bereinigung optimiert, Ablaufzeit verlängert.",
+            "[Halle der Tapferkeit]: Interaktionen und Performance verbessert.",
+            "[Spracheinstellungen]: Unterteilt in System- und Chat-Übersetzungssprache.",
+            "[Kampagne]: Inaktive Events werden im Menü ausgeblendet.",
+            "Sammler-Übersicht: Zeigt nun Boni von Skins mit Freischalt-Attributen korrekt an.",
+            "Hinweistext nach Chat-Übersetzung optimiert.",
+            "Helden-Skin Freischaltung: Es werden keine 10 Splitter mehr geschenkt."
+          ]
+        },
+        {
+          "title": "Belohnungen",
+          "items": [
+            "Eroberungssaison: Mehr Umschmiede-Klingen & angepasste Menge an Yggdrasil-Tau (Fenrir, Hela, Baldr, Alfheim)."
+          ]
+        }
+      ],
+      "fixes": [
+        "Refresh-Problem in der [Post] behoben.",
+        "Anzeigefehler beim [Drill Ground] Eingang (PC Version) behoben.",
+        "Fehler behoben, dass Heldentalente im [Drill Ground] nicht wirksam waren.",
+        "Anzeigefehler beim Schmiedefortschritt in der [Ausrüstungsschmiede] behoben.",
+        "Avatar-Anzeigefehler beim Sammeln neutraler Truppen behoben.",
+        "Anzeigefehler bei mittleren Checkpoints in [Hela's Curse] behoben.",
+        "Textanzeigefehler in [Magic Card Blessing] behoben.",
+        "Schadensfortschritts-Anzeige im [Sworn Vengeance] Ranking behoben.",
+        "Lag-Probleme im [Magic Card Adventure] behoben.",
+        "Anzeigefehler bei der Suche nach Königreichen in [Zeitlich begrenzter Migration] behoben."
+      ]
+    },
+    "cn": {
+      "major": [
+        "王国纷争征服赛季 [苏尔特尔的火焰] 即将开始。火焰在穆斯贝尔海姆咆哮！",
+        "新联动：与《驯龙高手》合作，让我们踏上驯龙之旅！",
+        "圣诞活动：马车竞速活动和全新设计的圣诞皮肤。"
+      ],
+      "new_features": [
+        "新增月卡 [光影之旅]（激活部落自动协助）。",
+        "新增第二条研究队列（通过研究令礼包）。",
+        "优化英雄天赋的 [快速升级] 并新增技能的 [快速升级]。",
+        "新增 [部落商店] - [碎片市场]，用于交换英雄/技能碎片。",
+        "部落日寻宝新增 [2025英雄皮肤自选箱I]。",
+        "部落科技新增批量捐赠功能。",
+        "查看其他玩家首领资料时新增 [添加好友] 功能。",
+        "背包中新增物品数量显示气泡。",
+        "聊天新增草稿保存功能（本地存储）。",
+        "移动端新增 [战斗设置]（攻击后驻防选项）。"
+      ],
+      "optimizations": [
+        {
+          "title": "活动与回归",
+          "items": [
+            "回归：2024圣诞系列 [璀璨假日之夜] 套装 & [雪鹿之影] 旗帜。"
+          ]
+        },
+        {
+          "title": "血誓之战",
+          "items": [
+            "米德加尔特锦标赛军团数量从3个减少到1个。",
+            "驻防部队现在会累积与中心建筑相同的减益效果。",
+            "排名规则优化：平局时由总击杀分较高者胜出。",
+            "报名界面现在清晰显示军团成员规则。"
+          ]
+        },
+        {
+          "title": "界面与系统",
+          "items": [
+            "新增坐标分享功能（分享空地、建筑、城市、部队、怪物）。",
+            "优化部分页面的显示和性能。",
+            "优化 [加速队列] 菜单组织（训练、研究、治疗、锻造）。",
+            "优化行军时的多部队选择逻辑。",
+            "优化 [幸运转盘] & [技能转盘] 显示 + 新增提示文本。",
+            "优化预设王令的界面。",
+            "优化 [邮件] 排序/清理并延长过期时间。",
+            "优化 [英灵殿] 交互和性能。",
+            "优化 [语言设置]：拆分为系统语言和聊天翻译语言。",
+            "优化 [战役] 菜单：非活动事件现在隐藏。",
+            "收藏家概览：现在正确显示带有解锁属性的皮肤加成。",
+            "优化聊天翻译后的提示文本。",
+            "英雄皮肤解锁：不再赠送10个对应碎片。"
+          ]
+        },
+        {
+          "title": "奖励",
+          "items": [
+            "征服赛季：增加重铸之刃数量 & 调整尤克特拉希尔之露分布（芬里尔的审判、海拉的诅咒、巴德尔的救赎、亚尔夫海姆的防御）。"
+          ]
+        }
+      ],
+      "fixes": [
+        "修复了 [邮件] 中的异常刷新问题。",
+        "修复了PC端 [演武场] 的显示问题。",
+        "修复了英雄天赋在 [演武场] 中不生效的问题。",
+        "修复了 [装备锻造] 中的锻造进度显示问题。",
+        "修复了集结中立部队时的头像显示问题。",
+        "修复了 [海拉的诅咒] 中中级检查点的显示问题。",
+        "修复了 [魔卡祝福] 中的文本显示问题。",
+        "修复了 [血仇] 排名中的伤害进度显示问题。",
+        "修复了 [魔卡冒险] 中的延迟问题。",
+        "修复了 [限时迁城] 搜索中的显示问题。"
+      ]
+    },
+    "ru": {
+      "major": [
+        "Сезон завоевания «Хаос Королевства» [Пламя Сурта] вот-вот начнется. Пламя ревет в Муспельхейме!",
+        "Новая коллаборация: Партнерство с «Как приручить дракона», отправляемся в путешествие по приручению драконов!",
+        "Рождественское событие: Гонки на повозках и новые рождественские скины."
+      ],
+      "new_features": [
+        "Добавлена месячная карта [Путешествие света и тени] (активирует авто-помощь племени).",
+        "Добавлена вторая очередь исследований (через пакет «Приказ об исследовании»).",
+        "Оптимизировано [Быстрое улучшение] для талантов героев и добавлено для навыков.",
+        "Добавлен [Магазин племени] - [Рынок осколков] для обмена осколков героев/навыков.",
+        "В Охоту за сокровищами Дня племени добавлен [Сундук выбора скина героя 2025 I].",
+        "Добавлена функция массового пожертвования в технологии племени.",
+        "Добавлена функция [Добавить в друзья] при просмотре профиля вождя других игроков.",
+        "Добавлены пузырьки с отображением количества предметов в инвентаре.",
+        "Добавлена функция сохранения черновика для чата (хранится локально).",
+        "Добавлены [Настройки боя] на мобильных (Опция гарнизона после атаки)."
+      ],
+      "optimizations": [
+        {
+          "title": "События и возвращение",
+          "items": [
+            "Возвращение: Рождественская серия 2024 набор [Сверкающая праздничная ночь] и флаг [Тень снежного оленя]."
+          ]
+        },
+        {
+          "title": "Война Клятвы Крови",
+          "items": [
+            "Количество легионов в Чемпионате Мидгарда сокращено с 3 до 1.",
+            "Войска в гарнизоне теперь накапливают тот же дебафф, что и центральные здания.",
+            "Оптимизированы правила рейтинга: при ничьей побеждает тот, у кого больше очков убийств.",
+            "Меню регистрации теперь четко отображает правила для членов легиона."
+          ]
+        },
+        {
+          "title": "Интерфейс и система",
+          "items": [
+            "Добавлена функция обмена координатами (поделиться пустыми местами, зданиями, городами, войсками, монстрами).",
+            "Оптимизировано отображение и производительность некоторых страниц.",
+            "Оптимизирована организация меню [Очередь ускорений] (Тренировка, Исследование, Лечение, Ковка).",
+            "Оптимизирована логика выбора нескольких отрядов при марше.",
+            "Оптимизировано отображение для [Колеса Фортуны] и [Колеса Навыков] + добавлен текст уведомления.",
+            "Оптимизирован интерфейс для предустановок Королевских указов.",
+            "Оптимизирована сортировка/очистка [Почты] и продлено время истечения срока действия.",
+            "Оптимизировано взаимодействие и производительность [Зала Доблести].",
+            "Оптимизированы [Настройки языка]: Разделены на язык системы и язык перевода чата.",
+            "Оптимизировано меню [Кампания]: неактивные события скрыты.",
+            "Обзор коллекционера: Теперь корректно отображает бонусы от скинов с атрибутами разблокировки.",
+            "Оптимизирован текст уведомления после перевода чата.",
+            "Разблокировка скинов героев: Больше не дарится 10 соответствующих осколков."
+          ]
+        },
+        {
+          "title": "Награды",
+          "items": [
+            "Сезон завоевания: Увеличено количество Клинков перековки и скорректировано распределение Росы Иггдрасиля (Суд Фенрира, Проклятие Хелы, Искупление Бальдра, Оборона Альфхейма)."
+          ]
+        }
+      ],
+      "fixes": [
+        "Исправлена проблема с аномальным обновлением в [Почте].",
+        "Исправлена проблема отображения [Плаца] в Кампании на ПК.",
+        "Исправлена ошибка, из-за которой таланты героя не действовали на [Плацу].",
+        "Исправлена проблема отображения прогресса ковки в [Кузнице снаряжения].",
+        "Исправлена проблема отображения аватара при сборе нейтральных войск.",
+        "Исправлена проблема отображения средних контрольных точек в [Проклятии Хелы].",
+        "Исправлена проблема отображения текста в [Благословении магических карт].",
+        "Исправлена проблема отображения прогресса урона в рейтинге [Клятва мести].",
+        "Исправлена проблема с лагами в [Приключении магических карт].",
+        "Исправлена проблема отображения при поиске в [Миграции ограниченного времени]."
+      ]
+    }
   }
+]
