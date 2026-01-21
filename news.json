@@ -1,5 +1,29 @@
 [
   {
+    "id": "1463576187426312194",
+    "date": "21. Jan 2026",
+    "image": "",
+    "code": null,
+    "expiry": null,
+    "link": null,
+    "en": {
+      "title": "Special Shrine Ritual Event",
+      "content": "Don't miss out on our special Shrine Ritual event, happening in‑game right now! By participating in the event, you will be able to get your hands on the exclusive skins from the Flame Festival decoration set. The Flame Festival decoration set includes: City skin: Plume Sacrificial Stone. Decorations: Bone Flame, Flameheart Chalice. What are you waiting for? Log in now and experience the fiery spirit of the Vikings!"
+    },
+    "de": {
+      "title": "Spezielles Shrine Ritual Event",
+      "content": "Verpasse nicht unser spezielles Shrine Ritual Event, das gerade im Spiel stattfindet! Durch die Teilnahme am Event kannst du dir die exklusiven Skins aus dem Flame Festival Dekorationsset sichern. Das Flame Festival Dekorationsset enthält: City skin: Plume Sacrificial Stone. Dekorationen: Bone Flame, Flameheart Chalice. Worauf wartest du noch? Logge dich jetzt ein und erlebe den feurigen Geist der Wikinger!"
+    },
+    "cn": {
+      "title": "特别 Shrine Ritual 活动",
+      "content": "不要错过正在进行的 Shrine Ritual 特别活动！通过参与活动，你将能够获得 Flame Festival 装饰套装的专属皮肤。Flame Festival 装饰套装包括：City skin: Plume Sacrificial Stone，Decorations: Bone Flame、Flameheart Chalice。还在等什么？立即登录，体验 Vikings 的火热精神！"
+    },
+    "ru": {
+      "title": "Специальное событие Shrine Ritual",
+      "content": "Не упустите наше специальное событие Shrine Ritual, которое проходит в игре прямо сейчас! Участвуя в событии, вы сможете получить эксклюзивные облики из набора декораций Flame Festival. Набор декораций Flame Festival включает в себя: облик города Plume Sacrificial Stone. Декорации: Bone Flame, Flameheart Chalice. Чего вы ждете? Зайдите в игру прямо сейчас и прочувствуйте огненный дух викингов!"
+    }
+  },
+  {
     "id": "1460704974001410235",
     "date": "13. Jan 2026",
     "image": "images/news/1460704974001410235.jpg",
