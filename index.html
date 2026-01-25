@@ -169,6 +169,14 @@
 
     <footer class="bg-black/50 border-t border-white/5 py-6 md:py-8 text-center">
         <p class="text-gray-600 text-xs md:text-sm">&copy; 2025 Viking Rise Community Hub.</p>
+        
+        <div class="mt-3 flex justify-center items-center gap-2 opacity-50 hover:opacity-100 transition-opacity">
+            <span class="material-symbols-outlined text-xs text-[#d4af37]">visibility</span>
+            <span class="text-[10px] text-gray-400 uppercase tracking-widest">
+                Visits: 
+                <span id="page-counter" class="text-[#d4af37] font-mono font-bold">...</span>
+            </span>
+        </div>
     </footer>
 
     <script>
@@ -361,7 +369,7 @@
                 } catch (e) { console.error("API Limit/Error", e); }
             }
 
-            // 3. Fallback: Alten Cache nutzen (besser als nichts)
+            // 3. Fallback: Alten Cache nutzen
             if (!data) {
                 try {
                     const cached = localStorage.getItem(CACHE_KEY);
@@ -406,10 +414,30 @@
             }
         }
 
+        // --- 4. NEU: VISIT COUNTER ---
+        async function initCounter() {
+            // Wir nutzen countapi.xyz als kostenlosen Dienst
+            // Namespace muss eindeutig sein, daher dein GitHub Name
+            const namespace = 'vikingrise1337.github.io'; 
+            const key = 'homepage_visits';
+            const el = document.getElementById('page-counter');
+            
+            try {
+                // "hit" erhöht den Zähler um 1 und gibt den neuen Wert zurück
+                const res = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
+                const data = await res.json();
+                el.innerText = data.value.toLocaleString();
+            } catch (e) {
+                console.error("Counter Error", e);
+                el.innerText = "---";
+            }
+        }
+
         updateContent();
         initTicker();
         fetchLatestUpdate();
         fetchDiscordStatus();
+        initCounter(); // Zähler starten
     </script>
 </body>
 </html>
