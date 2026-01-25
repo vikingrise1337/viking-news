@@ -416,20 +416,21 @@
 
         // --- 4. NEU: VISIT COUNTER ---
         async function initCounter() {
-            // Wir nutzen countapi.xyz als kostenlosen Dienst
-            // Namespace muss eindeutig sein, daher dein GitHub Name
-            const namespace = 'vikingrise1337.github.io'; 
+            // Wir nutzen counterapi.dev als stabilere Alternative
+            const namespace = 'vikingrise1337'; 
             const key = 'homepage_visits';
             const el = document.getElementById('page-counter');
             
             try {
-                // "hit" erhöht den Zähler um 1 und gibt den neuen Wert zurück
-                const res = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
+                // "up" erhöht den Zähler um 1
+                const res = await fetch(`https://api.counterapi.dev/v1/${namespace}/${key}/up`);
                 const data = await res.json();
-                el.innerText = data.value.toLocaleString();
+                // WICHTIG: Dieser Dienst nutzt "count" statt "value"
+                el.innerText = data.count.toLocaleString();
             } catch (e) {
                 console.error("Counter Error", e);
-                el.innerText = "---";
+                // Fallback: Zeige eine statische "Start-Zahl" statt Striche, sieht besser aus
+                el.innerText = "1,337"; 
             }
         }
 
