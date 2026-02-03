@@ -1,5 +1,29 @@
 [
   {
+    "id": "1468156628527218771",
+    "date": "03. Feb 2026",
+    "image": "",
+    "code": null,
+    "expiry": null,
+    "link": null,
+    "en": {
+      "title": "Viking Rise News",
+      "content": "Analysiere (NEWS) ..."
+    },
+    "de": {
+      "title": "Viking Rise Neuigkeiten",
+      "content": "Analysiere (NEWS) ..."
+    },
+    "cn": {
+      "title": "Viking Rise 新闻",
+      "content": "正在分析 (NEWS) ..."
+    },
+    "ru": {
+      "title": "Новости Viking Rise",
+      "content": "Анализирую (NEWS) ..."
+    }
+  },
+  {
     "id": "1468156626707021890",
     "date": "03. Feb 2026",
     "image": "images/news/1468156626707021890.jpg",
