@@ -1,5 +1,29 @@
 [
   {
+    "id": "1468156691211092125",
+    "date": "03. Feb 2026",
+    "image": "",
+    "code": null,
+    "expiry": null,
+    "link": null,
+    "en": {
+      "title": "Analysiere (NEWS)",
+      "content": "Analysiere (NEWS) ..."
+    },
+    "de": {
+      "title": "Analysiere (NEWS)",
+      "content": "Analysiere (NEWS) ..."
+    },
+    "cn": {
+      "title": "分析 (NEWS)",
+      "content": "正在分析 (NEWS) ..."
+    },
+    "ru": {
+      "title": "Анализировать (NEWS)",
+      "content": "Анализирую (NEWS) ..."
+    }
+  },
+  {
     "id": "1468156690166841364",
     "date": "03. Feb 2026",
     "image": "images/news/1468156690166841364.jpg",
