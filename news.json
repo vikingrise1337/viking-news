@@ -1,5 +1,29 @@
 [
   {
+    "id": "1468156626707021890",
+    "date": "03. Feb 2026",
+    "image": "",
+    "code": null,
+    "expiry": null,
+    "link": null,
+    "en": {
+      "title": "Viking Rise News",
+      "content": "When a small fry tries to rally against me..."
+    },
+    "de": {
+      "title": "Viking Rise Neuigkeiten",
+      "content": "Wenn ein kleiner Fisch versucht, eine Rally gegen mich zu starten ..."
+    },
+    "cn": {
+      "title": "Viking Rise 新闻",
+      "content": "当一个小杂鱼试图对我发起 rally 时……"
+    },
+    "ru": {
+      "title": "Новости Viking Rise",
+      "content": "Когда какая-то мелюзга пытается собрать rally против меня..."
+    }
+  },
+  {
     "id": "1466544442243813396",
     "date": "29. Jan 2026",
     "image": "images/news/1466544442243813396.jpg",
