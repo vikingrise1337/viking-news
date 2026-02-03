@@ -1,5 +1,29 @@
 [
   {
+    "id": "1468156637196980341",
+    "date": "03. Feb 2026",
+    "image": "",
+    "code": null,
+    "expiry": null,
+    "link": null,
+    "en": {
+      "title": "No news found",
+      "content": "The provided input \"🤖 Analysiere (NEWS) ...\" does not contain any Viking Rise news or promotional codes to extract."
+    },
+    "de": {
+      "title": "Keine Neuigkeiten gefunden",
+      "content": "Die bereitgestellte Eingabe „🤖 Analysiere (NEWS) ...“ enthält keine Viking Rise News oder promo codes zum Extrahieren."
+    },
+    "cn": {
+      "title": "未找到相关新闻",
+      "content": "提供的输入 \"🤖 Analysiere (NEWS) ...\" 不包含任何可供提取的 Viking Rise 新闻或 promo codes。"
+    },
+    "ru": {
+      "title": "Новостей не найдено",
+      "content": "Предоставленные данные «🤖 Analysiere (NEWS) ...» не содержат новостей Viking Rise или promo codes для извлечения."
+    }
+  },
+  {
     "id": "1468156636303724665",
     "date": "03. Feb 2026",
     "image": "images/news/1468156636303724665.jpg",
