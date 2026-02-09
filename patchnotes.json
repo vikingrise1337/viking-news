@@ -9,8 +9,10 @@
       "title_de": "Update vom 01.01.1970",
       "title_cn": "更新 01.01.1970",
       "title_ru": "Обновление 01.01.1970",
-      "image_url": "",
-      "image_urls": []
+      "image_url": "images/updates/update_01_01_1970_1.jpg",
+      "image_urls": [
+        "images/updates/update_01_01_1970_1.jpg"
+      ]
     },
     "en": {
       "major": [],
