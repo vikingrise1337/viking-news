@@ -1,5 +1,87 @@
 [
   {
+    "id": "update_01_01_1970",
+    "meta": {
+      "created_at": "2026-02-09T02:10:43.187000Z",
+      "start_timestamp": "1970-01-01T00:00:00Z",
+      "display_time": "N/A",
+      "title_en": "Update 01.01.1970",
+      "title_de": "Update vom 01.01.1970",
+      "title_cn": "更新 01.01.1970",
+      "title_ru": "Обновление 01.01.1970",
+      "image_url": "",
+      "image_urls": []
+    },
+    "en": {
+      "major": [],
+      "new_features": [],
+      "optimizations": [],
+      "fixes": [
+        "Fixed an issue in Kingdom Mayhem-Surtr's Flames where Kingdom pathing displays were inconsistent.",
+        "Fixed an issue in Kingdom Mayhem-Surtr's Flames where Hero Avatars could overlap with Durability when defending a Town.",
+        "Fixed an issue in Kingdom Mayhem-Surtr's Flames where combat animations would fail to play and prevented Towns from being occupied during an attack.",
+        "Fixed an issue in Kingdom Mayhem-Alfheim's Defense where players were unable to view their own Divine Awakening while viewing other Kingdoms.",
+        "Fixed an issue in Kingdom Mayhem-Alfheim's Defense regarding the incorrect amount of Dragon Crystal rewards for Viking War God I.",
+        "Fixed a display issue that could occur when Worker Encounters expired.",
+        "Fixed an issue in Outdoor Meet where resources and items displayed would exceed the text boxes.",
+        "Fixed a translation error that occurred when there were multiple voting mails.",
+        "Fixed an issue that occasionally prevented the Sacrificial Stone from being tapped.",
+        "Fixed various text issues."
+      ]
+    },
+    "de": {
+      "major": [],
+      "new_features": [],
+      "optimizations": [],
+      "fixes": [
+        "Ein Problem in Kingdom Mayhem-Surtr's Flames wurde behoben, bei dem die Anzeigen für die Kingdom-Pfadfindung inkonsistent waren.",
+        "Ein Problem in Kingdom Mayhem-Surtr's Flames wurde behoben, bei dem Hero Avatars beim Verteidigen einer Town mit Durability überlappen konnten.",
+        "Ein Problem in Kingdom Mayhem-Surtr's Flames wurde behoben, bei dem Kampfanimationen nicht abgespielt wurden und verhinderten, dass Towns während eines Angriffs besetzt werden konnten.",
+        "Ein Problem in Kingdom Mayhem-Alfheim's Defense wurde behoben, bei dem Spieler ihr eigenes Divine Awakening nicht sehen konnten, während sie andere Kingdoms betrachteten.",
+        "Ein Problem in Kingdom Mayhem-Alfheim's Defense bezüglich der fehlerhaften Anzahl an Dragon Crystal-Belohnungen für Viking War God I wurde behoben.",
+        "Ein Anzeigefehler wurde behoben, der auftreten konnte, wenn Worker Encounters abliefen.",
+        "Ein Problem in Outdoor Meet wurde behoben, bei dem angezeigte Ressourcen und Gegenstände die Textboxen überschritten.",
+        "Ein Übersetzungsfehler wurde behoben, der auftrat, wenn mehrere Voting-Mails vorhanden waren.",
+        "Ein Problem wurde behoben, das gelegentlich verhinderte, dass der Sacrificial Stone angetippt werden konnte.",
+        "Verschiedene Textprobleme wurden behoben."
+      ]
+    },
+    "cn": {
+      "major": [],
+      "new_features": [],
+      "optimizations": [],
+      "fixes": [
+        "修复了 Kingdom Mayhem-Surtr's Flames 中 Kingdom 路径显示不一致的问题。",
+        "修复了 Kingdom Mayhem-Surtr's Flames 中防守 Town 时 Hero Avatars 可能与 Durability 重叠的问题。",
+        "修复了 Kingdom Mayhem-Surtr's Flames 中战斗动画播放失败并导致攻击期间无法占领 Town 的问题。",
+        "修复了 Kingdom Mayhem-Alfheim's Defense 中玩家在查看其他 Kingdoms 时无法查看自己的 Divine Awakening 的问题。",
+        "修复了 Kingdom Mayhem-Alfheim's Defense 中 Viking War God I 的 Dragon Crystal 奖励数量错误的问题。",
+        "修复了 Worker Encounters 到期时可能出现的显示问题。",
+        "修复了 Outdoor Meet 中显示的资源和物品超出文本框的问题。",
+        "修复了存在多封投票邮件时出现的翻译错误。",
+        "修复了偶尔导致 Sacrificial Stone 无法点击的问题。",
+        "修复了多处文本问题。"
+      ]
+    },
+    "ru": {
+      "major": [],
+      "new_features": [],
+      "optimizations": [],
+      "fixes": [
+        "Исправлена ошибка в Kingdom Mayhem-Surtr's Flames, из-за которой отображение путей Королевства было некорректным.",
+        "Исправлена ошибка в Kingdom Mayhem-Surtr's Flames, из-за которой Hero Avatars могли перекрываться с Durability при защите Town.",
+        "Исправлена ошибка в Kingdom Mayhem-Surtr's Flames, из-за которой боевые анимации не воспроизводились, что мешало захвату Towns во время атаки.",
+        "Исправлена ошибка в Kingdom Mayhem-Alfheim's Defense, из-за которой игроки не могли просматривать свое Divine Awakening при просмотре других Kingdoms.",
+        "Исправлена ошибка в Kingdom Mayhem-Alfheim's Defense, связанная с некорректным количеством наград Dragon Crystal за Viking War God I.",
+        "Исправлена ошибка отображения, возникавшая при истечении срока действия Worker Encounters.",
+        "Исправлена ошибка в Outdoor Meet, из-за которой отображаемые ресурсы и предметы выходили за пределы текстовых полей.",
+        "Исправлена ошибка перевода, возникавшая при наличии нескольких писем с голосованием.",
+        "Исправлена ошибка, из-за которой иногда не удавалось нажать на Sacrificial Stone.",
+        "Исправлены различные текстовые ошибки."
+      ]
+    }
+  },
+  {
     "id": "update_12_02_2025",
     "meta": {
       "created_at": "2026-02-09T02:09:16.862000Z",
