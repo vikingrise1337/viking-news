@@ -9,8 +9,12 @@
       "title_de": "Update vom 11.02.2025",
       "title_cn": "更新 11.02.2025",
       "title_ru": "Обновление 11.02.2025",
-      "image_url": "",
-      "image_urls": []
+      "image_url": "images/updates/update_11_02_2025_1.jpg",
+      "image_urls": [
+        "images/updates/update_11_02_2025_1.jpg",
+        "images/updates/update_11_02_2025_2.jpg",
+        "images/updates/update_11_02_2025_3.jpg"
+      ]
     },
     "en": {
       "major": [
