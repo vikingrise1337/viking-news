@@ -1,5 +1,359 @@
 [
   {
+    "id": "update_12_02_2025",
+    "meta": {
+      "created_at": "2026-02-09T02:09:16.862000Z",
+      "start_timestamp": "2025-02-12T00:00:00Z",
+      "display_time": "2025-02-12",
+      "title_en": "Update 12.02.2025",
+      "title_de": "Update vom 12.02.2025",
+      "title_cn": "更新 12.02.2025",
+      "title_ru": "Обновление 12.02.2025",
+      "image_url": "",
+      "image_urls": []
+    },
+    "en": {
+      "major": [
+        "New [Swarm Siege] Event"
+      ],
+      "new_features": [
+        "Added new [Swarm Siege] event where Tribe members rally to repel monster invasions from the rift.",
+        "Added Quick Sweep feature for non-Rally monsters (including Kingdom Mayhem) for casualty-free farming.",
+        "Returning items: 2025 Shimmering Spring Colors Event Skin, Festival of Love series Skins, and Pygmy Hippo Battle Flag.",
+        "Added a real-time points progress display for live tracking during certain event tasks.",
+        "Added an animation skip feature to the Happy Toy Machine for instant results."
+      ],
+      "optimizations": [
+        {
+          "title": "Drill Ground",
+          "items": [
+            "Added Field Battle and Rally Mode selection",
+            "Added Buff management for combat simulations"
+          ]
+        },
+        {
+          "title": "Map Gathering",
+          "items": [
+            "Added 'Automatically gather remaining ore' toggle to ensure Troops clear resource nodes before returning"
+          ]
+        },
+        {
+          "title": "Resource Search",
+          "items": [
+            "Added filters to search for Tribe-only resources",
+            "Added filters for full resource nodes only"
+          ]
+        },
+        {
+          "title": "Serpent Spirit Potion Exchange",
+          "items": [
+            "Optimized interface sub-pages for quicker and easier exchanges"
+          ]
+        },
+        {
+          "title": "Resurrection Timers",
+          "items": [
+            "Added Odin's Grace resurrection countdown timer to Barracks and Infirmary"
+          ]
+        },
+        {
+          "title": "Sx Season Rewards",
+          "items": [
+            "Added Dragon Crystal Era building level rewards to Upgrade Chief Hall and Growth Fund",
+            "Optimized rewards for Endless Treasures, This Month's Special, and Serpent Spirit Potion including Dragon Crystals"
+          ]
+        },
+        {
+          "title": "Tribe Management",
+          "items": [
+            "R4 Jarls can now demolish Tribe buildings"
+          ]
+        },
+        {
+          "title": "Event Adjustments",
+          "items": [
+            "Adjusted difficulty and rewards for Trial of Courage, Hero Redemption, and Directed Development",
+            "Optimized personal point progress rewards for Tribe Mobilization"
+          ]
+        },
+        {
+          "title": "Troop Presets",
+          "items": [
+            "Added a pop-up reminder for optimization after using a Troop Preset"
+          ]
+        },
+        {
+          "title": "Equipment Material Fusion",
+          "items": [
+            "Added a quick craft feature for fusion across different material grades"
+          ]
+        },
+        {
+          "title": "Hero Interface",
+          "items": [
+            "Optimized information displayed after Awakening"
+          ]
+        }
+      ],
+      "fixes": []
+    },
+    "de": {
+      "major": [
+        "Neues [Swarm Siege] Event"
+      ],
+      "new_features": [
+        "Neues [Swarm Siege] Event hinzugefügt, bei dem Stammesmitglieder sich versammeln, um Monsterinvasionen aus dem Riss abzuwehren.",
+        "Quick Sweep-Funktion für Nicht-Rally-Monster (einschließlich Kingdom Mayhem) für verlustfreies Farmen hinzugefügt.",
+        "Wiederkehrende Gegenstände: 2025 Shimmering Spring Colors Event-Skin, Festival of Love-Serien-Skins und Pygmy Hippo Battle Flag.",
+        "Echtzeit-Punktfortschrittsanzeige für die Live-Verfolgung während bestimmter Event-Aufgaben hinzugefügt.",
+        "Animationsübersprung-Funktion für die Happy Toy Machine für sofortige Ergebnisse hinzugefügt."
+      ],
+      "optimizations": [
+        {
+          "title": "Drill Ground",
+          "items": [
+            "Auswahl für Field Battle- und Rally-Modus hinzugefügt",
+            "Buff-Management für Kampfsimulationen hinzugefügt"
+          ]
+        },
+        {
+          "title": "Map Gathering",
+          "items": [
+            "Schalter \"Verbleibendes Erz automatisch sammeln\" hinzugefügt, um sicherzustellen, dass Truppen Ressourcenknoten leeren, bevor sie zurückkehren"
+          ]
+        },
+        {
+          "title": "Resource Search",
+          "items": [
+            "Filter für die Suche nach Tribe-exklusiven Ressourcen hinzugefügt",
+            "Filter für ausschließlich volle Ressourcenknoten hinzugefügt"
+          ]
+        },
+        {
+          "title": "Serpent Spirit Potion Exchange",
+          "items": [
+            "Unterseiten des Interfaces für schnelleren und einfacheren Austausch optimiert"
+          ]
+        },
+        {
+          "title": "Resurrection Timers",
+          "items": [
+            "Odin's Grace Wiederbelebungs-Countdown-Timer in Kasernen und Lazarett hinzugefügt"
+          ]
+        },
+        {
+          "title": "Sx Season Rewards",
+          "items": [
+            "Dragon Crystal Era Gebäudelevel-Belohnungen zu Upgrade Chief Hall und Wachstumsfonds hinzugefügt",
+            "Belohnungen für Endless Treasures, Special des Monats und Serpent Spirit Potion inklusive Dragon Crystals optimiert"
+          ]
+        },
+        {
+          "title": "Tribe Management",
+          "items": [
+            "R4 Jarls können jetzt Tribe-Gebäude abreißen"
+          ]
+        },
+        {
+          "title": "Event Adjustments",
+          "items": [
+            "Schwierigkeitsgrad und Belohnungen für Trial of Courage, Hero Redemption und Directed Development angepasst",
+            "Belohnungen für den persönlichen Punktfortschritt bei Tribe Mobilization optimiert"
+          ]
+        },
+        {
+          "title": "Troop Presets",
+          "items": [
+            "Pop-up-Erinnerung zur Optimierung nach der Verwendung einer Truppenvoreinstellung hinzugefügt"
+          ]
+        },
+        {
+          "title": "Equipment Material Fusion",
+          "items": [
+            "Schnellherstellungsfunktion für die Fusion über verschiedene Materialstufen hinweg hinzugefügt"
+          ]
+        },
+        {
+          "title": "Hero Interface",
+          "items": [
+            "Anzeige der Informationen nach Awakening optimiert"
+          ]
+        }
+      ],
+      "fixes": []
+    },
+    "cn": {
+      "major": [
+        "全新 [Swarm Siege] 活动"
+      ],
+      "new_features": [
+        "新增 [Swarm Siege] 活动，部落成员可以集结击退来自裂隙的怪物入侵。",
+        "为非集结怪物（包括 Kingdom Mayhem）增加了 Quick Sweep 功能，实现无损刷怪。",
+        "返场道具：2025 Shimmering Spring Colors 活动皮肤、Festival of Love 系列皮肤以及 Pygmy Hippo 战旗。",
+        "在特定活动任务中增加了实时积分进度显示，方便实时追踪。",
+        "为 Happy Toy Machine 增加了跳过动画功能，可立即查看结果。"
+      ],
+      "optimizations": [
+        {
+          "title": "Drill Ground",
+          "items": [
+            "新增 Field Battle 和 Rally Mode 选择",
+            "为战斗模拟增加了 Buff 管理"
+          ]
+        },
+        {
+          "title": "Map Gathering",
+          "items": [
+            "新增“自动采集剩余矿石”开关，确保部队在返回前清空资源点"
+          ]
+        },
+        {
+          "title": "Resource Search",
+          "items": [
+            "新增部落专属资源搜索筛选",
+            "新增仅搜索满额资源点筛选"
+          ]
+        },
+        {
+          "title": "Serpent Spirit Potion Exchange",
+          "items": [
+            "优化了界面子页面，使兑换更快捷方便"
+          ]
+        },
+        {
+          "title": "Resurrection Timers",
+          "items": [
+            "在 Barracks 和 Infirmary 中增加了 Odin's Grace 复活倒计时"
+          ]
+        },
+        {
+          "title": "Sx Season Rewards",
+          "items": [
+            "在 Upgrade Chief Hall 和 Growth Fund 中增加了 Dragon Crystal Era 建筑等级奖励",
+            "优化了 Endless Treasures、This Month's Special 和 Serpent Spirit Potion 的奖励，包括 Dragon Crystals"
+          ]
+        },
+        {
+          "title": "Tribe Management",
+          "items": [
+            "R4 级 Jarl 现在可以拆除部落建筑"
+          ]
+        },
+        {
+          "title": "Event Adjustments",
+          "items": [
+            "调整了 Trial of Courage、Hero Redemption 和 Directed Development 的难度和奖励",
+            "优化了 Tribe Mobilization 的个人积分进度奖励"
+          ]
+        },
+        {
+          "title": "Troop Presets",
+          "items": [
+            "使用 Troop Preset 后增加了优化提示弹窗"
+          ]
+        },
+        {
+          "title": "Equipment Material Fusion",
+          "items": [
+            "增加了跨不同等级材料融合的快速制作功能"
+          ]
+        },
+        {
+          "title": "Hero Interface",
+          "items": [
+            "优化了 Awakening 后的信息展示"
+          ]
+        }
+      ],
+      "fixes": []
+    },
+    "ru": {
+      "major": [
+        "Новое событие [Swarm Siege]"
+      ],
+      "new_features": [
+        "Добавлено новое событие [Swarm Siege], в котором члены Племени объединяются для отражения вторжений монстров из разлома.",
+        "Добавлена функция Быстрой зачистки для монстров (не для сборов), включая Kingdom Mayhem, для фарма без потерь.",
+        "Возвращающиеся предметы: облик события Shimmering Spring Colors 2025 года, серия обликов Festival of Love и боевое знамя Pygmy Hippo.",
+        "Добавлено отображение прогресса очков в реальном времени для отслеживания выполнения определенных задач события.",
+        "Добавлена функция пропуска анимации в Happy Toy Machine для получения мгновенных результатов."
+      ],
+      "optimizations": [
+        {
+          "title": "Drill Ground",
+          "items": [
+            "Добавлен выбор режима Field Battle и Rally",
+            "Добавлено управление Buff для симуляции сражений"
+          ]
+        },
+        {
+          "title": "Сбор на карте",
+          "items": [
+            "Добавлен переключатель «Автоматически собирать остатки руды», чтобы войска полностью очищали ресурсные узлы перед возвращением"
+          ]
+        },
+        {
+          "title": "Поиск ресурсов",
+          "items": [
+            "Добавлены фильтры для поиска ресурсов только для Племени",
+            "Добавлены фильтры только для полных ресурсных узлов"
+          ]
+        },
+        {
+          "title": "Обмен Serpent Spirit Potion",
+          "items": [
+            "Оптимизированы подразделы интерфейса для более быстрого и удобного обмена"
+          ]
+        },
+        {
+          "title": "Таймеры воскрешения",
+          "items": [
+            "Добавлен таймер обратного отсчета воскрешения Odin's Grace в Казармах и Лазарете"
+          ]
+        },
+        {
+          "title": "Награды сезона Sx",
+          "items": [
+            "Добавлены награды за уровень зданий Dragon Crystal Era в Upgrade Chief Hall и Growth Fund",
+            "Оптимизированы награды для Endless Treasures, This Month's Special и Serpent Spirit Potion, включая Dragon Crystals"
+          ]
+        },
+        {
+          "title": "Управление Племенем",
+          "items": [
+            "Ярлы ранга R4 теперь могут сносить постройки Племени"
+          ]
+        },
+        {
+          "title": "Корректировки событий",
+          "items": [
+            "Скорректированы сложность и награды для Trial of Courage, Hero Redemption и Directed Development",
+            "Оптимизированы личные награды за прогресс очков в Tribe Mobilization"
+          ]
+        },
+        {
+          "title": "Пресеты войск",
+          "items": [
+            "Добавлено всплывающее напоминание об оптимизации после использования Пресета войск"
+          ]
+        },
+        {
+          "title": "Слияние материалов снаряжения",
+          "items": [
+            "Добавлена функция быстрого крафта для слияния материалов разных уровней"
+          ]
+        },
+        {
+          "title": "Интерфейс героев",
+          "items": [
+            "Оптимизировано отображение информации после Awakening"
+          ]
+        }
+      ],
+      "fixes": []
+    }
+  },
+  {
     "id": "update_11_02_2025",
     "meta": {
       "created_at": "2026-02-09T02:08:49.353000Z",
