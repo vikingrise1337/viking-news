@@ -1,21 +1,27 @@
 [
   {
-    "id": "update_12_02_2025",
+    "id": "update_10_02_2026",
     "meta": {
-      "created_at": "2026-02-09T02:09:16.862000Z",
-      "start_timestamp": "2025-02-12T00:00:00Z",
-      "display_time": "2025-02-12",
-      "title_en": "Update 10.02.2025",
-      "title_de": "Update vom 10.02.2025",
-      "title_cn": "更新 10.02.2026",
-      "title_ru": "Обновление 12.02.2025",
-      "image_url": "images/updates/update_12_02_2025_1.jpg",
+      "created_at": "2026-02-09T02:08:49.353000Z",
+      "start_timestamp": "2026-02-10T06:00:00Z",
+      "display_time": "2026-02-10",
+      "title_en": "Update 10.02.2026",
+      "title_de": "Update vom 10.02.2026",
+      "title_cn": "更新 2026年2月10日",
+      "title_ru": "Обновление 10.02.2026",
+      "image_url": "images/updates/update_11_02_2025_1.jpg",
       "image_urls": [
+        "images/updates/update_11_02_2025_1.jpg",
+        "images/updates/update_11_02_2025_2.jpg",
+        "images/updates/update_11_02_2025_3.jpg",
         "images/updates/update_12_02_2025_1.jpg"
       ]
     },
     "en": {
       "major": [
+        "The Valentine's Day event, \"Ocean Rose\", is about to begin! Let your longships sail into rosy tides!",
+        "New Sx Heroes [The Fanatic Olaf] and [Thunder Axe Thorstein] added. These Heroes will become available once the Kingdom reaches Day 874 and 878, respectively.",
+        "New Sx Skills [Inferno Dance], [Gungnir's Sting], and [Serpent's Rampage] added. These skills will become available once the Kingdom reaches Day 874.",
         "New [Swarm Siege] Event"
       ],
       "new_features": [
@@ -26,6 +32,21 @@
         "Added an animation skip feature to the Happy Toy Machine for instant results."
       ],
       "optimizations": [
+        {
+          "title": "Combat Optimizations",
+          "items": [
+            "Optimized usage restrictions for Heroes and Skills across different seasons. Heroes and Skills now require the server to have Kingdom Mayhem activated for a specific number of times before they can be used.",
+            "Kingdom Mayhem Activated 1 Time: Heroes: Hobert, Bjorn, Durin.",
+            "Kingdom Mayhem Activated 2 Times: Heroes: Lagertha, Yulmi, Helgar. Skills: Bloodstained Icefield, Rest and Counterattack, This Too Shall Pass, Trap of Despair, Poison Arrow, Divine Shield.",
+            "Kingdom Mayhem Activated 3 Times: Heroes: Rosky, Leandra, Margit.",
+            "Kingdom Mayhem Activated 4 Times: Heroes: Naya, Rolfe, Alf, Sasha. Skills: Silent Invasion, Deadly Counterattack, Bone-corroding Arrow.",
+            "Kingdom Mayhem Activated 5 Times: Heroes: Vali, Sephina. Skills: Furious Hack and Slash, Venom Aggregation, Valkryie's Gaze, Battle Role Shift, Arrow of Truth, Einherjar's Oath.",
+            "Kingdom Mayhem Activated 6 Times: Heroes: Gunnar, Hilda, Heidrun, Charlton. Skills: Devastating Charge, Green Chant, Berserk Killing Machine.",
+            "Kingdom Mayhem Activated 7 Times: Heroes: Sigrid, Greta, Tiroti, Signy. Skills: Leshy's Grudge, Danger Omen, Blood Eagle Punishment.",
+            "Kingdom Mayhem Activated 8 Times: Heroes: Dalen, Gloa, Olaf, Thorstein. Skills: Raven of Death, Rainbow Bridge Miracle, Fafnir's Riddle, Inferno Dance, Gungnir's Sting, Serpent's Rampage.",
+            "The usage of all other Heroes and Skills is not affected by the Kingdom Mayhem requirements mentioned above."
+          ]
+        },
         {
           "title": "Drill Ground",
           "items": [
@@ -112,6 +133,9 @@
     },
     "de": {
       "major": [
+        "Das Valentinstags-Event „Ocean Rose“ beginnt in Kürze! Lasst eure Langschiffe in rosige Gezeiten segeln!",
+        "Neue Sx Heroes [The Fanatic Olaf] und [Thunder Axe Thorstein] hinzugefügt. Diese Heroes werden verfügbar, sobald das Kingdom Tag 874 bzw. 878 erreicht.",
+        "Neue Sx Skills [Inferno Dance], [Gungnir's Sting] und [Serpent's Rampage] hinzugefügt. Diese Skills werden verfügbar, sobald das Kingdom Tag 874 erreicht.",
         "Neues [Swarm Siege] Event"
       ],
       "new_features": [
@@ -122,6 +146,21 @@
         "Animationsübersprung-Funktion für die Happy Toy Machine für sofortige Ergebnisse hinzugefügt."
       ],
       "optimizations": [
+        {
+          "title": "Kampf-Optimierungen",
+          "items": [
+            "Nutzungsbeschränkungen für Heroes und Skills über verschiedene Seasons hinweg optimiert. Heroes und Skills erfordern nun, dass auf dem Server Kingdom Mayhem eine bestimmte Anzahl an Malen aktiviert wurde, bevor sie verwendet werden können.",
+            "Kingdom Mayhem 1 Mal aktiviert: Heroes: Hobert, Bjorn, Durin.",
+            "Kingdom Mayhem 2 Mal aktiviert: Heroes: Lagertha, Yulmi, Helgar. Skills: Bloodstained Icefield, Rest and Counterattack, This Too Shall Pass, Trap of Despair, Poison Arrow, Divine Shield.",
+            "Kingdom Mayhem 3 Mal aktiviert: Heroes: Rosky, Leandra, Margit.",
+            "Kingdom Mayhem 4 Mal aktiviert: Heroes: Naya, Rolfe, Alf, Sasha. Skills: Silent Invasion, Deadly Counterattack, Bone-corroding Arrow.",
+            "Kingdom Mayhem 5 Mal aktiviert: Heroes: Vali, Sephina. Skills: Furious Hack and Slash, Venom Aggregation, Valkryie's Gaze, Battle Role Shift, Arrow of Truth, Einherjar's Oath.",
+            "Kingdom Mayhem 6 Mal aktiviert: Heroes: Gunnar, Hilda, Heidrun, Charlton. Skills: Devastating Charge, Green Chant, Berserk Killing Machine.",
+            "Kingdom Mayhem 7 Mal aktiviert: Heroes: Sigrid, Greta, Tiroti, Signy. Skills: Leshy's Grudge, Danger Omen, Blood Eagle Punishment.",
+            "Kingdom Mayhem 8 Mal aktiviert: Heroes: Dalen, Gloa, Olaf, Thorstein. Skills: Raven of Death, Rainbow Bridge Miracle, Fafnir's Riddle, Inferno Dance, Gungnir's Sting, Serpent's Rampage.",
+            "Die Nutzung aller anderen Heroes und Skills ist von den oben genannten Kingdom Mayhem-Anforderungen nicht betroffen."
+          ]
+        },
         {
           "title": "Drill Ground",
           "items": [
@@ -208,6 +247,9 @@
     },
     "cn": {
       "major": [
+        "情人节活动“Ocean Rose”即将开启！让您的长船驶入玫瑰色的浪潮中！",
+        "新增 Sx 英雄 [The Fanatic Olaf] 和 [Thunder Axe Thorstein]。这些英雄将在王国分别达到第 874 天和 878 天时解锁。",
+        "新增 Sx 技能 [Inferno Dance]、[Gungnir's Sting] 和 [Serpent's Rampage]。这些技能将在王国达到第 874 天时解锁。",
         "全新 [Swarm Siege] 活动"
       ],
       "new_features": [
@@ -218,6 +260,21 @@
         "为 Happy Toy Machine 增加了跳过动画功能，可立即查看结果。"
       ],
       "optimizations": [
+        {
+          "title": "战斗优化",
+          "items": [
+            "优化了不同赛季英雄和技能的使用限制。现在，英雄和技能需要服务器激活 Kingdom Mayhem 达到指定次数后才能使用。",
+            "Kingdom Mayhem 激活 1 次：英雄：Hobert, Bjorn, Durin。",
+            "Kingdom Mayhem 激活 2 次：英雄：Lagertha, Yulmi, Helgar。技能：Bloodstained Icefield, Rest and Counterattack, This Too Shall Pass, Trap of Despair, Poison Arrow, Divine Shield。",
+            "Kingdom Mayhem 激活 3 次：英雄：Rosky, Leandra, Margit。",
+            "Kingdom Mayhem 激活 4 次：英雄：Naya, Rolfe, Alf, Sasha。技能：Silent Invasion, Deadly Counterattack, Bone-corroding Arrow。",
+            "Kingdom Mayhem 激活 5 次：英雄：Vali, Sephina。技能：Furious Hack and Slash, Venom Aggregation, Valkryie's Gaze, Battle Role Shift, Arrow of Truth, Einherjar's Oath。",
+            "Kingdom Mayhem 激活 6 次：英雄：Gunnar, Hilda, Heidrun, Charlton。技能：Devastating Charge, Green Chant, Berserk Killing Machine。",
+            "Kingdom Mayhem 激活 7 次：英雄：Sigrid, Greta, Tiroti, Signy。技能：Leshy's Grudge, Danger Omen, Blood Eagle Punishment。",
+            "Kingdom Mayhem 激活 8 次：英雄：Dalen, Gloa, Olaf, Thorstein。技能：Raven of Death, Rainbow Bridge Miracle, Fafnir's Riddle, Inferno Dance, Gungnir's Sting, Serpent's Rampage。",
+            "所有其他英雄和技能的使用不受上述 Kingdom Mayhem 要求的限制。"
+          ]
+        },
         {
           "title": "Drill Ground",
           "items": [
@@ -304,6 +361,9 @@
     },
     "ru": {
       "major": [
+        "Событие ко Дню святого Валентина, \"Ocean Rose\", вот-вот начнется! Пусть ваши драккары плывут по розовым приливам!",
+        "Добавлены новые Sx Герои [The Fanatic Olaf] и [Thunder Axe Thorstein]. Эти Герои станут доступны, когда Королевство достигнет 874 и 878 дня соответственно.",
+        "Добавлены новые Sx Навыки [Inferno Dance], [Gungnir's Sting] и [Serpent's Rampage]. Эти навыки станут доступны, когда Королевство достигнет 874 дня.",
         "Новое событие [Swarm Siege]"
       ],
       "new_features": [
@@ -314,6 +374,21 @@
         "Добавлена функция пропуска анимации в Happy Toy Machine для получения мгновенных результатов."
       ],
       "optimizations": [
+        {
+          "title": "Оптимизация боя",
+          "items": [
+            "Оптимизированы ограничения на использование Героев и Навыков в разных сезонах. Теперь для использования Героев и Навыков требуется, чтобы на сервере определенное количество раз было активировано Kingdom Mayhem.",
+            "Kingdom Mayhem активировано 1 раз: Герои: Hobert, Bjorn, Durin.",
+            "Kingdom Mayhem активировано 2 раза: Герои: Lagertha, Yulmi, Helgar. Навыки: Bloodstained Icefield, Rest and Counterattack, This Too Shall Pass, Trap of Despair, Poison Arrow, Divine Shield.",
+            "Kingdom Mayhem активировано 3 раз: Герои: Rosky, Leandra, Margit.",
+            "Kingdom Mayhem активировано 4 раз: Герои: Naya, Rolfe, Alf, Sasha. Навыки: Silent Invasion, Deadly Counterattack, Bone-corroding Arrow.",
+            "Kingdom Mayhem активировано 5 раз: Герои: Vali, Sephina. Навыки: Furious Hack and Slash, Venom Aggregation, Valkryie's Gaze, Battle Role Shift, Arrow of Truth, Einherjar's Oath.",
+            "Kingdom Mayhem активировано 6 раз: Герои: Gunnar, Hilda, Heidrun, Charlton. Навыки: Devastating Charge, Green Chant, Berserk Killing Machine.",
+            "Kingdom Mayhem активировано 7 раз: Герои: Sigrid, Greta, Tiroti, Signy. Навыки: Leshy's Grudge, Danger Omen, Blood Eagle Punishment.",
+            "Kingdom Mayhem активировано 8 раз: Герои: Dalen, Gloa, Olaf, Thorstein. Навыки: Raven of Death, Rainbow Bridge Miracle, Fafnir's Riddle, Inferno Dance, Gungnir's Sting, Serpent's Rampage.",
+            "На использование всех остальных Героев и Навыков вышеуказанные требования Kingdom Mayhem не влияют."
+          ]
+        },
         {
           "title": "Drill Ground",
           "items": [
@@ -397,128 +472,6 @@
         "Исправлена ошибка, из-за которой иногда не удавалось нажать на Sacrificial Stone.",
         "Исправлены различные текстовые ошибки."
       ]
-    }
-  },
-  {
-    "id": "update_11_02_2025",
-    "meta": {
-      "created_at": "2026-02-09T02:08:49.353000Z",
-      "start_timestamp": "2025-02-11T06:00:00Z",
-      "display_time": "2/11 6:00 - 06:30 (UTC)",
-      "title_en": "Update 11.02.2025",
-      "title_de": "Update vom 11.02.2025",
-      "title_cn": "更新 11.02.2025",
-      "title_ru": "Обновление 11.02.2025",
-      "image_url": "images/updates/update_11_02_2025_1.jpg",
-      "image_urls": [
-        "images/updates/update_11_02_2025_1.jpg",
-        "images/updates/update_11_02_2025_2.jpg",
-        "images/updates/update_11_02_2025_3.jpg"
-      ]
-    },
-    "en": {
-      "major": [
-        "The Valentine's Day event, \"Ocean Rose\", is about to begin! Let your longships sail into rosy tides!",
-        "New Sx Heroes [The Fanatic Olaf] and [Thunder Axe Thorstein] added. These Heroes will become available once the Kingdom reaches Day 874 and 878, respectively.",
-        "New Sx Skills [Inferno Dance], [Gungnir's Sting], and [Serpent's Rampage] added. These skills will become available once the Kingdom reaches Day 874."
-      ],
-      "new_features": [],
-      "optimizations": [
-        {
-          "title": "Combat Optimizations",
-          "items": [
-            "Optimized usage restrictions for Heroes and Skills across different seasons. Heroes and Skills now require the server to have Kingdom Mayhem activated for a specific number of times before they can be used.",
-            "Kingdom Mayhem Activated 1 Time: Heroes: Hobert, Bjorn, Durin.",
-            "Kingdom Mayhem Activated 2 Times: Heroes: Lagertha, Yulmi, Helgar. Skills: Bloodstained Icefield, Rest and Counterattack, This Too Shall Pass, Trap of Despair, Poison Arrow, Divine Shield.",
-            "Kingdom Mayhem Activated 3 Times: Heroes: Rosky, Leandra, Margit.",
-            "Kingdom Mayhem Activated 4 Times: Heroes: Naya, Rolfe, Alf, Sasha. Skills: Silent Invasion, Deadly Counterattack, Bone-corroding Arrow.",
-            "Kingdom Mayhem Activated 5 Times: Heroes: Vali, Sephina. Skills: Furious Hack and Slash, Venom Aggregation, Valkryie's Gaze, Battle Role Shift, Arrow of Truth, Einherjar's Oath.",
-            "Kingdom Mayhem Activated 6 Times: Heroes: Gunnar, Hilda, Heidrun, Charlton. Skills: Devastating Charge, Green Chant, Berserk Killing Machine.",
-            "Kingdom Mayhem Activated 7 Times: Heroes: Sigrid, Greta, Tiroti, Signy. Skills: Leshy's Grudge, Danger Omen, Blood Eagle Punishment.",
-            "Kingdom Mayhem Activated 8 Times: Heroes: Dalen, Gloa, Olaf, Thorstein. Skills: Raven of Death, Rainbow Bridge Miracle, Fafnir's Riddle, Inferno Dance, Gungnir's Sting, Serpent's Rampage.",
-            "The usage of all other Heroes and Skills is not affected by the Kingdom Mayhem requirements mentioned above."
-          ]
-        }
-      ],
-      "fixes": []
-    },
-    "de": {
-      "major": [
-        "Das Valentinstags-Event „Ocean Rose“ beginnt in Kürze! Lasst eure Langschiffe in rosige Gezeiten segeln!",
-        "Neue Sx Heroes [The Fanatic Olaf] und [Thunder Axe Thorstein] hinzugefügt. Diese Heroes werden verfügbar, sobald das Kingdom Tag 874 bzw. 878 erreicht.",
-        "Neue Sx Skills [Inferno Dance], [Gungnir's Sting] und [Serpent's Rampage] hinzugefügt. Diese Skills werden verfügbar, sobald das Kingdom Tag 874 erreicht."
-      ],
-      "new_features": [],
-      "optimizations": [
-        {
-          "title": "Kampf-Optimierungen",
-          "items": [
-            "Nutzungsbeschränkungen für Heroes und Skills über verschiedene Seasons hinweg optimiert. Heroes und Skills erfordern nun, dass auf dem Server Kingdom Mayhem eine bestimmte Anzahl an Malen aktiviert wurde, bevor sie verwendet werden können.",
-            "Kingdom Mayhem 1 Mal aktiviert: Heroes: Hobert, Bjorn, Durin.",
-            "Kingdom Mayhem 2 Mal aktiviert: Heroes: Lagertha, Yulmi, Helgar. Skills: Bloodstained Icefield, Rest and Counterattack, This Too Shall Pass, Trap of Despair, Poison Arrow, Divine Shield.",
-            "Kingdom Mayhem 3 Mal aktiviert: Heroes: Rosky, Leandra, Margit.",
-            "Kingdom Mayhem 4 Mal aktiviert: Heroes: Naya, Rolfe, Alf, Sasha. Skills: Silent Invasion, Deadly Counterattack, Bone-corroding Arrow.",
-            "Kingdom Mayhem 5 Mal aktiviert: Heroes: Vali, Sephina. Skills: Furious Hack and Slash, Venom Aggregation, Valkryie's Gaze, Battle Role Shift, Arrow of Truth, Einherjar's Oath.",
-            "Kingdom Mayhem 6 Mal aktiviert: Heroes: Gunnar, Hilda, Heidrun, Charlton. Skills: Devastating Charge, Green Chant, Berserk Killing Machine.",
-            "Kingdom Mayhem 7 Mal aktiviert: Heroes: Sigrid, Greta, Tiroti, Signy. Skills: Leshy's Grudge, Danger Omen, Blood Eagle Punishment.",
-            "Kingdom Mayhem 8 Mal aktiviert: Heroes: Dalen, Gloa, Olaf, Thorstein. Skills: Raven of Death, Rainbow Bridge Miracle, Fafnir's Riddle, Inferno Dance, Gungnir's Sting, Serpent's Rampage.",
-            "Die Nutzung aller anderen Heroes und Skills ist von den oben genannten Kingdom Mayhem-Anforderungen nicht betroffen."
-          ]
-        }
-      ],
-      "fixes": []
-    },
-    "cn": {
-      "major": [
-        "情人节活动“Ocean Rose”即将开启！让您的长船驶入玫瑰色的浪潮中！",
-        "新增 Sx 英雄 [The Fanatic Olaf] 和 [Thunder Axe Thorstein]。这些英雄将在王国分别达到第 874 天和 878 天时解锁。",
-        "新增 Sx 技能 [Inferno Dance]、[Gungnir's Sting] 和 [Serpent's Rampage]。这些技能将在王国达到第 874 天时解锁。"
-      ],
-      "new_features": [],
-      "optimizations": [
-        {
-          "title": "战斗优化",
-          "items": [
-            "优化了不同赛季英雄和技能的使用限制。现在，英雄和技能需要服务器激活 Kingdom Mayhem 达到指定次数后才能使用。",
-            "Kingdom Mayhem 激活 1 次：英雄：Hobert, Bjorn, Durin。",
-            "Kingdom Mayhem 激活 2 次：英雄：Lagertha, Yulmi, Helgar。技能：Bloodstained Icefield, Rest and Counterattack, This Too Shall Pass, Trap of Despair, Poison Arrow, Divine Shield。",
-            "Kingdom Mayhem 激活 3 次：英雄：Rosky, Leandra, Margit。",
-            "Kingdom Mayhem 激活 4 次：英雄：Naya, Rolfe, Alf, Sasha。技能：Silent Invasion, Deadly Counterattack, Bone-corroding Arrow。",
-            "Kingdom Mayhem 激活 5 次：英雄：Vali, Sephina。技能：Furious Hack and Slash, Venom Aggregation, Valkryie's Gaze, Battle Role Shift, Arrow of Truth, Einherjar's Oath。",
-            "Kingdom Mayhem 激活 6 次：英雄：Gunnar, Hilda, Heidrun, Charlton。技能：Devastating Charge, Green Chant, Berserk Killing Machine。",
-            "Kingdom Mayhem 激活 7 次：英雄：Sigrid, Greta, Tiroti, Signy。技能：Leshy's Grudge, Danger Omen, Blood Eagle Punishment。",
-            "Kingdom Mayhem 激活 8 次：英雄：Dalen, Gloa, Olaf, Thorstein。技能：Raven of Death, Rainbow Bridge Miracle, Fafnir's Riddle, Inferno Dance, Gungnir's Sting, Serpent's Rampage。",
-            "所有其他英雄和技能的使用不受上述 Kingdom Mayhem 要求的限制。"
-          ]
-        }
-      ],
-      "fixes": []
-    },
-    "ru": {
-      "major": [
-        "Событие ко Дню святого Валентина, \"Ocean Rose\", вот-вот начнется! Пусть ваши драккары плывут по розовым приливам!",
-        "Добавлены новые Sx Герои [The Fanatic Olaf] и [Thunder Axe Thorstein]. Эти Герои станут доступны, когда Королевство достигнет 874 и 878 дня соответственно.",
-        "Добавлены новые Sx Навыки [Inferno Dance], [Gungnir's Sting] и [Serpent's Rampage]. Эти навыки станут доступны, когда Королевство достигнет 874 дня."
-      ],
-      "new_features": [],
-      "optimizations": [
-        {
-          "title": "Оптимизация боя",
-          "items": [
-            "Оптимизированы ограничения на использование Героев и Навыков в разных сезонах. Теперь для использования Героев и Навыков требуется, чтобы на сервере определенное количество раз было активировано Kingdom Mayhem.",
-            "Kingdom Mayhem активировано 1 раз: Герои: Hobert, Bjorn, Durin.",
-            "Kingdom Mayhem активировано 2 раза: Герои: Lagertha, Yulmi, Helgar. Навыки: Bloodstained Icefield, Rest and Counterattack, This Too Shall Pass, Trap of Despair, Poison Arrow, Divine Shield.",
-            "Kingdom Mayhem активировано 3 раза: Герои: Rosky, Leandra, Margit.",
-            "Kingdom Mayhem активировано 4 раза: Герои: Naya, Rolfe, Alf, Sasha. Навыки: Silent Invasion, Deadly Counterattack, Bone-corroding Arrow.",
-            "Kingdom Mayhem активировано 5 раз: Герои: Vali, Sephina. Навыки: Furious Hack and Slash, Venom Aggregation, Valkryie's Gaze, Battle Role Shift, Arrow of Truth, Einherjar's Oath.",
-            "Kingdom Mayhem активировано 6 раз: Герои: Gunnar, Hilda, Heidrun, Charlton. Навыки: Devastating Charge, Green Chant, Berserk Killing Machine.",
-            "Kingdom Mayhem активировано 7 раз: Герои: Sigrid, Greta, Tiroti, Signy. Навыки: Leshy's Grudge, Danger Omen, Blood Eagle Punishment.",
-            "Kingdom Mayhem активировано 8 раз: Герои: Dalen, Gloa, Olaf, Thorstein. Навыки: Raven of Death, Rainbow Bridge Miracle, Fafnir's Riddle, Inferno Dance, Gungnir's Sting, Serpent's Rampage.",
-            "На использование всех остальных Героев и Навыков вышеуказанные требования Kingdom Mayhem не влияют."
-          ]
-        }
-      ],
-      "fixes": []
     }
   },
   {
