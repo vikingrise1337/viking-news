@@ -1,5 +1,29 @@
 [
   {
+    "id": "1482250879062245539",
+    "date": "14. Mär 2026",
+    "image": "",
+    "code": null,
+    "expiry": null,
+    "link": null,
+    "en": {
+      "title": "Spring Memories Album",
+      "content": "Spring has arrived in Viking Rise! A brand new seasonal event, Spring Memories Album, is coming your way! Capture the warmth of the season and adorn your fief with exclusive limited-time decorations that celebrate renewal and beauty. Participate in the event, and stand a chance to obtain Decorations: Garden Artificer, Ivy Florarium, Sprig-Bearing Finch, Fragrant Banner. Let the spirit of spring blossom across your lands and create memories that last."
+    },
+    "de": {
+      "title": "Album der Frühlingserinnerungen",
+      "content": "Der Frühling ist in Viking Rise angekommen! Ein brandneues saisonales Event, Spring Memories Album, erwartet dich! Fange die Wärme der Jahreszeit ein und schmücke dein Fief mit exklusiven, zeitlich begrenzten Dekorationen, die Erneuerung und Schönheit feiern. Nimm am Event teil und sichere dir die Chance auf Dekorationen: Garden Artificer, Ivy Florarium, Sprig-Bearing Finch, Fragrant Banner. Lass den Geist des Frühlings in deinen Ländereien erblühen und schaffe bleibende Erinnerungen."
+    },
+    "cn": {
+      "title": "春日回忆相册",
+      "content": "春天已降临 Viking Rise！全新季节性活动 Spring Memories Album 即将开启！定格春日暖意，用象征复苏与美丽的专属限时装饰装点您的领地。参与活动，即有机会获得以下装饰：Garden Artificer、Ivy Florarium、Sprig-Bearing Finch、Fragrant Banner。让春天的气息在您的领地上绽放，留下永恒的回忆。"
+    },
+    "ru": {
+      "title": "Альбом весенних воспоминаний",
+      "content": "В Viking Rise пришла весна! Вас ждет совершенно новое сезонное событие — Spring Memories Album! Запечатлейте тепло этого времени года и украсьте свое владение эксклюзивными временными декорациями, воспевающими обновление и красоту. Участвуйте в событии, чтобы получить шанс добыть Decorations: Garden Artificer, Ivy Florarium, Sprig-Bearing Finch, Fragrant Banner. Пусть дух весны расцветет на ваших землях и создаст воспоминания, которые останутся с вами надолго."
+    }
+  },
+  {
     "id": "1480089092300607602",
     "date": "08. Mär 2026",
     "image": "images/news/1480089092300607602.jpg",
